@@ -1,7 +1,0 @@
-<ul class="bs-list-group bs-list-group-flush">
-    <% @report&.execution_info&.dig("#{@attr_name}")&.each do |i| %>
-        <li class="bs-list-group-item">
-            <%= image_tag (@is_file ? "v2/icons/ic_picture.png" : "v2/icons/ic_folder.png"), class: "icon bs-me-3" %> <%= i %> <br>
-        </li>
-    <% end %>
-</ul>

@@ -1,7 +1,0 @@
-<%= content_tag :div, class: "bs-position-relative bs-flex-grow-1 #{@container_classes}" do %>
-    <div class="bs-position-absolute bs-top-0 bs-end-0 bs-bottom-0 bs-start-0 bs-ps-3 bs-d-flex bs-align-items-center" style="pointer-events: none;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-    </div>
-    <%= text_field_tag "", "", placeholder: @placeholder, data: data, class: "bs-d-flex bs-form-control bs-ps-5 #{@classes}", type: @type %>
-<% end %>
-
