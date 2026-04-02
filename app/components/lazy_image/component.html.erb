@@ -1,2 +1,0 @@
-<%# Make sure to give data-controller="lazy-load-images" to a wrapper container %>
-<%= image_tag(@base64_placeholder, data: @data.merge({ lazy_load_images_target: "image", src: @src }), class: "fade-in #{@classes}", height: @height, width: @width) %>

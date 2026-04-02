@@ -1,9 +1,0 @@
-<% if @url.present? %>
-    <%= image_tag(@url, height: 24, width: 24, class: "avatar-component bs-rounded-circle") %>
-<% else %>
-    <div class="avatar-wrapper bs-rounded-circle" style="<%= "background-color: #{avatar_color};" %>">
-        <%= content_tag(:div, class: "avatar-component bs-text-uppercase bs-rounded-circle bs-d-flex bs-align-items-center bs-justify-content-center bs-fs-6 bs-fw-semibold bs-text-light #{@classes}") do
-            create_two_letter_avatar
-        end %>
-    </div>
-<% end %>
