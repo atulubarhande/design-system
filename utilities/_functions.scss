@@ -1,0 +1,23 @@
+/**
+ * ===============================================
+ * Design System Utility Functions
+ * ===============================================
+ * Helper functions for accessing design tokens.
+ */
+
+/**
+ * Get spacing value from the spacing map
+ * @param {String} $key - The spacing key (e.g., 'xs', 'md', 'lg')
+ * @return {String} The spacing value in rem units
+ */
+@function space($key) {
+  @return map-get($space, $key);
+}
+
+@function button-radius($key) {
+  @return map-get($button-radius, $key);
+}
+
+@function border-radius($key) {
+  @return map-get($border-radius-map, $key);
+}

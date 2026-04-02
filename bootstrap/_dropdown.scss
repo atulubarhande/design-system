@@ -1,0 +1,40 @@
+// $ds-dropdown-shadow: box-shadow: 0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04);
+/**
+ * ===============================================
+ * Bootstrap dropdown variable overrides
+ * ===============================================
+ */
+$dropdown-min-width:                $ds-spacing8rem;
+$dropdown-padding-x:                $ds-spacing0375rem;
+$dropdown-padding-y:                $ds-spacing0375rem;
+$dropdown-spacer:                   $ds-spacing0125rem;
+$dropdown-font-size:                $ds-label-label-md-font-size;
+$dropdown-color:                    $ds-text-content-primary;
+// $dropdown-bg:                       var(--#{$prefix}body-bg);
+$dropdown-border-color:             $ds-border-tertiary;
+$dropdown-border-radius:            $ds-radius-lg;
+// $dropdown-border-width:             var(--#{$prefix}border-width);
+// $dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}); // stylelint-disable-line function-disallowed-list
+// $dropdown-divider-bg:               $dropdown-border-color;
+$dropdown-divider-margin-y:         $spacer * .5;
+// $dropdown-box-shadow:               var(--#{$prefix}box-shadow);
+
+// $dropdown-link-color:               var(--#{$prefix}body-color);
+// $dropdown-link-hover-color:         $dropdown-link-color;
+// $dropdown-link-hover-bg:            var(--#{$prefix}tertiary-bg);
+
+$dropdown-link-active-color:        $ds-text-content-primary;
+$dropdown-link-active-bg:           $ds-surface-secondary;
+
+// $dropdown-link-disabled-color:      var(--#{$prefix}tertiary-color);
+
+$dropdown-item-padding-y:           $ds-spacing0375rem;
+$dropdown-item-padding-x:           $ds-spacing05rem;
+$dropdown-item-border-radius:       $ds-radius-lg;
+
+$dropdown-header-color:             $gray-600;
+$dropdown-header-padding-x:         $dropdown-item-padding-x;
+$dropdown-header-padding-y:         $dropdown-padding-y;
+// fusv-disable
+// $dropdown-header-padding:           $dropdown-header-padding-y $dropdown-header-padding-x; // Deprecated in v5.2.0
+// fusv-enable

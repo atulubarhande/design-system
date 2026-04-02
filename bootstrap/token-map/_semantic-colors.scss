@@ -1,0 +1,37 @@
+/**
+ * Semantic colors for buttons, forms, and DS components.
+ */
+
+$color-primary: $primary;
+$color-primary-hover: $blue-600;
+$color-primary-foreground: $ds-text-button-on-brand;
+$color-danger: $red-500;
+
+$color-primary-disabled-bg: $gray-disabled-bg;
+$color-primary-disabled-border: $button-border-disabled;
+$color-primary-disabled-foreground: $text-button-disabled;
+
+$color-button-border-primary: $button-border-primary;
+$color-button-border-secondary: $button-border-primary;
+
+$color-secondary-bg: $white;
+$color-secondary-bg-hover: $ds-surface-button-brand-secondary-hover;
+$color-secondary-bg-disabled: $gray-50;
+$color-secondary-border: $ds-border-button-secondary;
+$color-secondary-foreground: $text-button-primary;
+
+$color-tertiary-bg: transparent;
+$color-tertiary-bg-hover: $gray-50;
+$color-tertiary-foreground: $text-button-primary;
+$color-tertiary-hover: $ds-surface-button-brand-tertiary-hover;
+
+$color-destructive: $ds-surface-button-destructive-primary;
+$color-destructive-hover: $ds-surface-button-destructive-primary-hover;
+$color-destructive-foreground: $ds-text-button-on-destructive;
+
+$color-destructive-disabled-bg: $gray-disabled-bg;
+$color-destructive-disabled-border: $button-border-disabled;
+$color-destructive-disabled-foreground: $text-button-disabled;
+
+$color-gray-600: $gray-600;
+$border-secondary: $gray-200;

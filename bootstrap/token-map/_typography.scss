@@ -1,0 +1,88 @@
+/**
+ * Typography variables for Bootstrap / DS (from `$ds-*` + numeric fallbacks where needed).
+ */
+
+$font-family-display: $ds-font-size-font-family-font-family-display, sans-serif;
+$font-family-heading: $ds-font-size-font-family-font-family-heading, sans-serif;
+$font-family-label: $ds-font-size-font-family-font-family-label, sans-serif;
+$font-family-paragraph: $ds-font-size-font-family-font-family-paragraph, sans-serif;
+$font-family-body: $font-family-paragraph;
+
+// Export has quoted name tokens ($ds-font-weight-light, etc.); Bootstrap expects numerics here.
+$font-weight-light: 300;
+$font-weight-regular: $ds-paragraph-para-md-font-weight;
+$font-weight-medium: $ds-label-label-md-font-weight;
+$font-weight-semibold: 600;
+$font-weight-bold: $ds-heading-heading-xl-font-weight;
+$font-weight-extrabold: 800;
+
+$font-size-display-2xl: $ds-font-size-display-display2xl;
+$font-size-display-xl: $ds-font-size-display-display-xl;
+$font-size-display-lg: $ds-font-size-display-display-lg;
+$font-size-display-md: $ds-font-size-display-display-md;
+$font-size-display-sm: $ds-font-size-display-display-sm;
+$font-size-display-xs: $ds-font-size-display-display-xs;
+
+$font-size-heading-xl: $ds-font-size-heading-heading-xl;
+$font-size-heading-lg: $ds-font-size-heading-heading-lg;
+$font-size-heading-md: $ds-font-size-heading-heading-md;
+$font-size-heading-sm: $ds-font-size-heading-heading-sm;
+
+$font-size-label-lg: $ds-font-size-label-label-lg;
+$font-size-label-md: $ds-font-size-label-label-md;
+$font-size-label-sm: $ds-font-size-label-label-sm;
+$font-size-label-xs: $ds-font-size-label-label-xs;
+$font-size-label-xl: $ds-font-size-heading-heading-sm;
+
+$font-size-para-xl: $ds-font-size-paragraph-para-xl;
+$font-size-para-lg: $ds-font-size-paragraph-para-lg;
+$font-size-para-md: $ds-font-size-paragraph-para-md;
+$font-size-para-sm: $ds-font-size-paragraph-para-sm;
+$font-size-para-xs: $ds-font-size-paragraph-para-xs;
+
+$line-height-display-xl: $ds-line-height-display-display-xl;
+$line-height-display-lg: $ds-line-height-display-display-lg;
+$line-height-display-md: $ds-line-height-display-display-md;
+$line-height-display-sm: $ds-line-height-display-display-sm;
+
+$line-height-heading-xl: $ds-line-height-heading-heading-xl;
+$line-height-heading-lg: $ds-line-height-heading-heading-lg;
+$line-height-heading-md: $ds-line-height-heading-heading-md;
+$line-height-heading-sm: $ds-line-height-heading-heading-sm;
+
+$line-height-label-lg: $ds-line-height-label-label-lg;
+$line-height-label-md: $ds-line-height-label-label-md;
+$line-height-label-sm: $ds-line-height-label-label-sm;
+$line-height-label-xs: $ds-line-height-label-label-xs;
+
+$line-height-para-xl: $ds-line-height-paragraph-para-xl;
+$line-height-para-lg: $ds-line-height-paragraph-para-lg;
+$line-height-para-md: $ds-line-height-paragraph-para-md;
+$line-height-para-sm: $ds-line-height-paragraph-para-sm;
+$line-height-para-xs: $ds-line-height-paragraph-para-xs;
+$line-height-para-xxs: $ds-line-height-paragraph-para-xxs;
+
+$letter-spacing-display-xl: $ds-letter-spacing-display-display-xl;
+$letter-spacing-display-lg: $ds-letter-spacing-display-display-lg;
+$letter-spacing-display-md: $ds-letter-spacing-display-display-md;
+$letter-spacing-display-sm: $ds-letter-spacing-display-display-sm;
+
+$letter-spacing-heading-xl: $ds-letter-spacing-heading-heading-xl;
+$letter-spacing-heading-lg: $ds-letter-spacing-heading-heading-lg;
+$letter-spacing-heading-md: $ds-letter-spacing-heading-heading-md;
+$letter-spacing-heading-sm: $ds-letter-spacing-heading-heading-sm;
+
+$letter-spacing-label-lg: $ds-letter-spacing-label-label-lg;
+$letter-spacing-label-md: $ds-letter-spacing-label-label-md;
+$letter-spacing-label-sm: $ds-letter-spacing-label-label-sm;
+$letter-spacing-label-xs: $ds-letter-spacing-label-label-xs;
+
+$letter-spacing-para-xl: $ds-letter-spacing-paragraph-para-xl;
+$letter-spacing-para-lg: $ds-letter-spacing-paragraph-para-lg;
+$letter-spacing-para-md: $ds-letter-spacing-paragraph-para-md;
+$letter-spacing-para-sm: $ds-letter-spacing-paragraph-para-sm;
+$letter-spacing-para-xs: $ds-letter-spacing-paragraph-para-xs;
+
+$line-height-sm: $line-height-label-sm;
+$letter-spacing-sm: $letter-spacing-label-sm;
+$font-size-sm: $font-size-label-sm;

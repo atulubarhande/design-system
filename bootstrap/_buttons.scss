@@ -1,0 +1,25 @@
+/**
+ * Button Bootstrap Variable Overrides
+ * Maps design-system tokens to Bootstrap $btn-* variables.
+ * Only $variable assignments — no selectors or loops.
+ */
+$btn-padding-y: $ds-radius-lg;        // 0.5rem (8px)
+$btn-padding-x: $ds-radius-xl;       // 0.75rem (12px)
+$btn-font-family: $font-family-body;
+$btn-font-size: $font-size-sm;   // Supernova Label/label-sm — 0.875rem (14px)
+$btn-font-weight: $ds-label-label-md-font-size; // 500 (Supernova Medium)
+$btn-line-height: $ds-label-label-md-line-height; // 1.25rem (20px)
+$btn-letter-spacing: $ds-label-label-md-letter-spacing; // -0.01875rem (-0.3px)
+$btn-border-radius: button-radius(md);
+$btn-border-radius-sm: button-radius(sm);
+$btn-border-radius-lg: button-radius(lg);
+$btn-border-radius-xl: button-radius(xl);
+$btn-border-radius-xxl: button-radius(xxl);
+$btn-border-radius-xxxl: button-radius(xxxl);
+
+// Primary button colors
+$btn-primary-bg: $color-primary;
+$btn-primary-color: $color-primary-foreground;
+$btn-primary-hover-bg: $color-primary-hover;
+$btn-primary-hover-color: $color-primary-foreground;
+$btn-primary-border-color: $color-button-border-primary;

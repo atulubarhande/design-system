@@ -1,0 +1,28 @@
+/**
+ * Global Bootstrap Variable Overrides
+ * Base typography, layout, and app-wide settings.
+ */
+$font-size-root:                   14px;
+$font-family-base:                 $font-family-body !default;
+$font-size-base:                    1rem; // 16px
+
+// Application specific variables
+$modal-md: 600px;
+$body-secondary-color: $ds-grey-warm-grey600;
+$offcanvas-horizontal-width: 500px;
+
+$secondary-border-subtle: $black-10;
+
+// $border-radius:               
+// $border-radius-xs:            border-radius(xs);
+$border-radius-sm:            border-radius(sm);
+$border-radius-md:            border-radius(md);
+$border-radius-lg:            border-radius(lg);
+$border-radius-xl:            border-radius(xl);
+$border-radius-xxl:           border-radius(xxl);
+// $border-radius-3xl:           border-radius(3xl);
+// $border-radius-4xl:           border-radius(4xl);
+// $border-radius-5xl:           border-radius(5xl);
+// $border-radius-full:          border-radius(full);
+
+

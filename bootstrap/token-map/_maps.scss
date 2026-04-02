@@ -1,0 +1,82 @@
+/**
+ * Maps `$ds-*` spacing/radius from `tokens/generated/` into `$space` / `$radius` for `space()` and `radius()`.
+ * Hand-maintained — edit when export token names change.
+ */
+
+$space: (
+  xxs: $ds-spacing0125rem,
+  xs: $ds-spacing025rem,
+  md: $ds-spacing05rem,
+  lg: $ds-spacing075rem,
+  xl: $ds-spacing1rem,
+  xxl: $ds-spacing125rem,
+  xxxl: $ds-spacing15rem
+);
+
+// Used inside bootstrap variables.scss -> bootstrap/_buttons.scss
+$button-radius: (
+  sm: $ds-radius-sm,
+  md: $ds-radius-md,
+  lg: $ds-radius-lg,
+  xl: $ds-radius-xl,
+  xxl: $ds-radius2xl,
+  xxxl: $ds-radius3xl
+);
+
+$border-radius-map: (
+  xs: $ds-radius-xs,
+  sm: $ds-radius-sm,
+  md: $ds-radius-md,
+  lg: $ds-radius-lg,
+  xl: $ds-radius-xl,
+  xxl: $ds-radius2xl,
+  3xl: $ds-radius3xl,
+  4xl: $ds-radius4xl,
+  5xl: $ds-radius5xl,
+  full: $ds-radius-full
+);
+// Font Size Maps Start
+// Display font size sass map
+$display-font-sizes: (
+  xl: $ds-display-display-xl-font-size,
+  lg: $ds-display-display-lg-font-size,
+  md: $ds-display-display-md-font-size,
+  sm: $ds-display-display-sm-font-size,
+  // 5: $ds-font-size-heading-heading-xs,
+  // 6: $ds-font-size-heading-heading-xxs
+);
+
+// Heading font size sass map
+$heading-font-sizes: (
+  xl: $ds-font-size-heading-heading-xl,
+  lg: $ds-font-size-heading-heading-lg,
+  md: $ds-font-size-heading-heading-md,
+  sm: $ds-font-size-heading-heading-sm,
+  // 5: $ds-font-size-heading-heading-xs,
+  // 6: $ds-font-size-heading-heading-xxs
+);
+
+$label-font-sizes: (
+  // xl: $ds-font-size-label-label-xl,
+  lg: $ds-font-size-label-label-lg,
+  md: $ds-font-size-label-label-md,
+  sm: $ds-font-size-label-label-sm,
+  xs: $ds-font-size-label-label-xs,
+);
+
+$paragraph-font-sizes: (
+  xl: $ds-font-size-paragraph-para-xl,
+  lg: $ds-font-size-paragraph-para-lg,
+  md: $ds-font-size-paragraph-para-md,
+  sm: $ds-font-size-paragraph-para-sm,
+  xs: $ds-font-size-paragraph-para-xs,
+);
+// Font Size Maps End
+
+// $prefix: bs-;
+
+// :root {
+//   @each $name, $value in $border-radius-map {
+//     --#{$prefix}border-radius-#{$name}: #{$value};
+//   }
+// }
