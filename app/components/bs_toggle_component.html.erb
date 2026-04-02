@@ -1,0 +1,35 @@
+<div class="<%= @parent_class %> bs-form-check bs-form-switch bs-d-flex bs-align-items-center bs-ps-0 bs-justify-content-between bs-my-3 <%= @show_at_start ? 'bs-flex-row-start' : 'bs-flex-row-reverse'%>" data-controller="bs-toggle">
+    <div class="bs-d-flex bs-justify-content-sm-end">
+        <% if @hidden_field %>
+            <input type="hidden" name="<%= @input_name || @name %>" value="<%= @value.nil? ? false : @value %>" class="field" <% if @input_name && @disabled %> disabled <% end %> <% if @data_hf != nil %> <%= @data_hf %> <% end %>>
+        <% end %>
+
+        <% action = @input_name ? "click->bs-toggle#handleChange #{@action}" : @action %>
+        <input class="bs-form-check-input bs-ms-2 bs-mt-0 <%= @classes %>"
+               type="checkbox"
+               name="<%= @name %>"
+               id="<%= @id %>"
+               <% if action.present? %> data-action="<%= action %>" <% end %>
+               <% if @checked %> checked  <% end %>
+               <% if @value.nil? %>
+               value="true"
+               <% else %>
+               value="<%= @value %>"
+               <% end %>
+               <% if @required %> required <% end %>
+               <% if @data != nil %> <%= @data %> <% end %>
+               <% if @disabled %> disabled <% end %>
+        >
+    </div>
+    <label class="bs-form-check-label bs-fs-5 bs-text-body-secondary bs-m-0 bs-me-3 bs-flex-grow-1 <%= @automation_class %> <%= @lable_classes %>" for="<%= @id %>">
+        <% if custom_label? %>
+            <%= custom_label %>
+        <% else %>
+            <%= raw @label %>
+        <% end %>
+        <% if @platform_logo %>
+            <%= sf "PlatformSupport", platform: @platform_logo %>
+        <% end %>
+        <div class="bs-text-black-50 bs-fs-6 bs-mt-1"><%= raw @description %></div>
+    </label>
+</div>

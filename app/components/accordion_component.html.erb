@@ -1,0 +1,20 @@
+<div class="bs-accordion <%= @remove_margin_padding? "" : "bs-mb-4" %> <%= @classes %>">
+  <div class="bs-accordion-item">
+    <h2 class="bs-accordion-header" id="headingOne">
+      <button class="bs-accordion-button bs-w-100 <%= @is_open? "" : "bs-collapsed" %>" type="button" data-bs-toggle="collapse" data-bs-target="#<%= @id %>" aria-expanded="true" aria-controls="<%= @id %>" data-action="<%= @action %>">
+        <% if header? %>
+            <h3 class="bs-text-secondary bs-fs-5 bs-w-100 bs-m-0">
+                <%= header %>
+            </h3>
+        <% else %>
+            <%= @title %>
+        <% end %>
+      </button>
+    </h2>
+    <div id="<%= @id %>" class="bs-accordion-collapse bs-collapse <%= @is_open? "bs-show" : "" %>" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="<%= @remove_margin_padding? "" : "bs-accordion-body bs-p-4" %>">
+        <%= content %>
+      </div>
+    </div>
+  </div>
+</div>

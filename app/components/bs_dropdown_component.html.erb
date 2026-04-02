@@ -1,0 +1,20 @@
+<%= content_tag :div, @heading, class: "bs-dropdown #{@dropdown_classes}", data: @data  do %>
+    <%= button_tag(
+            type: "button",
+            class: "bs-btn bs-bg-transparent bs-d-flex #{@classes}",
+            id: @id,
+            data: dropdown_data,
+            aria: { expanded: "false" },
+            disabled: @disabled
+        ) do %>
+        <% if title? %>
+            <%= title %>
+        <% end %>
+    <% end %>
+
+    <ul style="min-width: <%= @width %>" class="bs-dropdown-menu <%= @card_classes %>" aria-labelledby="<%= @id %>">
+        <div class="bs-w-100">
+            <%= content %>
+        </div>
+    </ul>
+<% end %>

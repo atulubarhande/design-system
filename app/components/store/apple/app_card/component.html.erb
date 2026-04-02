@@ -1,0 +1,30 @@
+<%= turbo_frame_tag dom_id(app), class: "bs-col-xs-12 bs-col-sm-6 bs-col-md-4 bs-col-lg-3 bs-col-xl-3 bs-col-xxl-2", data: { search_target:"item", name: @label } do %>
+    <div class="bs-card bs-border-0 bs-shadow-sm bs-rounded-3">
+        <div class="bs-p-3">
+            <div class="bs-position-absolute bs-end-0 bs-top-0">
+                <% if @is_vpp_app %>
+                    <%= content_tag :div do %>
+                        <div class="vpp-app-flag"></div>
+                        <div class="bs-position-absolute bs-end-0 bs-top-0 partner-or-beta-text bs-text-white bs-pe-2 bs-pt-2">VPP <br> App</div>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="bs-d-flex bs-align-items-center bs-text-truncate bs-gap-3 bs-overflow-visible">
+                <% feature = app&.mac_only? ? 'macos' : 'ios' %>
+                <%= button_to stats_emm_apple_app_mappings_path, method: :get, params: publish_params, data: { turbo_frame: "app_details_card" }, class: "bs-position-relative bs-mt-3 bs-dropdown-item", disabled: !current_user.admin_parent.user_subscription.send(feature) do %>
+                    <% base64_placeholder = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" %>
+                    <%= image_tag base64_placeholder, height: 60, width: 60, data: { lazy_load_images_target: "image", src: @logo }, class: "bs-rounded-3 fade-in" %>
+                <% end %>
+                <%= content_tag :div, @label, class: "bs-text-truncate bs-flex-grow-1 bs-mt-3 #{"bs-pe-5" if @is_vpp_app}" %>
+            </div>
+        </div>
+        <div class="bs-card-body">
+            <%= content %>
+        </div>
+        <% if footer? %>
+            <div class="bs-card-footer bs-p-0">
+                <%= footer %>
+            </div>
+        <% end %>
+    </div>
+<% end %>

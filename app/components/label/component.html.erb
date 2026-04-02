@@ -1,0 +1,20 @@
+<%= label_tag @name, for: @id, class: "bs-form-check-label bs-m-0 bs-me-3 bs-flex-grow-1 bs-fs-5 bs-mb-3 #{@classes}", data: @data, title: @title do %>
+    <% if custom_label? %>
+        <%= custom_label %>
+    <% else %>
+        <%= raw @label %>
+        <% if @asterisk %>
+            <span class="bs-text-danger">*</span>
+        <% end %>
+        <% if @platform_logo %>
+            <%= sf "PlatformSupport", platform: @platform_logo, height: @platform_height %>
+        <% end %>
+        <% if other_logo? %>
+            <%= other_logo %>
+        <% end %>
+        <% if @show_upgrade_plan %>
+            <%= sf "UpgradePlan", current_user: @current_user, classes: "bs-d-inline-flex #{@upgrade_plan_classes}" %>
+        <% end %>
+    <% end %>
+    <%= content_tag :div, raw(@description), class: "#{@description_classes}" if @description.present? %>
+<% end %> <% if @line_break %> <br> <% end %>

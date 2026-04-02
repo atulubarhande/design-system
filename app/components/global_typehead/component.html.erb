@@ -1,0 +1,83 @@
+<%= content_tag :div, class: "bs-position-relative #{@classes}", data: { controller: "typehead",
+    typehead_device_selector_value: "typehead-device-dropdown-menu",
+    typehead_group_selector_value: "typehead-group-dropdown-menu",
+    typehead_dashboard_selector_value: "typehead-dashboard-dropdown-menu",
+    typehead_local_user_selector_value: "typehead-local-user-dropdown-menu",
+    typehead_allowed_types_value: @allowed_types,
+    typehead_option_limits_value: @option_limits,
+    } do %>
+    <%= tag.div data: { typehead_target: "typeheadSentinal" } do %>
+        <!-- Sentinal to tell typehead controller that this is visible on viewport to fetch the custom fields dropdown options when needed -->
+    <% end %>
+    <% if @type == 'textarea' %>
+        <%= sf "TextArea::", value: @value,
+            id: @id,
+            data: @data.merge({ action: "focus->typehead#populateDropdownContent typehead#onChange #{@action}", typehead_target:"textarea" }),
+            name: @name,
+            label: @label,
+            rows: @rows,
+            cols: @cols,
+            style: @style,
+            disabled: @disabled,
+            placeholder: @placeholder,
+            read_only: @read_only do |c| %>
+            <% if custom_label? %>
+                <% c.with_custom_label do %>
+                    <%= custom_label %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <%= sf "TextField::", value: @value,
+            id: @id,
+            data: @data.merge({ action: "focus->typehead#populateDropdownContent typehead#onChange #{@action}", typehead_target:"textarea" }),
+            name: @name,
+            label: @label,
+            min: @min,
+            max: @max,
+            minlength: @minlength,
+            maxlength: @maxlength,
+            required: @required,
+            type: @type,
+            disabled: @disabled,
+            placeholder: @placeholder do |c| %>
+            <% if custom_label? %>
+                <% c.with_custom_label do %>
+                    <%= custom_label %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+    <div class="bs-dropdown typehead v3-typehead">
+        <button type="button" class="v3-typehead bs-opacity-0 bs-invisible" data-bs-toggle="dropdown" data-typehead-target="deviceDropdownButton" aria-expanded="false">
+            Dropdown trigger
+        </button>
+        <ul class="bs-dropdown-menu" data-typehead-target="device">
+        </ul>
+    </div>
+    <div class="bs-dropdown typehead v3-typehead">
+        <button type="button" class="v3-typehead bs-opacity-0 bs-invisible" data-bs-toggle="dropdown" data-typehead-target="dashboardDropdownButton" aria-expanded="false">
+            Dropdown trigger
+        </button>
+        <ul class="bs-dropdown-menu" data-typehead-target="dashboard">
+        </ul>
+    </div>
+    <% if @allowed_types.include?('user') %>
+        <div class="bs-dropdown typehead v3-typehead">
+            <button type="button" class="v3-typehead bs-opacity-0 bs-invisible" data-bs-toggle="dropdown" data-typehead-target="localUserDataDropdownButton" aria-expanded="false">
+                Dropdown trigger
+            </button>
+            <ul class="bs-dropdown-menu" data-typehead-target="localUserData">
+            </ul>
+        </div>
+    <% end %>
+    <% if @has_groups %>
+        <div class="bs-dropdown typehead v3-typehead">
+            <button type="button" class="v3-typehead bs-opacity-0 bs-invisible" data-bs-toggle="dropdown" data-typehead-target="groupDropdownButton" aria-expanded="false">
+                Dropdown trigger
+            </button>
+            <ul class="bs-dropdown-menu" data-typehead-target="group">
+            </ul>
+        </div>
+    <% end %>
+<% end %>

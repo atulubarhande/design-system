@@ -1,0 +1,9 @@
+<%= content_tag :div, class: "bs-row #{@row_class}", data: @data do %>
+    <% if @revert_slot %>
+        <%= content_tag :div, input, class: "bs-col-md-#{col_classes.second} bs-col-sm-12" if input? %>
+        <%= content_tag :div, custom_label, class: "bs-col-md-#{col_classes.first} bs-col-sm-12" if custom_label? %>
+    <% else %>
+        <%= content_tag :div, custom_label, class: "bs-col-md-#{col_classes.first} bs-col-sm-12" if custom_label? %>
+        <%= content_tag :div, input, class: "bs-col-md-#{col_classes.second} bs-col-sm-12" if input? %>
+    <% end %>
+<% end %>

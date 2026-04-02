@@ -1,0 +1,83 @@
+<div data-controller="checkbox <%= "n-group-selector" if show_selected_count_chip? %>" data-checkbox-hidden-class="bs-d-none" data-checkbox-selected-value="<%= @show_selected_array ? selected_array : @selected %>" <% if @show_selected_count.to_s == 'false' %>data-n-group-selector-show-selected-count-text-value="<%= false %>" <% end %> class="v3-device-profiles-list"
+    <% if show_selected_count_chip? %>data-n-group-selector-hidden-class="bs-d-none"<% end %>
+    <% if show_selected_count_chip? %>data-n-group-selector-disabled-class="bs-ui-disabled"<% end %>
+    <% if show_selected_count_chip? %>data-n-group-selector-selected-count-value="<%= @selected&.length || 0 %>"<% end %>>
+    <div class="bs-form-check bs-ps-5 bs-pb-2 bs-pt-3">
+        <% if @show_selected_count.to_s == 'true' %>
+            <input class="bs-form-check-input" data-action="checkbox#toggleShowHideSelected" data-checkbox-target="showSelected" type="checkbox" id="device-show-selected" <% if disabled %> disabled <% end %>>
+            <label class="bs-form-check-label bs-text-body" for="device-show-selected">
+                <%= I18n.t('common.show_selected') %>
+                <span data-checkbox-target="selectedCount" class="bs-badge bs-text-bg-secondary bs-rounded bs-ms-2 bs-mb-2">0</span>
+            </label>
+        <% end %>
+    </div>
+    <div class="<%= "bs-row bs-d-flex bs-align-items-center bs-py-4" if show_selected_count_chip? %>">
+        <div data-checkbox-target="searchInput" class="<%= "bs-ui-disabled" unless has_device_profiles %>">
+            <%= sf "SearchInput", id: "device-profiles-search-list", action: "input->search-input#findAndApply", controller: "search-input", placeholder: t('common.search') %>
+        </div>
+    </div>
+
+    <% if show_selected_count_chip? %>
+        <%= content_tag :div, "", data: { n_group_selector_target: "selectedCount" } %>
+        <%= content_tag :div, "", data: { n_group_selector_target: "showSelected" } %>
+        <%= sf "SelectedDeviceGroupsDynamicBadges::", groups: [], template_target: "n-group-selector" %>
+    <% end %>
+
+    <div class="bs-border bs-rounded bs-mt-3">
+        <% if table_header? %>
+            <%= table_header %>
+        <% else %>
+            <div class="bs-row bs-align-items-start bs-mt-3 bs-border-bottom bs-g-0 bs-shadow-sm">
+                <div class="<%= @show_publish_version ? "bs-col-4" : "bs-col-6" %>">
+                    <div class="bs-form-check bs-ps-5" >
+                        <input class="bs-form-check-input" data-action="checkbox#toggleAll <%= "n-group-selector#showSelected" if show_selected_count_chip? %>" data-checkbox-target="selectAll" type="checkbox" id="device-profiles-select-all" <% if disabled %> disabled <% end %>>
+                        <label class="bs-form-check-label bs-fw-normal bs-text-body" for="device-profiles-select-all">
+                            <%= @label_name || I18n.t('common.device_profiles') %>
+                        </label>
+                    </div>
+                </div>
+                <% if @show_associated_group %>
+                    <div class="<%= @show_publish_version ? "bs-col-4" : "bs-col-6" %> bs-fw-normal"><%= t('common.applied_in_groups') %></div>
+                <% end %>
+                <% if @show_installation_mode %>
+                    <div class="bs-col-2 bs-fw-normal"><%= t('v2.profiles.installation_mode') %></div>
+                <% end %>
+                <% if @show_publish_version%>
+                    <div class="<%= @show_installation_mode ? "bs-col-2" : "bs-col-4" %> bs-fw-normal"><%= t('enterpriseStore.published_version') %></div>
+                <% end%>
+
+            </div>
+        <% end%>
+
+        
+        <div class="frame-list-wrapper bs-scroll-sm">
+            <% if @device_profiles.present? %>
+                <div class="tw-p-3">
+                    <%= sf "SearchList", id: "device-profiles-search-list", controller: "search", message: t('common.no_profile_selected') do %>
+                        <turbo-frame id="device_profiles">
+                            <div data-controller="associated-groups-collapse"
+                                data-associated-groups-collapse-more-text-value="Show more"
+                                data-associated-groups-collapse-less-text-value="Hide">
+                                <% if selected_device_profile? %>
+                                    <%= selected_device_profile %>
+                                <% else %>
+                                    <%= render partial: @partial_path, collection: @device_profiles, locals: { name: @name, show_publish_version: @show_publish_version, icon_type: @icon_type } %>
+                                    <%#= render "v3/device_profiles/device_profile", device_profiles: @device_profiles, name: @name %>
+                                <% end %>
+                            </div>
+                        </turbo-frame>
+                    <% end %>
+                </div>
+            <% end %>
+            <div data-checkbox-target="emptyProfilesSearch" class="bs-alert bs-alert-warning bs-text-center bs-m-3 <%= "bs-d-none" if has_device_profiles %>" role="alert">
+                <% if !@device_profiles.present? %>
+                    <%= hidden_field_tag "app_update_schedule_mapping[profile_ids][]", "" %>
+                <% end %>
+                <%= I18n.t('common.no_profile_selected') %>
+            </div>
+            <div data-checkbox-target="emptyProfiles" <% if show_selected_count_chip? %>data-n-group-selector-target="emptyView"<% end %> class="bs-alert bs-alert-warning bs-text-center bs-m-3 bs-d-none" role="alert">
+                <%= t('common.no_profile_selected') %>
+            </div>
+        </div>
+    </div>
+</div>

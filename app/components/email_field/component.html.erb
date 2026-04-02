@@ -1,0 +1,18 @@
+<%= content_tag :div, class: "bs-my-3", data: { controller: "validations", validations_hidden_class: "bs-d-none" } do %>
+    <%= label_tag @name, class: "bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3" do %>
+        <% if custom_label? %>
+            <%= custom_label %>
+        <% else %>
+            <%= @label %>
+        <% end %>
+    <% end %>
+    <%= text_field_tag @name, @value, disabled: @disabled, placeholder: @placeholder, required: @required, data: merged_data, class: "bs-form-control", readonly: @read_only, type: @type %>
+    <%= content_tag :div, class: "bs-text-danger bs-mt-3 bs-d-none",
+        data: { validations_target: "emailMissingError" } do %>
+        <%= I18n.t("accounts.not_empty") %>
+    <% end %>
+    <%= content_tag :div, class: "bs-text-danger bs-mt-3 bs-d-none",
+        data: { validations_target: "emailInvalidError" } do %>
+        <%= I18n.t("common.invalid_email") %>
+    <% end %>
+<% end %>

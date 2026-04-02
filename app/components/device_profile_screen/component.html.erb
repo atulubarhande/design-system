@@ -1,0 +1,35 @@
+<% if @device_profile.type == "AndroidDeviceProfile" %>
+    <%= sf "NewDeviceFrame", type: "android", brand: check_brand, name: brand_name, profile: @device_profile do %>
+        <%= content %>
+    <% end %>
+<% end %>
+<% if @device_profile.type == "AppleDeviceProfile" %>
+    <%= sf "NewDeviceFrame", type: "ios", brand: check_brand, name: brand_name, profile: @device_profile do %>
+        <%= content %>
+    <% end %>
+<% end %>
+<% if @device_profile.type == "WindowsDeviceProfile" %>
+    <%= sf "NewDeviceFrame", type: "windows", brand: check_brand, name: brand_name, profile: @device_profile do  %>
+        <%= content %>
+    <% end %>
+<% end %>
+<% if @device_profile.type == "MacDeviceProfile" %>
+    <%= sf "NewDeviceFrame", type: "mac", brand: check_brand, name: brand_name, profile: @device_profile do %> 
+        <%= content %>
+    <% end %>
+<% end %>
+<% if @device_profile.type == "NixDeviceProfile" %>
+    <%= sf "NewDeviceFrame", type: "nix", brand: check_brand, name: brand_name, profile: @device_profile do %>
+        <%= content %>
+    <% end %>
+<% end %>
+<% if @device_profile.type == "ChromeDeviceProfile" %>
+    <%= sf "NewDeviceFrame", type: "nix", brand: check_brand, name: brand_name, profile: @device_profile do %>
+        <%= content %>
+    <% end %>
+<% end %>
+<% if @device_profile.type == "AppleTvDeviceProfile" %>
+    <%= sf "NewDeviceFrame", type: "apple_tv", brand: check_brand, name: brand_name, profile: @device_profile do %>
+        <%= content %>
+    <% end %>
+<% end %>

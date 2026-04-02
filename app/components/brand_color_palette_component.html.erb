@@ -1,0 +1,57 @@
+<div class="bs-my-3 brand-color-palette">
+    <label class="bs-form-label bs-text-body-secondary">
+        <%= @label %><br />
+    </label>
+    <div class="bs-d-flex bs-align-items-center bs-justify-content-between" data-controller="check-palette" data-action="check-palette:paletteColor-><%= @palette_target_controller %>#handleDockColor" data-check-palette-default-colors-value='<%= default_colors.to_json %>'>
+        <div class="bs-d-flex bs-align-items-center bs-mt-3">
+            <div
+                data-<%= @branding%>-target="<%= @color_target %>"
+                style="background-color: <%= colors["code"] if colors.present? %> <%= brand&.bar_color if colors.nil? %>;"
+                class="bs-rounded-circle bs-me-3 bs-shadow palette">
+            </div>
+            <div data-<%= @branding%>-target="<%= @color_name_target %>">
+                <%= colors["name"] if colors.present? unless colors.nil? %> <%= brand&.bar_color if colors.nil? %>
+            </div> 
+        </div>
+        <div class="bs-dropdown">
+            <button class="bs-btn bs-bg-transparent bs-dropdown-toggle bs-text-primary <%= @classes %>" type="button" id="brands-palette-component" data-bs-toggle="dropdown" aria-expanded="false" <% if @disabled %>disabled<% end %>>
+                <%= I18n.t('common.change') %>
+            </button>
+            <ul class="bs-dropdown-menu bs-shadow" aria-labelledby="brands-palette-component">
+                <div class="bs-p-4">
+                    <input type="hidden" name="<%= @name %>" value="<%= @value %>" data-<%=@branding%>-target="<%= @input_target %>" class="bs-form-control bs-form-control-color bs-pe-3">
+                    <div class="bs-ms-2 bs-mb-3"><%= I18n.t('brands.default_colors') %></div>
+                    <div class="bs-d-flex bs-flex-wrap palette-container">
+                        <% default_colors.each do |color| %>
+                            <div style="background-color: <%= color["code"] %>;"
+                                class="palette bs-rounded-circle bs-m-2 bs-shadow bs-d-flex bs-align-items-center bs-justify-content-center bs-text-white"
+                                data-check-palette-target="palette"
+                                data-name="<%= color["name"] %>"
+                                data-<%=@branding%>-payload-param='{"name":"<%= color["name"] %>", "code": "<%= color["code"] %>", "type": "<%= @name %>"}'
+                                data-action="click->check-palette#selectPalette click-><%=@branding%>#<%= @on_palette_click %>">
+                                <% if colors.present? %>
+                                    <% if color["name"] == colors["name"] %>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bs-text-white" viewBox="0 0 16 16">
+                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                                        </svg>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class="bs-ms-2 bs-my-3">Hex Code</div>
+                    <input class="bs-ms-2 bs-form-control bs-mt-3"
+                        type="text"
+                        placeholder="<%= @placeholder %>"
+                        maxlength="7"
+                        data-<%=@branding%>-payload-param='{"type": "<%= @name %>"}'
+                        data-action="check-palette#onHexChange <%=@branding%>#<%= @on_hex_input_change %> keydown-><%=@branding%>#<%= @on_keydown %>">
+                    <div class="bs-alert bs-alert-danger bs-mt-3 bs-d-none" data-<%=@branding%>-target="<%= @invalid_message_target %>">
+                        <%= I18n.t('brands.enterCorrectColorCode') %>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+

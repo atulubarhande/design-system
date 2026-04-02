@@ -1,0 +1,8 @@
+<% if custom_label? %>
+    <%= content_tag :div, class: "bs-alert bs-alert-warning bs-p-0 bs-px-3 bs-fs-6 #{@classes}" do %>
+        <%= custom_label %>
+    <% end %>
+<% end %>
+<% if @label.present? %>
+    <%= content_tag :div, raw(@label), class: "bs-alert bs-alert-warning bs-p-0 bs-px-3 bs-fs-6 #{@classes}" %>
+<% end %>

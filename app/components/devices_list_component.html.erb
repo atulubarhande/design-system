@@ -1,0 +1,70 @@
+<turbo-frame id="<%= @frame_id %>">
+    <% if empty_slot? %>
+        <!-- In case component wants to render empty view -->
+        <%= empty_slot %>
+    <% else %>
+        <div
+            class="infinite-scroll-page"
+            data-controller="checkbox infinite-scroll"
+            data-infinite-scroll-url-value="<%= request&.base_url + @paginate_url %>"
+            data-infinite-scroll-page-value="<%= 1 %>"
+            data-infinite-scroll-query-value=""
+            data-infinite-scroll-per-page-name-value="<%= @per_page_name %>"
+            data-infinite-scroll-search-name-value="<%= @search_name %>"
+            data-infinite-scroll-total-page-value="<%= total_pages %>"
+            data-checkbox-hidden-class="bs-d-none" data-checkbox-selected-value="<%= selected_array  %>">
+            <div class="<%=@header_class%>">
+                <% if @show_selected %>
+                    <div>
+                        <input class="bs-form-check-input" data-action="checkbox#toggleShowHideSelected infinite-scroll#onShowHideSelected" data-checkbox-target="showSelected" type="checkbox" id="device-show-selected-<%= @frame_id %>" <% if disabled %> disabled <% end %>>
+                        <label class="bs-form-check-label" for="device-show-selected-<%= @frame_id %>">
+                            <%= I18n.t('common.show_selected') %>
+                            <span data-checkbox-target="selectedCount" class="bs-badge bs-text-bg-secondary bs-rounded bs-ms-2 bs-mb-2"><%= @selected.present? ? @selected.length : 0 %></span>
+                        </label>
+                    </div>
+                <% end %>
+                <div>
+                    <% if header? %>
+                        <%= header %>
+                    <% end %>
+                </div>
+            </div>
+            <% if has_warning_message %>
+                <div class="bs-alert bs-alert-warning bs-d-flex">
+                    <small><%= @warning_message %></small>
+                </div>
+            <% end %>
+            <div data-checkbox-target="searchInput" class="<%= "bs-ui-disabled" unless has_devices %>">
+                <% if search_bar? %>
+                    <%= search_bar %>
+                <% end %>
+            </div>
+            <div class="bs-border bs-rounded bs-mt-3">
+                <% if list_header? %>
+                    <%= list_header %>
+                <% end %>
+                <div 
+                    data-infinite-scroll-target="list"
+                    style="height: <%= @height.present? ? @height : "300px" %>; overflow-x: hidden;"
+                    class="bs-scroll-sm">
+                    <%= turbo_frame_tag  "devices_total_page_value-#{params[:turbo_frame_id]}", class: "bs-visually-hidden", data: { infinite_scroll_target: "deviceTotalPage" , total_pages: total_pages} do %>
+                        <%= total_pages %>
+                    <% end %>
+                    <%= render @partial_path, devices: @devices, name: @name, search_list_id: @search_list_id %>
+                    <div class="bs-d-none" data-checkbox-target="map"></div>
+                    <div data-checkbox-target="emptyDevices" class="bs-alert bs-alert-warning bs-m-3 bs-text-center bs-d-none"><%= @default_message %></div>
+                    <div data-checkbox-target="bottom" style="height: 2px" data-infinite-scroll-target="bottom" class="<%= "bs-d-none" unless total_pages.to_i > 1 %>"></div>
+                    <div data-infinite-scroll-target="loader" class="bs-d-none">
+                        <% 2.times do %>
+                            <p class="bs-placeholder-glow bs-px-3 bs-d-flex bs-align-items-center bs-justify-content-between bs-border-top bs-border-bottom bs-py-4 bs-m-0">
+                                <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-4 bs-me-2"></span>
+                                <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-3 bs-me-2"></span>
+                                <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-4"></span>
+                            </p>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</turbo-frame>

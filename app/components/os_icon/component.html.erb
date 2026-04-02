@@ -1,0 +1,38 @@
+<% @platforms.each do |platform| %>
+    <%=
+        case platform
+        when 'windows'
+            '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-windows bs-d-inline-block bs-align-middle" viewBox="0 0 16 16">
+            <path d="M6.555 1.375 0 2.237v5.45h6.555V1.375zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16V0z"/>
+            </svg>'.html_safe
+        when 'mac','macos'
+            image_tag  asset_path("v2/icons/macos-app-icon-dark.svg"), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+        when 'nix'
+            image_tag  asset_path("v2/icons/platform_icons/nix.svg"), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+        when 'android'
+            '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-android2 bs-d-inline-block bs-align-middle" viewBox="0 0 16 16">
+            <path d="m10.213 1.471.691-1.26c.046-.083.03-.147-.048-.192-.085-.038-.15-.019-.195.058l-.7 1.27A4.832 4.832 0 0 0 8.005.941c-.688 0-1.34.135-1.956.404l-.7-1.27C5.303 0 5.239-.018 5.154.02c-.078.046-.094.11-.049.193l.691 1.259a4.25 4.25 0 0 0-1.673 1.476A3.697 3.697 0 0 0 3.5 5.02h9c0-.75-.208-1.44-.623-2.072a4.266 4.266 0 0 0-1.664-1.476ZM6.22 3.303a.367.367 0 0 1-.267.11.35.35 0 0 1-.263-.11.366.366 0 0 1-.107-.264.37.37 0 0 1 .107-.265.351.351 0 0 1 .263-.11c.103 0 .193.037.267.11a.36.36 0 0 1 .112.265.36.36 0 0 1-.112.264Zm4.101 0a.351.351 0 0 1-.262.11.366.366 0 0 1-.268-.11.358.358 0 0 1-.112-.264c0-.103.037-.191.112-.265a.367.367 0 0 1 .268-.11c.104 0 .19.037.262.11a.367.367 0 0 1 .107.265c0 .102-.035.19-.107.264ZM3.5 11.77c0 .294.104.544.311.75.208.204.46.307.76.307h.758l.01 2.182c0 .276.097.51.292.703a.961.961 0 0 0 .7.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h1.343v2.182c0 .276.097.51.292.703a.972.972 0 0 0 .71.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h.76c.291 0 .54-.103.749-.308.207-.205.311-.455.311-.75V5.365h-9v6.404Zm10.495-6.587a.983.983 0 0 0-.702.278.91.91 0 0 0-.293.685v4.063c0 .271.098.501.293.69a.97.97 0 0 0 .702.284c.28 0 .517-.095.712-.284a.924.924 0 0 0 .293-.69V6.146a.91.91 0 0 0-.293-.685.995.995 0 0 0-.712-.278Zm-12.702.283a.985.985 0 0 1 .712-.283c.273 0 .507.094.702.283a.913.913 0 0 1 .293.68v4.063a.932.932 0 0 1-.288.69.97.97 0 0 1-.707.284.986.986 0 0 1-.712-.284.924.924 0 0 1-.293-.69V6.146c0-.264.098-.491.293-.68Z"/>
+            </svg>'.html_safe
+        when 'chromeos'
+            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 20L15.46 14H15.45C15.79 13.4 16 12.73 16 12C16 10.8 15.46 9.73 14.62 9H19.41C19.79 9.93 20 10.94 20 12C20 14.1217 19.1571 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM4 12C4 10.54 4.39 9.18 5.07 8L8.54 14H8.55C9.24 15.19 10.5 16 12 16C12.45 16 12.88 15.91 13.29 15.77L10.89 19.91C7 19.37 4 16.04 4 12ZM15 12C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7956 15 12 15C11.2044 15 10.4413 14.6839 9.87868 14.1213C9.31607 13.5587 9 12.7956 9 12C9 11.2044 9.31607 10.4413 9.87868 9.87868C10.4413 9.31607 11.2044 9 12 9C12.7956 9 13.5587 9.31607 14.1213 9.87868C14.6839 10.4413 15 11.2044 15 12ZM12 4C14.96 4 17.54 5.61 18.92 8H12C10.06 8 8.45 9.38 8.08 11.21L5.7 7.08C7.16 5.21 9.44 4 12 4ZM12 2C10.6868 2 9.38642 2.25866 8.17317 2.7612C6.95991 3.26375 5.85752 4.00035 4.92893 4.92893C3.05357 6.8043 2 9.34784 2 12C2 14.6522 3.05357 17.1957 4.92893 19.0711C5.85752 19.9997 6.95991 20.7362 8.17317 21.2388C9.38642 21.7413 10.6868 22 12 22C14.6522 22 17.1957 20.9464 19.0711 19.0711C20.9464 17.1957 22 14.6522 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7362 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2Z" fill="black"/>
+            </svg>'.html_safe
+        when 'ios', 'prosurf'
+            if (@device_mode == "byod" || @device_mode == "kiosk" || @device_mode == nil)
+                image_tag  asset_path('common-assets/ios-supervised-dark.svg'), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+            elsif (@device_mode == "user_enrolled")
+                image_tag  asset_path('common-assets/ios-managed-dark.svg'), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+            else
+                image_tag  asset_path("v2/icons/ios-app-icon-dark.svg"), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+            end
+        when 'ios_dark'
+            image_tag  asset_path("v2/icons/ios-app-icon-dark.svg"), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+        when 'mac_dark'
+            image_tag  asset_path("v2/icons/macos-app-icon-dark.svg"), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+        when 'apple_tv'
+            image_tag  asset_path("v2/icons/apple-tv-icon.svg"), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+        when 'tvos', 'apple_tv_dark'
+            image_tag  asset_path("v2/icons/apple-tv-icon-dark.png"), width:"18px", height: "18px", class: "bs-d-inline-block bs-align-middle"
+        end
+    %>
+<% end %>

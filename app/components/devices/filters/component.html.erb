@@ -1,0 +1,13 @@
+<%= content_tag :div, @heading, class: "bs-mb-2 filter-title bs-text-body-secondary" %>
+<%= content_tag :div, class: "bs-input-group" do %>
+    <%= label_tag "", class: "bs-input-group-text bs-m-0 bs-border-end-0 bs-text-secondary bs-fs-5" do %>
+        <% if custom_icon? %>
+            <%= custom_icon %>
+        <% else %>
+            <%= @icon %>
+        <% end %>
+    <% end %>
+    <div class="<%= @show_drop_down_arrow ? "bs-border bs-py-1 bs-rounded-end bs-ps-2 bs-py-1" : "bs-form-select bs-ps-2 bs-py-1" %>">
+        <%= content %>
+    </div>
+<% end %>

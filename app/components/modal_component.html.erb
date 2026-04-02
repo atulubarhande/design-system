@@ -1,0 +1,49 @@
+<div
+    data-controller="tw-modal"
+    data-action="keyup@document->tw-modal#escClose <%= @close_on_submit == true ? "turbo:submit-end->tw-modal#submitEnd" : "" %>"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    id="modal-<%= @id %>"
+    class="bs-position-fixed bs-top-0 bs-end-0 bs-bottom-0 bs-start-0 tw-overflow-y-auto tw-z-[999] <%= @is_open ? "" : "hidden" %>">
+    <div class="bs-d-flex bs-align-items-center bs-justify-content-center tw-min-h-screen tw-pt-4 bs-px-3 tw-pb-20 bs-text-center sm:tw-p-0 <%= @scroll ? 'bs-h-100' : '' %> <%= @full_screen ? 'bs-h-100 bs-w-100' : '' %>">
+        <!-- Animate the backdrop and add `data-modal-target="backdrop"` to it: -->
+        <div
+            aria-hidden="true"
+            data-tw-modal-target="backdrop"
+            data-transition-enter="tw-ease-out tw-duration-150"
+            data-transition-enter-start="tw-opacity-0"
+            data-transition-enter-end="tw-opacity-100"
+            data-transition-leave="tw-transition tw-ease-in tw-duration-150"
+            data-transition-leave-from="tw-opacity-100"
+            data-transition-leave-end="tw-opacity-0"
+            class="bs-position-fixed bs-top-0 bs-end-0 bs-bottom-0 bs-start-0 tw-bg-gray-backdrop tw-bg-opacity-75 tw-backdrop-blur-sm tw-transition-opacity <%= @is_open ? "" : "hidden" %>"></div>
+
+        <span class="sm:tw-inline-block sm:tw-align-middle sm:tw-h-screen" aria-hidden="true">&#8203;</span>
+
+        <!-- Animate the modal and add `data-modal-target="dialog"` to it: -->
+        <div
+            data-tw-modal-target="dialog"
+            data-transition-enter="tw-ease-out tw-duration-150"
+            data-transition-enter-start="tw-opacity-0 tw-translate-y-4 sm:tw-translate-y-0 sm:tw-scale-95"
+            data-transition-enter-end="tw-opacity-100 tw-translate-y-0 sm:tw-scale-100"
+            data-transition-leave="tw-transition tw-ease-in tw-duration-150"
+            data-transition-leave-start="tw-opacity-100 tw-translate-y-0 sm:tw-scale-100"
+            data-transition-leave-end="tw-opacity-0 tw-translate-y-4 sm:tw-translate-y-0 sm:tw-scale-95"
+            class="bs-bg-white tw-inline-block tw-align-bottom tw-text-left bs-overflow-hidden tw-shadow-xl tw-transform tw-transition-all tw-p-[16px] sm:tw-align-middle <%= @scroll ? 'tw-h-[90%]' : '' %> <%= @full_screen ? 'bs-h-100 bs-w-100' : 'tw-rounded-lg' %> <%= "tw-bg-[#f1f3f4]" if @full_screen  %> <%= @is_open ? "" : "hidden" %>">
+            <div class="<%= @scroll ? 'tw-h-[calc(100vh_-_48px)]' : '' %>">
+                <div class="bs-h-100">
+                    <div class="bs-d-flex bs-justify-content-between bs-align-items-center bs-flex-wrap tw-mb-4">
+                        <h3 class="tw-heading  bs-m-0 "><%= @title %></h3>
+                            <% if !@hide_close_button %>
+                                <button class="bs-bg-transparent tw-p-0 bs-text-white tw-font-bold tw-rounded" data-action="tw-modal#close">
+                                    <svg class="bs-text-black-50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icons"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </button>
+                            <% end %>
+                    </div>
+                    <%= content %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

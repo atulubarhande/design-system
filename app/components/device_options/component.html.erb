@@ -1,0 +1,488 @@
+<%= sf "BsDropdown", auto_close: true, title: "Options", id: "device-options-menu", width: "230px", classes: "automation_device_menu bs-dropdown-item bs-mx-4" do |c| %>
+    <% c.with_title do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+    <% end %>
+    <% if !can_perform_action? %>
+        <% if check_permission?('Device-DeleteDevice') && !check_permission?('Device-ReadOnly')%>
+            <%= button_to update_modal_device_path(device), method: :get, params: { type: "delete_device", unscoped: true }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger" do %>
+                <i class="bs-fs-4 zmdi zmdi-delete"></i>
+                <%= t("devices.detail_menu.delete") %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <div class="bs-overflow-y-scroll bs-scroll-sm" style="max-height: 320px;">
+            <% unless read_only_access('Device-ReadOnly') %>
+                <% if !device.activated && android_device? %>
+                    <%= button_to update_modal_device_path(device), params: { type: "activate_device" }, method: :get, data: { turbo_frame: "update_device_modal" }, class: "automation_ bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-badge-check"></i>
+                        <%= t('devices.detail_menu.activate') %>
+                    <% end %>
+                <% end %>
+                
+                <% if check_permission?('Device-RenameDevices') %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "name" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-edit"></i>
+                        <%= t("devices.detail_menu.change_name") %>
+                    <% end %>
+                <% end %>
+
+                <% if device.activated && can_change_exit_pass_code? && check_permission?('Device-ViewExitPasscode') %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "exit_passcode" }, data: { turbo_frame: "update_device_modal" }, class: "automation_exit_passcode_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-key"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                        <%= t("common.changeExitPasscode") %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            
+            <%= button_tag({data: { bs_toggle: "modal", bs_target: "#full-device-info-modal" }, class: "automation_full_device_info_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center"}) do %>
+                <i class="bs-fs-4 zmdi zmdi-assignment"></i>
+                <%= t("devices.detail_menu.device_info") %>
+            <% end %>
+
+            <% unless read_only_access('Device-ReadOnly') %>
+                <% if !windows? %>
+                    <% if device.activated %>
+                        <hr class="bs-dropdown-divider">
+                        <% if lock_unlock? %>
+                            <% unless !check_permission?('LockUnlock') %>
+                                <% if device.locked %>
+                                    <%= button_to device_path(device), method: :put, params: { "device[id]": device,  lock_unlock_request: true, platform: device&.os_type }, title: lock_unlock_tooltip_msg, data: { turbo_frame: "unlock_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center #{device&.lost_mode_applied ? 'bs-ui-disabled' : '' }" do %>
+                                        <i class="bs-fs-4 zmdi zmdi-lock-open"></i>
+                                        <%= t("devices.unlock") if !policy_text_applicable? %>
+                                        <%= t("devices.relax_policies") if policy_text_applicable? %>
+                                    <% end %>
+                                <% else %>
+                                    <%= button_to lock_unlock_user_devices_path(current_user&.id), method: :post, params: { locked: true, "to_device_ids[]": device&.id, id: device, platform: device&.os_type, device_details: true }, data: { turbo_stream: "" }, title: lock_unlock_tooltip_msg, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                                        <i class="bs-fs-4 zmdi zmdi-lock-outline"></i>
+                                        <%= t("devices.lock") if !policy_text_applicable? %>
+                                        <%= t("devices.apply_policies") if policy_text_applicable? %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+
+                    <% if enable_clear_lock? %>
+                        <%= button_to update_modal_device_path(device), method: :get, params: { type: "clear_activation_lock" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                            <i class="bs-fs-4 zmdi zmdi-globe-lock"></i>
+                            <%= t("devices.clear_activation_lock") %>
+                        <% end %>
+                    <% end %>
+
+                    <% if check_permission?('Device-ClearFirmwarePasswordRecoveryLock')%>
+                        <% if mac_device? %>
+                            <% if device&.apple_device_detail&.apple_silicon %>
+                                <% label_key = "devices.clear_recovery_lock" %>
+                                <% action_type = "clear_recovery_lock" %>
+                                <% has_permission = current_user.admin_parent&.user_subscription&.allow_recovery_lock_management %>
+                            <% else %>
+                                <% label_key = "devices.clear_firmware_password" %>
+                                <% action_type = "clear_firmware_password" %>
+                                <% has_permission = current_user.admin_parent&.user_subscription&.allow_firmware_password_management %>
+                            <% end %>
+                            <% if has_permission %>
+                                <%= button_to update_modal_device_path(device), method: :get, params: { type: action_type }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                                    <%= image_tag "v2/icons/clear-lock.svg", size: "20x20" %>
+                                    <%= t(label_key) %>
+                                <% end %>
+                            <% else %>
+                                <%= sf "UpgradePlan", min_width: "220px", current_user: current_user, classes: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center", centered_element: false do |c| %>
+                                    <% c.with_button do %>
+                                        <%= image_tag "v2/icons/clear-lock.svg", size: "20x20" %>
+                                        <%= t(label_key) %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.activated %>
+                    <%= button_to refresh_settings_device_path(device), method: :put, params: { device_id: device }, data: { turbo_stream: "" }, class: "automation_refresh_setting bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="zmdi zmdi-refresh bs-fs-4"></i>
+                        <%= windows? ? t("windows.refresh_policy") : t("devices.refresh_settings") %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.activated && show_clear_browser_cache? && management_agent(device) != 'Android Device Manager' %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "clear_browser_cache" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <% unless management_agent(device) == 'Android Device Manager' %>
+                            <i class="bs-fs-4 zmdi zmdi-globe"></i>
+                        <% end %>
+                        <%= t("devices.clear_mlp_browser_cache_android") if android_device? && management_agent(device) !='Android Device Manager' %>
+                        <%= t("devices.clear_mlp_browser_cache_ios") if ios_device? %>
+                    <% end %>
+                <% end %>
+
+                <% unless management_agent(device) == 'Android Device Manager' %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "notes" }, data: { turbo_frame: "update_device_modal" }, class: "automation_add_notes_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-collection-text"></i>
+                        <%= t("devices.detail_menu.add_notes") %>
+                    <% end %>
+                <% end %>
+
+                <% if windows? %>
+                    <% if device&.activated && device&.bm_supported? && check_permission?('BroadcastMessage')%>
+                        <%= button_to messages_settings_user_messages_path(current_user&.id), params: {device_id: device.id, page_type: "device_details"}, method: :get, data: { turbo_frame: "message_new" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                            <i class="bs-fs-4 zmdi zmdi-comments"></i>
+                            <%= t("devices.detail_menu.send_msg") %>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                    <% if device&.activated && device&.inactive? && management_agent(device) != 'Android Device Manager' && check_permission?('WakeupDevice') %>
+                        <%= button_to awake_user_devices_path(current_user&.id), method: :put, params: { "device_ids[]": device.id, page_type: "device_details" }, data: { turbo_frame: "assignable_user_list" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                            <i class="bs-fs-4 zmdi zmdi-notifications-active"></i>
+                            <%= t("devices.detail_menu.nudge") %>
+                        <% end %>
+                    <% end %>
+
+                    <% if device&.activated && management_agent(device) != 'Android Device Manager' && check_permission?('BroadcastMessage') %>
+                        <%= button_to messages_settings_user_messages_path(current_user&.id), params: {device_id: device.id, page_type: "device_details"}, method: :get, data: { turbo_frame: "message_new" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                            <i class="bs-fs-4 zmdi zmdi-comments"></i>
+                            <%= t("devices.detail_menu.send_msg") %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.macos? || device&.android? || device&.windows?  %>
+                    <% if !current_user&.admin_parent&.user_subscription&.system_logs %>
+                        <%= sf "UpgradePlan", min_width: "220px", current_user: current_user, classes: "bs-justify-content-start", centered_element: false do |c| %>
+                            <% c.with_button do %>
+                                <div class="automation_view_device_logs bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" data-action="mouseenter->upgrade-plan-button#upgradePlan mouseleave->upgrade-plan-button#closeDropDown">
+                                    <i class="bs-fs-4 zmdi zmdi-file-text zmdi-hc-lg"></i>
+                                    <%= t("devices.detail_menu.view_logs") %>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    <% elsif !enable_log_menu? %>
+                    <% else %>
+                        <% if @device.windows? && !agent_supported? %>
+                            <%= button_tag(
+                                    type: "button",
+                                    class: "automation_view_device_logs bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center",
+                                    data: { action: "device-details#upgradeSfMdmAgent", device_details_upgrade_sf_agent_param: t("devices.uam_agent_upgrade_note") },
+                                ) do %>
+                                    <i class="bs-fs-4 zmdi zmdi-file-text zmdi-hc-lg"></i>
+                                    <%= t("devices.detail_menu.view_logs") %>
+                            <% end %>
+                        <% else %>
+                            <%= button_to bug_reports_path(device), method: :get, data: { turbo_frame: "bug_reports" }, class: "automation_view_device_logs bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                                <i class="bs-fs-4 zmdi zmdi-file-text zmdi-hc-lg"></i>
+                                <%= t("devices.detail_menu.view_logs") %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <% if (device&.macos? || device&.android? || ios_device? || device&.windows?) && (@device.compliance_policy_group.present? && @device&.device_compliance_benchmark_mapping)  %>
+                    <% unless current_user&.admin_parent&.user_subscription&.allow_compliance_benchmark %>
+                        <%= sf "UpgradePlan", min_width: "220px", current_user: current_user, classes: "bs-justify-content-start", centered_element: false do |c| %>
+                            <% c.with_button do %>
+                                <div class="automation_view_device_logs bs-dropdown-item bs-py-2 bs-d-flex bs-gap-3 bs-align-items-center" data-action="mouseenter->upgrade-plan-button#upgradePlan mouseleave->upgrade-plan-button#closeDropDown">
+                                    <i class="bs-fs-4 zmdi zmdi-account zmdi-hc-lg"></i>
+                                    <%= t("compliance.re_evaluate") %>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    <% else %>
+                        <%= button_to scan_compliance_benchmarks_path, params: { device_id: device.id, page_type: "device_details", format: "turbo_stream"}, method: :post, class: "automation_view_device_logs bs-dropdown-item bs-py-2 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                            <i class="bs-fs-4 zmdi zmdi-account zmdi-hc-lg"></i>
+                            <%= t("compliance.re_evaluate") %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <hr class="bs-dropdown-divider">
+
+                <% if device&.activated && (!device&.device_group && !device&.user_group) && device&.mode != 'byod' && device&.mode != 'user_enrolled' && ((current_user.permissions & ['DeviceGroup']).length > 0) %>
+                    <%= button_to add_device_group_modal_device_path(device), data: { turbo_frame: "add_device_group_modal" }, method: :get, class: "automation_full_device_info_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-devices"></i>
+                        <%= t("devices.detail_menu.add_to_device_group") %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.windows? %>
+                        <% if device&.activated && (!device&.enrollment_user_id || !device&.organization_user_device.present?) && device.mode != 'byod' %>
+                            <%= button_to assignable_user_list_user_devices_path(current_user), method: :get, params: { device_id: device, page: 1, per_page: 100 }, data: { turbo_frame: "assignable_user_list" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                                <i class="bs-fs-4 zmdi zmdi-account"></i>
+                                <%= t("devices.detail_menu.assign_user") %>
+                            <% end %>
+                        <% end %>
+                <% else %>
+                    <% if device&.activated && (!device&.enrollment_user_id || !@device.organization_user_device.present?) && device.os_type == 'android' && device.mode!='byod' %>
+                        <% if owner.user_subscription.allow_byod_device_management %>
+                            <%= button_to assignable_user_list_user_devices_path(current_user), method: :get, params: { device_id: device, page: 1, per_page: 100 }, data: { turbo_frame: "assignable_user_list" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                                <i class="bs-fs-4 zmdi zmdi-account"></i>
+                                <%= t("devices.detail_menu.assign_user") %>
+                            <% end %>
+                        <% else %>
+                            <%= sf "UpgradePlan", min_width: "220px", current_user: current_user, centered_element: false do |c| %>
+                                <% c.with_button do %>
+                                    <button
+                                        type="button"
+                                        data-action="mouseenter->upgrade-plan-button#upgradePlan mouseleave->upgrade-plan-button#closeDropDown"
+                                        class="automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center">
+                                        <i class="bs-fs-4 zmdi zmdi-account"></i>
+                                        <span><%= t("devices.detail_menu.assign_user") %></span>
+                                    </button>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                    <% if device.activated && (!device.enrollment_user_id || (@device.user_group.present? && (@device.user_group&.id != @device.enrollment_user&.organization_user_group_id)) || !@device.organization_user_device.present?) && device.os_type != 'android' && device.mode!='byod' %>
+                        <% if owner.user_subscription.allow_byod_device_management %>
+                            <%= button_to assignable_user_list_user_devices_path(current_user), method: :get, params: { device_id: device, page: 1, per_page: 100 }, data: { turbo_frame: "assignable_user_list" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                                <i class="bs-fs-4 zmdi zmdi-account"></i>
+                                <%= t("devices.detail_menu.assign_user") %>
+                            <% end %>
+                        <% else %>
+                            <%= sf "UpgradePlan", min_width: "220px", current_user: current_user, centered_element: false do |c| %>
+                                <% c.with_button do %>
+                                    <button
+                                        type="button"
+                                        data-action="mouseenter->upgrade-plan-button#upgradePlan mouseleave->upgrade-plan-button#closeDropDown"
+                                        class="automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center">
+                                        <i class="bs-fs-4 zmdi zmdi-account"></i>
+                                        <span><%= t("devices.detail_menu.assign_user") %></span>
+                                    </button>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                
+            <% if device&.activated && device&.organization_user_device.present? && !['byod', 'user_enrolled'].include?(device.mode) %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "unassign_user", device_type: ios_device? && "ios" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <%= image_tag "v2/icons/ic-unassign-user.svg", size: "20x20" %>
+                        <%= t("devices.detail_menu.unassign_user") %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.activated && device&.device_group&.id.present? && check_permission?('Device-RemoveDevicesFromGroup') %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "remove_from_device_group" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-devices"></i>
+                        <%= t("devices.detail_menu.remove_from_device_group") %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.activated && current_user&.admin_parent&.user_custom_fields %>
+                    <%= button_to edit_device_device_custom_fields_path(device), params: { }, method: :get, data: { turbo_frame: "device_custom_fields_form" }, class: "automation_edit_device_custom_fields bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-format-list-bulleted"></i>
+                        <%= t("devices.set_custom_properties") %>
+                    <% end %>
+                <% end %>
+
+                <% show_divider =
+                    (device&.activated && show_unmark_lock_option && !android_device?) ||
+                    (device&.activated && android_device? && show_lost_option) ||
+                    (device&.activated && show_unmark_lock_option) ||
+                    (device&.activated && (device&.emm_managed || management_agent(device) == 'Android Device Manager' || cope_device?)) ||
+                    (device&.activated && rebootable_device?) ||
+                    shutdown_suported?
+                %>
+                <% if show_divider %>    
+                    <hr class="bs-dropdown-divider">
+                <% end %>
+
+                <% if device&.activated && show_mark_lock_option %>
+                    <% if device.respond_to?(:access_right_values) && !device.access_right_values[:lock_passcode_removal_allowed] %>
+                        <%= button_tag(
+                                type: 'button',
+                                class: 'automation_reset_device bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center',
+                                data: { action: 'device-details#markAsLost', device_details_mark_as_lost_param: t('devices.lostMode.mark_lost_not_allowed') }
+                            ) do %>
+                            <i class="bs-fs-4 zmdi zmdi-pin-off"></i>
+                            <%= t("devices.detail_menu.mark_lost") %>
+                        <% end %>
+                    <% else %>
+                        <%= button_to lost_mode_details_path(), method: :get, params: { device_id: device }, data: { turbo_frame: "mark_as_lost_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger" do %>
+                            <i class="bs-fs-4 zmdi zmdi-pin-off"></i>
+                            <%= t("devices.detail_menu.mark_lost") %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.activated && show_unmark_lock_option && !android_device?%>
+                    <%= button_to unmark_as_lost_lost_mode_details_path, method: :patch, params: { device_id: device }, data: { turbo_frame: "" }, class: "automation_ bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-success" do %>
+                        <i class="bs-fs-4 zmdi zmdi-pin"></i>
+                        <%= windows? ? t('devices.detail_menu.mark_found') : t("devices.detail_menu.unmark_lost") %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.activated && android_device? && show_lost_option %>
+                    <%= button_to unmark_as_lost_lost_mode_details_path, method: :patch, params: { device_id: device }, data: { turbo_frame: "" }, class: "automation_ bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-success" do %>
+                        <i class="bs-fs-4 zmdi zmdi-pin"></i>
+                        <%= t('devices.detail_menu.mark_found') %>
+                    <% end %>
+                <% end %>
+
+                <% unless windows? %>
+                    <% if device&.activated && show_unmark_lock_option %>
+                        <%= button_to buzz_emm_apple_device_action_path, params: { device_id: device }, method: :post, data: { turbo_frame: "" }, class: "automation_ bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                            <i class="bs-fs-4 zmdi zmdi-notifications-active"></i>
+                            <%= t("devices.detail_menu.play_lost_sound") %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <% if device&.activated && (device&.emm_managed || management_agent(device) == 'Android Device Manager' || cope_device?) %>
+                    <%= button_to lock_screen_emm_android_device_action_path(device), method: :post, params: { device_id: device }, data: { turbo_stream: "" }, class: "automation_refresh_setting bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-lock-outline"></i>
+                        <img class="beta-emm-icon" src="<%= asset_path('v2/icons/emm-logo.png') %>">
+                        <%= t("devices.detail_menu.lock_device") %>
+                    <% end %>
+                <% end %>
+                
+                <% if device&.activated && rebootable_device? %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "reboot_device" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-replay zmdi-hc-flip-horizontal"></i>
+                        <%= windows? ? t("windows.restart_pc") : t("devices.detail_menu.reboot") %>
+                    <% end %>
+                <% end %>
+
+                <% if shutdown_suported? %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "shutdown_device" }, data: { turbo_frame: "update_device_modal" }, title: shutdown_tooltip_msg, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger #{shutdown_tooltip_msg.present? ? 'bs-ui-disabled' : ''}" do %>
+                        <% if android_device? %>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                            <%= t("devices.detail_menu.shutdown_device.title") %>
+                            <%= sf "OemLogos::", setting: :shutdown_device %>
+                        <% else %>
+                            <i class="bs-fs-4 zmdi zmdi-stop zmdi-hc-flip-horizontal"></i>
+                            <%= t("devices.detail_menu.shutdown") %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <% if ios_device? && device&.mode != 'user_enrolled' %>
+                    <hr class="bs-dropdown-divider">
+                <% end %>
+
+                <% if check_permission?('DeviceGroup-ConfigureProfileforGroups') || check_permission?('TimezoneSetting') %>
+                    <% if ios_device? && !device&.ios_token&.blank? && device&.mode != 'user_enrolled'%>
+                        <% if device.respond_to?(:access_right_values) && !device.access_right_values[:lock_passcode_removal_allowed] %>
+                            <%= content_tag :div, title: device&.shared_ipad? ? t('common.is_not_supported', attr: 'Clear Passcode') : "" do %>
+                                <%= button_tag(
+                                        type: 'button',
+                                        class: "automation_reset_device bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center #{device&.shared_ipad? ? "bs-ui-disabled": ""}",
+                                        data: { action: 'device-details#clearPasscode', device_details_clear_passcode_param: t('devices.clear_passcode_settings.not_allowed') }
+                                    ) do %>
+                                    <i class="bs-fs-4 zmdi zmdi-block-alt zmdi-hc-flip-horizontal"></i>
+                                    <%= t("devices.detail_menu.clear_passcode") %>
+                                <% end %>
+                            <% end %>
+                        <% else %>
+                            <%= content_tag :div, title: device&.shared_ipad? ? t('common.is_not_supported', attr: 'Clear Passcode') : "" do %>
+                                <%= button_to user_device_profiles_path(current_user), params: {without_passcode: true, only_ios: true, device_id: device.id}, method: :get, data: { turbo_frame: "clear_passcode_modal" }, class: "automation_ bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center #{device&.shared_ipad? ? "bs-ui-disabled": ""}" do %>
+                                    <i class="bs-fs-4 zmdi zmdi-block-alt zmdi-hc-flip-horizontal"></i>
+                                    <%= t("devices.detail_menu.clear_passcode") %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                <% if ios_device? && device&.mode != 'user_enrolled' %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "lock_screen", device_type: ios_device? && "ios" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-lock-outline"></i>
+                        <%= t("devices.detail_menu.lock_screen") %>
+                    <% end %>
+                <% end %>
+
+                <% if mac_device? %>
+                    <hr class="bs-dropdown-divider">
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "lock_device", pin: device&.apple_device_detail&.mac_pin, device_type: mac_device? && "macos" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center" do %>
+                        <i class="bs-fs-4 zmdi zmdi-lock-outline"></i>
+                        <%= t("devices.detail_menu.lock_device") %>
+                    <% end %>
+                <% end %>
+
+                <hr class="bs-dropdown-divider">
+
+                <% if device&.activated && show_reset_password_option %>
+                    <%= button_tag(type: 'button', class: 'automation_ bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center', data: { bs_toggle: "modal", bs_target: "#reset-password" }) do %>
+                        <i class="bs-fs-4 zmdi zmdi-time-restore-setting"></i>
+                        <%= t("devices.detail_menu.reset_password") %>
+                    <% end %>
+                <% end %>
+                
+                <% if device&.activated && show_remove_password_option %>
+                    <%= button_tag(type: 'button', class: 'automation_ bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center', data: { bs_toggle: "modal", bs_target: "#remove-password" }) do %>
+                        <i class="bs-fs-4 zmdi zmdi-close-circle-o"></i>
+                        <%= t("devices.detail_menu.remove_password") %>
+                    <% end %>
+                <% end %>
+                
+                <% if android_device? &&  device&.activated%>
+                    <% if device&.scalefusion_device_manager? || device&.companion_pro_registered? %>
+                        <%= button_to update_modal_device_path(device), method: :get, params: { type: "remove_ca_certs" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger" do %>
+                            <i class="bs-fs-4 zmdi zmdi-collection-text"></i>
+                            <%= t("devices.detail_menu.remove_ca_certs") %>
+                            <img class="beta-emm-icon" src="<%= asset_path('v2/icons/emm-logo.png') %>">
+                        <% end %>
+                    <% end %>
+                    <% if management_agent(device) != 'Android Device Manager' %>
+                        <button data-bs-toggle="modal" data-bs-target="#remove-accounts" class="<%= "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger #{!(current_user.admin_parent.emm_activated? && @device.emm_managed) ? 'bs-ui-disabled' : ''}"%>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-minus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                            <%= t("devices.detail_menu.remove_accounts") %>
+                            <img class="beta-emm-icon" src="<%= asset_path('v2/icons/emm-logo.png') %>">
+                        </button>
+                    <% end %>
+                <% end %>
+
+                <% if android_device? &&  device&.activated && has_permission?('Device-FactoryReset') %>
+                    <% if device&.make&.downcase == 'samsung' && device&.mode != 'byod' && device&.knox_info_privacy_policy_accepted%>
+                        <button data-bs-toggle="modal" data-bs-target="#wipe-sdcard" class="<%= "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger"%>">
+                            <i class="bs-fs-4 zmdi zmdi-card-sd"></i>
+                            <%= t("emm.device_actions.wipe_sd_card") %>
+                            <%= sf "OemLogos::", setting: :wipe_sd_card %>
+                        </button>
+                    <% end %>
+                <% end %>
+
+                <% if device.activated && device&.mode != 'user_enrolled' && can_factory_reset() && check_permission?('Device-FactoryReset') %>
+                    <% if device.respond_to?(:access_right_values) && !device.access_right_values[:device_erase_allowed] %>
+                        <%= button_tag(
+                                type: 'button',
+                                class: 'automation_reset_device bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger',
+                                data: { action: 'device-details#factoryResetDevice', device_details_factory_reset_device_param: t('devices.factory_reset_not_allowed') }
+                            ) do %>
+                            <i class="bs-fs-4 zmdi zmdi-replay zmdi-hc-flip-horizontal"></i>
+                            <%= t('devices.detail_menu.factory_reset') %>
+                        <% end %>
+                    <% else %>
+                        <%= button_to update_modal_device_path(device), method: :get, params: { type: "factory_reset" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger" do %>
+                            <i class="bs-fs-4 zmdi zmdi-replay zmdi-hc-flip-horizontal"></i>
+                            <%= windows? ? t("devices.detail_menu.wipe_device") : t("devices.detail_menu.factory_reset") %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <% if check_permission?('Device-DeleteDevice') %>
+                    <%= button_to update_modal_device_path(device), method: :get, params: { type: "delete_device" }, data: { turbo_frame: "update_device_modal" }, class: "automation_rename_device_modal bs-dropdown-item bs-py-3 bs-d-flex bs-gap-3 bs-align-items-center bs-text-danger" do %>
+                        <i class="bs-fs-4 zmdi zmdi-delete"></i>
+                        <%= t("devices.detail_menu.delete") %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    <% end %>
+
+    <!-- Show Power Off Action only for samsung knox & lenovo devices  -->
+    <!-- <li class="update-dom"
+        tooltip-placement="bottom"
+        tooltip-append-to-body="true"
+        uib-tooltip="{{vm.shutdownTooltipMsg()}}"
+        ng-if="vm.isAndroid() && vm.device.mode!='byod'"
+        ng-class="{'ui-disabled': vm.shutdownTooltipMsg()}">
+        <a href="" ng-click="vm.shutdown()" class="power-off-device c-red d-flex">
+            <i class="bs-fs-4 zmdi zmdi-power zmdi-hc-1x"></i>
+            {{ ::'devices.detail_menu.shutdown_device.title' | translate }}
+            <ul class="list-unstyled flex m-l-10">
+                <li ng-repeat = "logo in vm.secureSettingsLogos('shutdown_device')">
+                <img ng-src="{{logo}}" width="15px" class="m-l-5">
+                </li>
+            </ul>
+        </a>
+    </li> -->
+    <!-- end -->    
+<% end %>

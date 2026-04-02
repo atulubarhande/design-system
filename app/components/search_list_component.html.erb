@@ -1,0 +1,12 @@
+<div data-controller="<%= @controller %>" id="<%= @id %>" style="max-height: <%= @max_height%>; " class="<%= @content_class%>">
+    <%= content %>
+    <% if @show_empty %>
+        <% if empty_frame? %>
+            <%= empty_frame %>
+        <% else %>
+            <div class="bs-alert bs-alert-warning bs-text-center bs-d-none <%= @msg_class %>" data-<%= @controller %>-target="empty">
+                <%= @message %>
+            </div>
+        <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,40 @@
+<div class="bs-card bs-border bs-rounded bs-mt-3" data-controller="permission">
+    <div class="bs-d-flex bs-align-items-center bs-border-bottom bs-g-0 bs-shadow-sm bs-px-3">
+        <div class="bs-p-4 bs-fw-semibold bs-col-6"><%= t("v2.emm.permissions.app_permission") %></div>
+        <div class="bs-p-2 bs-fw-semibold bs-col-2">
+            <div class="bs-form-check bs-form-check-inline">
+                <%= radio_button_tag "dummy_permission_name", true, false, :id => "always-ask",  data: { permission_target: "alwaysAskAllRadio", action: "permission#toggleAllAskAlways" }, class: "bs-form-check-input" %>
+                <%= label_tag "always-ask", t("v2.emm.permissions.PROMPT"), class: "bs-form-check-label bs-text-body-secondary bs-text-wrap bs-mb-0" %>
+            </div>
+        </div>
+        <div class="bs-p-2 bs-fw-semibold bs-col-2">
+            <div class="bs-form-check bs-form-check-inline">
+                <%= radio_button_tag "dummy_permission_name", true, false, :id => "grant",  data: { permission_target: "grantAllRadio", action: "permission#toggleAllGrant" }, class: "bs-form-check-input" %>
+                <%= label_tag "grant", t("v2.emm.permissions.GRANT"), class: "bs-form-check-label bs-text-body-secondary bs-text-wrap bs-mb-0" %>
+            </div>
+        </div>
+        <div class="bs-p-2 bs-fw-semibold bs-col-2">
+            <div class="bs-form-check bs-form-check-inline">
+                <%= radio_button_tag "dummy_permission_name", true, false, :id => "deny",  data: { permission_target: "denyAllRadio", action: "permission#toggleAllDeny" }, class: "bs-form-check-input" %>
+                <%= label_tag "deny", t("v2.emm.permissions.DENY"), class: "bs-form-check-label bs-text-body-secondary bs-text-wrap bs-mb-0" %>
+            </div>
+        </div>
+    </div>
+    <% current_index = 0 %>
+    <% if @permissions.present? %>
+        <% @permissions.reverse_each do |role, permissions| %>
+            <div class="bs-border-bottom">
+                <%= content_tag :div, role, class: "bs-p-3 bs-pb-0 bs-fw-semibold" %>
+                <% permissions.each do |permission| %>
+                    <%= render partial: "/emm/android/play_app_permissions/permission", 
+                                locals: { 
+                                permission: permission, 
+                                index: current_index,
+                                role: role
+                                } %>
+                    <% current_index += 1 %>
+                <% end %>
+            </div>
+        <% end %>
+    <% end %>
+</div>

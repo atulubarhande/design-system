@@ -1,0 +1,551 @@
+<% @id = @type =="checkbox" ? "#{dom_id(@checkbox_group)}" : "#{@group }_"+ "#{@type}_" + dom_id(@checkbox_group) %> 
+<% if @is_unpublish_group.to_s == "true" %>
+    <% if (@checkbox_group.sub_groups.present?) %>
+        <div class="bs-d-flex bs-align-items-center" data-name="<%= group_n_sub_group_names(@checkbox_group) %>" data-search-target="item">
+            <span class="bs-w-100" title="<%= workflow_title(@workflow_name) if @is_workflow_running %>">
+               <div class="bs-form-check  bs-my-2 bs-d-flex bs-align-items-center bs-w-100 bs-justify-content-between">
+                    <div class="bs-col-5 bs-ms-3 bs-gap-2" >
+                        <%= check_box_tag "#{@name.present? ? @name : group_name_attr(checkbox_group, params)}",
+                            @checkbox_group.id,
+                            current_selected(@checkbox_group) ? true : false,
+                            id: @id, 
+                            class: "bs-form-check-input #{current_selected(@checkbox_group) && @disabled_selected || @is_workflow_running ? "bs-ui-disabled" : ""}",
+                            data: @data.merge({ 
+                                n_group_selector_target: "#{@type} checkbox",
+                                action: @checkbox_actions,
+                                type_id: "#{@checkbox_group&.class&.to_s}-#{@checkbox_group&.id}",
+                                child_group_ids: @checkbox_group.child_group_ids,
+                                n_group_selector_type_param: @checkbox_group.is_a?(DeviceGroup) ? "DeviceGroup" : "OrganizationUserGroup",
+                                n_group_selector_group_param: @group,
+                                hierarchical_name: @checkbox_group.hierarchical_name,
+                                orignal_name: @checkbox_group.name,
+                                parent_id: @checkbox_group.parent_id,
+                                device_count: @checkbox_group.is_a?(DeviceGroup) ? @group_device_counts[@checkbox_group.id] : @group_user_counts[@checkbox_group.id]
+                            })
+                        %>
+                        
+                        <label class="bs-form-check-label bs-mx-2 bs-mb-0 <%= current_selected(@checkbox_group) && @disabled_selected || @is_workflow_running ? "bs-ui-disabled" : "" %>" for="<%= @id %>" title="<%= @checkbox_group.hierarchical_name  %>">
+                            <%=  @checkbox_group.hierarchical_name  %> 
+                        </label>
+                        <% if @is_workflow_running %>
+                            <div><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock bs-mt-2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                        <% end %>
+                        <% if @show_badge_chip %>
+                            <%# if !@checkbox_group.parent_id %>
+                                <%= content_tag :div, checkbox_group.class.to_s == "DeviceGroup" ? I18n.t("common.device_group") : I18n.t("common.user_group"), class: "bs-fs-7 bs-ms-auto bs-badge bs-bg-secondary" %>
+                            <%# end %>
+                        <% end %>
+                    </div>
+                    <div class="bs-w-100 bs-d-flex bs-justify-content-end bs-text-center" >
+                         <% if @enable_group_based_publish%>
+                            <div class="bs-col">
+                                <%# add you app profile according %>
+                                <% if @app_type == "ipa" ||  @app_type == "book" || @app_type == "ios" %>
+                                    <span title="<%= @checkbox_group&.apple_device_profile&.name || "NA" %>"><%= @checkbox_group&.apple_device_profile&.name || "NA" %></span>
+                                <% elsif @app_type == "windows"%>       
+                                    <span title="<%= @checkbox_group&.windows_device_profile&.name || "NA" %>"><%= @checkbox_group&.windows_device_profile&.name || "NA" %></span>
+                                <% elsif @app_type == "macos"%> 
+                                    <span title="<%= @checkbox_group&.mac_device_profile&.name || "NA" %>"><%= @checkbox_group&.mac_device_profile&.name || "NA" %>     </span>
+                                <% elsif @app_type == "android" %> 
+                                    <span title="<%= android_device_profile_name(@checkbox_group) %>"><%= android_device_profile_name(@checkbox_group) %></span>
+                                <% elsif @app_type == "tvos" %>
+                                    <span title="<%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>">
+                                        <%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>
+                                    </span>
+                                <% else %>
+                                    wip
+                               <% end%>
+                        </div>
+                        <% end %>
+                        <% if @show_count %>
+                            <div class="bs-col">
+                                <% if (@checkbox_group.is_a?(DeviceGroup)) %>
+                                    <%= content_tag :div, @group_device_counts[@checkbox_group.id], class: "bs-ms-auto" %>
+                                <% end %>
+                                <% if (@checkbox_group.is_a?(OrganizationUserGroup)) %>
+                                    <%= content_tag :div, @checkbox_group.o365? ? @checkbox_group.user_count : @group_user_counts[@checkbox_group.id], class: "bs-fs-7 bs-ms-auto" %>
+                                <% end %>
+                            </div>
+                        <% end %>
+                         <% if @show_publish_version%>
+                            <div class="bs-col">
+                                <% if (@checkbox_group.is_a?(OrganizationUserGroup) || @checkbox_group.class.to_s == "OrganizationUnit") %>
+                                    <% if @show_profile_version %>
+                                        <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% else %>
+                                        <%= (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% end %>
+                                <% elsif (@checkbox_group.is_a?(DeviceGroup) || @checkbox_group.class.to_s == "DeviceGroup") %>  
+                                    <% if @show_profile_version %>
+                                        <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% else %>
+                                        <%= (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% end %>
+                                <% else%> 
+                                    N/A
+                                <% end %>
+
+                            </div>
+                        <% end%>
+                        <% if @show_configuration_for_group %>
+                            <div class="bs-col">
+                                <%= @configuration_name_for_group_hash[@checkbox_group.id] || "N/A" %>
+                            </div>
+                        <% end %>
+                        <% if @show_configuration_for_group_for_pfw %>
+                            <div class="bs-col">
+                                <% if @checkbox_group.is_a?(DeviceGroup) %>
+                                    <%= @pfw_configuration_for_group[:mapping][@checkbox_group.id]&.name || "N/A" %>
+                                <% else %>
+                                    <%= @pfw_configuration_for_group[:user_group_mapping][@checkbox_group.id]&.name || "N/A" %>
+                                <% end %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <% if @checkbox_group.is_a?(group_type(@checkbox_group)) && include_groups_ids(@checkbox_group).include?(@checkbox_group.id) %> 
+            <%= render partial: "v3/device_groups/sub_group", collection: @checkbox_group.sub_groups,
+            locals: {
+                group_device_counts: @group_device_counts,
+                group_user_counts: @group_user_counts,
+                organization_unit_counts: @organization_unit_counts,
+                parent_group: @checkbox_group,
+                name: @name,
+                include_user_groups_ids: @include_user_groups_ids,
+                include_device_groups_ids: @include_device_groups_ids,
+                include_organization_units_ids: @include_organization_units_ids,
+                type: @type,
+                group: @group,
+                show_badge_chip: @show_badge_chip,
+                show_count: @show_count,
+                show_selected_group: @show_selected_group,
+                selected_group: @selected_group,
+                checkbox_actions: "",
+                is_unpublish_group: @is_unpublish_group,
+                is_group: @is_group,
+                published_device_groups_ids: @published_device_groups_ids,
+                published_user_groups_ids: @published_user_groups_ids,
+                is_workflow_running: @is_workflow_running,
+                workflow_name: @workflow_name,
+                data: @data, 
+                app_type: @app_type,
+                show_publish_version: @show_publish_version,
+                enable_group_based_publish: @enable_group_based_publish,
+                show_installation_mode_group: @show_installation_mode_group,
+                disabled_selected: @disabled_selected,
+                existing_groups_info: @existing_groups_info, 
+                existing_user_groups_info: @existing_user_groups_info,
+                show_profile_version: @show_profile_version,
+                existing_profile_info: @existing_profile_info,
+                show_configuration_for_group: @show_configuration_for_group,
+                show_configuration_for_group_for_pfw: @show_configuration_for_group_for_pfw,
+                pfw_configuration_for_group: @pfw_configuration_for_group,
+                configuration_name_for_group_hash: @configuration_name_for_group_hash,
+                } %>
+        <% end %>
+    <% else %>
+        <div data-name="<%= group_n_sub_group_names(@checkbox_group) %>" data-search-target="item" title="<%= workflow_title(@workflow_name) if @is_workflow_running %>">
+           <div class="bs-form-check  bs-my-2 bs-d-flex bs-align-items-center bs-w-100 bs-justify-content-between">
+                <div class="bs-col-5 bs-ms-3 bs-gap-2" >
+                    <%= check_box_tag "#{@name.present? ? @name : group_name_attr(checkbox_group, params)}",
+                        @checkbox_group.id,
+                        current_selected(@checkbox_group) ? true : false,
+                        id: @id, 
+                        class: "bs-form-check-input #{current_selected(@checkbox_group) && @disabled_selected || @is_workflow_running ? "bs-ui-disabled" : ""}",
+                        data: @data.merge({ 
+                            n_group_selector_target: "#{@type} checkbox",
+                            action: @checkbox_actions,
+                            type_id: "#{@checkbox_group&.class&.to_s}-#{@checkbox_group&.id}",
+                            child_group_ids: @checkbox_group.child_group_ids,
+                            n_group_selector_type_param: @checkbox_group.is_a?(DeviceGroup) ? "DeviceGroup" : "OrganizationUserGroup",
+                            n_group_selector_group_param: @group,
+                            hierarchical_name: @checkbox_group.hierarchical_name,
+                            orignal_name: @checkbox_group.name,
+                            parent_id: @checkbox_group.parent_id,
+                            device_count: @checkbox_group.is_a?(DeviceGroup) ? @group_device_counts[@checkbox_group.id] : @group_user_counts[@checkbox_group.id]
+                        })
+                    %>
+                    
+                    <label class="bs-form-check-label bs-m-0 <%= current_selected(@checkbox_group) && @disabled_selected || @is_workflow_running ? "bs-ui-disabled" : "" %>" for="<%= @id %>" title="<%= @checkbox_group.hierarchical_name  %>">
+                        <%= @checkbox_group.hierarchical_name %> 
+                    </label>
+                    <% if @is_workflow_running %>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock bs-mt-2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                    <% end %>
+                    <% if @show_badge_chip %>
+                        <%# if !@checkbox_group.parent_id %> 
+                            <%= content_tag :div, checkbox_group.class.to_s == "DeviceGroup" ? I18n.t("common.device_group") : I18n.t("common.user_group"), class: "bs-fs-7 bs-ms-auto bs-badge bs-bg-secondary" %>
+                        <%# end %>
+                    <% end %>
+                </div>
+                <div class="bs-w-100 bs-d-flex bs-justify-content-end bs-text-center" >
+                    <% if @enable_group_based_publish%>
+                        <div class="bs-col">
+                            <%# add you app profile according %>
+                            <% if @app_type == "ipa" ||  @app_type == "book" || @app_type == "ios"%>
+                                <span title="<%= @checkbox_group&.apple_device_profile&.name || "NA" %>"><%= @checkbox_group&.apple_device_profile&.name || "NA" %></span>
+                            <% elsif @app_type == "windows"%> 
+                                <span title="<%= @checkbox_group&.windows_device_profile&.name || "NA" %>"><%= @checkbox_group&.windows_device_profile&.name || "NA" %></span>
+                            <% elsif @app_type == "macos"%> 
+                                <span title="<%= @checkbox_group&.mac_device_profile&.name || "NA" %>  "><%= @checkbox_group&.mac_device_profile&.name || "NA" %>  </span>     
+                            <% elsif @app_type == "android" %>
+                                <span title="<%= android_device_profile_name(@checkbox_group) %>"><%= android_device_profile_name(@checkbox_group) %></span>
+                            <% elsif @app_type == "tvos" %>
+                                <span title="<%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>">
+                                    <%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>
+                                </span>
+                            <% else %>
+                                wip
+                            <% end%>
+                        </div>
+                    <% end %>
+                    <% if @show_count %>
+                         <div class="bs-col">
+                            <% if (@checkbox_group.is_a?(DeviceGroup)) %>
+                                <%= content_tag :div, @group_device_counts[@checkbox_group.id], class: "bs-fs-7 bs-ms-auto" %>
+                            <% end %>
+                            <% if (@checkbox_group.is_a?(OrganizationUserGroup)) %>
+                                <%= content_tag :div, @checkbox_group.o365? ? @checkbox_group.user_count : @group_user_counts[@checkbox_group.id], class: "bs-fs-7 bs-ms-auto" %>
+                            <% end %>
+                         </div>
+                    <% end %>
+                     <% if @show_publish_version%>
+                        <div class="bs-col">
+
+                            <% if (@checkbox_group.is_a?(OrganizationUserGroup) || @checkbox_group.class.to_s == "OrganizationUnit") %>
+                                <% if @show_profile_version %>
+                                    <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %>
+                                <% else %>
+                                    <%= (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %>
+                                <% end %>
+                            <% elsif (@checkbox_group.is_a?(DeviceGroup) || @checkbox_group.class.to_s == "DeviceGroup") %>  
+                                <% if @show_profile_version %>
+                                    <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                <% else %>
+                                    <%= (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                <% end %>
+                            <% else%> 
+                                N/A
+                            <% end %>
+
+                        </div>
+                    <% end%>
+                    <% if @show_configuration_for_group %>
+                        <div class="bs-col">
+                            <%= @configuration_name_for_group_hash[@checkbox_group.id] || "N/A" %>
+                        </div>
+                    <% end %>
+                    <% if @show_configuration_for_group_for_pfw %>
+                        <div class="bs-col">
+                            <% if @checkbox_group.is_a?(DeviceGroup) %>
+                                <%= @pfw_configuration_for_group[:mapping][@checkbox_group.id]&.name || "N/A" %>
+                            <% else %>
+                                <%= @pfw_configuration_for_group[:user_group_mapping][@checkbox_group.id]&.name || "N/A" %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+
+<% if @is_group.to_s == "true" && @is_unpublish_group.to_s == "false" %>
+    <% if (@checkbox_group.sub_groups.present?) %>
+        <details open="open" class="details-inner">
+            <summary class="bs-d-flex bs-align-items-center <%= "summary" unless has_last_visible_groups(@checkbox_group) %>" data-name="<%= group_n_sub_group_names(@checkbox_group) %>" data-search-target="item">
+                <div class="bs-form-check bs-my-2 bs-d-flex bs-align-items-center bs-w-100 bs-justify-content-between"> 
+                    <div class="bs-col-5 bs-ms-3 bs-gap-2" >
+                        <%= check_box_tag "#{@name.present? ? @name : group_name_attr(checkbox_group, params)}",
+                            @checkbox_group.id,
+                            current_selected(@checkbox_group) ? true : false,
+                            id: @id, 
+                            class: "bs-form-check-input #{"bs-ui-disabled" if current_selected(@checkbox_group) && @disabled_selected}",
+                            data: @data.merge({ 
+                                n_group_selector_target: "#{@type} checkbox",
+                                action: @checkbox_actions,
+                                type_id: "#{@checkbox_group&.class&.to_s}-#{@checkbox_group&.id}",
+                                child_group_ids: @checkbox_group.child_group_ids,
+                                n_group_selector_type_param: @checkbox_group.is_a?(DeviceGroup) ? "DeviceGroup" : "OrganizationUserGroup",
+                                n_group_selector_group_param: @group,
+                                hierarchical_name: @checkbox_group.hierarchical_name,
+                                orignal_name: @checkbox_group.name,
+                                parent_id: @checkbox_group.parent_id,
+                                device_count: @checkbox_group.is_a?(DeviceGroup) ? @group_device_counts[@checkbox_group.id] : @group_user_counts[@checkbox_group.id]
+                            })
+                        %>
+                        
+                        <% if (@checkbox_group.is_a?(OrganizationUserGroup)  && @type == "source_group") %>
+                            <input type="hidden" name="source_group_ids[][type]" value="OrganizationUserGroup" data-hidden-input="<%= @id %>" data-n-group-selector-target="userHiddenInput" disabled>
+                        <% end %>
+
+                        <% if (@checkbox_group.is_a?(DeviceGroup) && @type == "source_group") %>
+                            <input type="hidden" name="source_group_ids[][type]" value="DeviceGroup" data-hidden-input="<%= @id %>" data-n-group-selector-target="deviceHiddenInput" disabled>
+                        <% end %>
+                        <label class="bs-form-check-label bs-mx-2 bs-mb-0 <%= current_selected(@checkbox_group) && @disabled_selected ? "bs-ui-disabled" : "" %>" for="<%= @id %>" title="<%= @checkbox_group.hierarchical_name %>">
+                            <%=  @checkbox_group.name  %> 
+                        </label>
+                        <% if @show_badge_chip %>
+                            <% if !@checkbox_group.parent_id %>
+                                <%= content_tag :div, checkbox_group.class.to_s == "DeviceGroup" ? I18n.t("common.device_group") : I18n.t("common.user_group"), class: "bs-fs-7 bs-ms-2 bs-badge bs-bg-secondary" %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <div class="bs-w-100 bs-d-flex bs-justify-content-end bs-text-center" >
+                        <% if @enable_group_based_publish%>
+                            <div class="bs-col">
+                                <%# add you app profile according %>
+                                <% if @app_type == "ipa" ||  @app_type == "book" || @app_type == "ios"  %> 
+                                    <span title="<%= @checkbox_group&.apple_device_profile&.name || "NA" %>"><%= @checkbox_group&.apple_device_profile&.name || "NA" %></span>
+                                <% elsif @app_type == "windows"%> 
+                                    <span title="<%= @checkbox_group&.windows_device_profile&.name || "NA" %>"><%= @checkbox_group&.windows_device_profile&.name || "NA" %></span>
+                                <% elsif @app_type == "macos"%> 
+                                    <span title="<%= @checkbox_group&.mac_device_profile&.name || "NA" %>"><%= @checkbox_group&.mac_device_profile&.name || "NA" %></span>     
+                                <% elsif @app_type == "android" %>
+                                    <span title="<%= android_device_profile_name(@checkbox_group) %>"><%= android_device_profile_name(@checkbox_group) %></span>
+                                <% elsif @app_type == "tvos" %>
+                                    <span title="<%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>">
+                                        <%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>
+                                    </span>
+                                <% else %>
+                                    wip
+                               <% end%>
+                            </div>
+                        <% end %>
+                        <% if @show_installation_mode %>
+                            <div class="bs-col bs-form-check-label bs-fw-normal bs-text-body bs-text-center"><h5><%= t('v2.profiles.installation_mode') %></h5></div>
+                        <% end %>
+                        <% if @show_installation_mode_group %>
+                            <div class="bs-col bs-form-check-label bs-fw-normal bs-text-body bs-text-center">
+                                <%= installation_mode_display.titleize %>
+                            </div>
+                        <% end %>
+                        <% if @show_count %>
+                            <div class="bs-col">
+                                <% if (@checkbox_group.is_a?(DeviceGroup)) %>
+                                    <%= content_tag :div, @group_device_counts[@checkbox_group.id], class: "bs-ms-auto" %>
+                                <% end %>
+                                <% if (@checkbox_group.is_a?(OrganizationUserGroup)) %>
+                                    <%= content_tag :div, @checkbox_group.o365? ? @checkbox_group.user_count : @group_user_counts[@checkbox_group.id], class: "bs-fs-7 bs-ms-auto" %>
+                                <% end %>
+                            </div>
+                        <% end %>
+
+                        <% if @show_publish_version%>
+                            <div class="bs-col">
+                                <% if (@checkbox_group.is_a?(OrganizationUserGroup) || @checkbox_group.class.to_s == "OrganizationUnit") %>
+                                    <% if @show_profile_version %>
+                                        <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% else %>
+                                        <%= (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% end %>
+                                <% elsif (@checkbox_group.is_a?(DeviceGroup) || @checkbox_group.class.to_s == "DeviceGroup") %>  
+                                    <% if @show_profile_version %>
+                                        <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% else %>
+                                        <%= (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% end %>
+                                <% else%> 
+                                    N/A
+                                <% end %>
+
+                            </div>
+                        <% end%>
+                        <% if @show_configuration_for_group %>
+                            <div class="bs-col">
+                                <%= @configuration_name_for_group_hash[@checkbox_group.id] || "N/A" %>
+                            </div>
+                        <% end %>
+                        <% if @show_configuration_for_group_for_pfw %>
+                            <div class="bs-col">
+                                <% if @checkbox_group.is_a?(DeviceGroup) %>
+                                    <%= @pfw_configuration_for_group[:mapping][@checkbox_group.id]&.name || "N/A" %>
+                                <% else %>
+                                    <%= @pfw_configuration_for_group[:user_group_mapping][@checkbox_group.id]&.name || "N/A" %>
+                                <% end %> 
+                            </div>  
+                        <% end %>
+                    </div>
+                </div>
+            </summary>
+            <% if @checkbox_group.is_a?(group_type(@checkbox_group)) && include_groups_ids(@checkbox_group).include?(@checkbox_group.id) %> 
+                    <div class="<%= "folder" unless has_last_visible_groups(@checkbox_group) %>">
+                        <%= render partial: "v3/device_groups/sub_group", collection: @checkbox_group.sub_groups,
+                        locals: {
+                            group_device_counts: @group_device_counts,
+                            group_user_counts: @group_user_counts,
+                            organization_unit_counts: @organization_unit_counts,
+                            parent_group: @checkbox_group,
+                            name: @name,
+                            include_user_groups_ids: @include_user_groups_ids,
+                            include_device_groups_ids: @include_device_groups_ids,
+                            include_organization_units_ids: @include_organization_units_ids,
+                            type: @type,
+                            group: @group,
+                            show_badge_chip: @show_badge_chip,
+                            show_count: @show_count,
+                            show_selected_group: @show_selected_group,
+                            selected_group: @selected_group,
+                            checkbox_actions: @checkbox_actions,
+                            is_unpublish_group: @is_unpublish_group,
+                            is_group: @is_group,
+                            published_device_groups_ids: @published_device_groups_ids,
+                            published_user_groups_ids: @published_user_groups_ids,
+                            is_workflow_running: @is_workflow_running,
+                            workflow_name: @workflow_name,
+                            data: @data,
+                            app_type: @app_type,
+                            show_publish_version: @show_publish_version,
+                            enable_group_based_publish: @enable_group_based_publish,
+                            show_installation_mode_group: @show_installation_mode_group,
+                            disabled_selected: @disabled_selected,
+                            existing_groups_info: @existing_groups_info,
+                            existing_user_groups_info: @existing_user_groups_info,
+                            show_profile_version: @show_profile_version,
+                            existing_profile_info: @existing_profile_info,
+                            show_configuration_for_group: @show_configuration_for_group,
+                            show_configuration_for_group_for_pfw: @show_configuration_for_group_for_pfw,
+                            pfw_configuration_for_group: @pfw_configuration_for_group,
+                            configuration_name_for_group_hash: @configuration_name_for_group_hash,
+                             } %>
+                    </div>
+            <% end %>
+        </details>
+    <% else %>
+        <div data-name="<%= group_n_sub_group_names(@checkbox_group) %>" data-search-target="item">
+            <div class="bs-form-check  bs-my-2 bs-d-flex bs-align-items-center bs-ps-5 bs-ms-2 bs-justify-content-between">
+                <div class="bs-col-5 bs-ms-3 bs-gap-2" >
+                    <%= check_box_tag "#{@name.present? ? @name : group_name_attr(checkbox_group, params)}",
+                        @checkbox_group.id,
+                        current_selected(@checkbox_group) ? true : false,
+                        id: @id, 
+                        class: "bs-form-check-input #{"bs-ui-disabled" if current_selected(@checkbox_group) && @disabled_selected}",
+                        data: @data.merge({ 
+                            n_group_selector_target: "#{@type} checkbox",
+                            action: @checkbox_actions,
+                            type_id: "#{@checkbox_group&.class&.to_s}-#{@checkbox_group&.id}",
+                            child_group_ids: @checkbox_group.child_group_ids,
+                            n_group_selector_type_param: if @checkbox_group.is_a?(DeviceGroup)
+                                                            "DeviceGroup"
+                                                            elsif @checkbox_group.is_a?(OrganizationUnit)
+                                                            "OrganizationUnit"
+                                                            else
+                                                            "OrganizationUserGroup"
+                                                            end,
+                            n_group_selector_group_param: @group,
+                            hierarchical_name: @checkbox_group.hierarchical_name,
+                            orignal_name: @checkbox_group.name,
+                            parent_id: @checkbox_group.parent_id,
+                            device_count: @checkbox_group.is_a?(DeviceGroup) ? @group_device_counts[@checkbox_group.id] : @group_user_counts[@checkbox_group.id]
+                        })
+                    %>
+                    <% if (@checkbox_group.is_a?(OrganizationUserGroup)  && @type == "source_group") %>
+                        <input type="hidden" name="source_group_ids[][type]" value="OrganizationUserGroup" data-hidden-input="<%= @id %>" data-n-group-selector-target="userHiddenInput" disabled>
+                    <% end %>
+
+                    <% if (@checkbox_group.is_a?(DeviceGroup) && @type == "source_group") %>
+                        <input type="hidden" name="source_group_ids[][type]" value="DeviceGroup" data-hidden-input="<%= @id %>" data-n-group-selector-target="deviceHiddenInput" disabled>
+                    <% end %>
+
+                    <label class="bs-form-check-label bs-m-0 <%= current_selected(@checkbox_group) && @disabled_selected ? "bs-ui-disabled" : "" %>" for="<%= @id %>" title="<%= @checkbox_group.hierarchical_name %>">
+                        <%= @checkbox_group.name %> 
+                    </label>
+                    <% if @show_badge_chip %>
+                        <% if !@checkbox_group.parent_id %>
+                        <%# unless @parent_group.present? %>
+                            <%= content_tag :div,
+                                if @checkbox_group.class.to_s == "DeviceGroup"
+                                    I18n.t("common.device_group")
+                                elsif @checkbox_group.class.to_s == "OrganizationUnit"
+                                    I18n.t("organizations.organization_unit")
+                                else
+                                    I18n.t("common.user_group")
+                                end,
+                                class: "bs-fs-7 bs-ms-2 bs-badge bs-bg-secondary" %>
+                        <% end %>
+                    <% end %>
+                </div>
+                <div class="bs-w-100 bs-d-flex bs-justify-content-end bs-text-center" >
+                    <% if @enable_group_based_publish%>
+                        <div class="bs-col">
+                            <%# add you app profile according %>
+                            <% if @app_type == "ipa" ||  @app_type == "book" || @app_type == "ios" %>
+                                <span title="<%= @checkbox_group&.apple_device_profile&.name || "NA" %>"><%= @checkbox_group&.apple_device_profile&.name || "NA" %></span>
+                            <% elsif @app_type == "windows"%> 
+                                <span title="<%= @checkbox_group&.windows_device_profile&.name || "NA" %>"><%= @checkbox_group&.windows_device_profile&.name || "NA" %></span>
+                            <% elsif @app_type == "macos"%> 
+                                <span title="<%= @checkbox_group&.mac_device_profile&.name || "NA" %>"><%= @checkbox_group&.mac_device_profile&.name || "NA" %></span>       
+                            <% elsif @app_type == "android" %>
+                               <span title="<%= android_device_profile_name(@checkbox_group) %>"><%= android_device_profile_name(@checkbox_group) %></span>
+                            <% elsif @app_type == "tvos" %>
+                                <span title="<%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>">
+                                    <%= @checkbox_group&.apple_tv_device_profile&.name || "NA" %>
+                                </span>
+                            <% else %>
+                                wip
+                            <% end%>
+                        </div>
+                    <% end %>
+
+                    <%# installation mode have to biild in the name value %>
+                     <% if @show_installation_mode %>
+                        <div class="bs-col bs-form-check-label bs-fw-normal bs-text-body bs-text-center"><h5><%= t('v2.profiles.installation_mode') %></h5></div>
+                    <% end %>
+                    <% if @show_installation_mode_group %>
+                        <div class="bs-col bs-form-check-label bs-fw-normal bs-text-body bs-text-center">
+                            <%= installation_mode_display.titleize %>
+                        </div>
+                    <% end %>
+                    <% if @show_count %>
+                        <div class="bs-col">
+                            <% if (@checkbox_group.is_a?(DeviceGroup)) %>
+                                <%= content_tag :div, @group_device_counts[@checkbox_group.id], class: "bs-fs-7 bs-ms-auto" %>
+                            <% end %>
+                            <% if (@checkbox_group.is_a?(OrganizationUserGroup)) %>
+                                <%= content_tag :div, @group_user_counts[@checkbox_group.id], class: "bs-fs-7 bs-ms-auto" %>
+                            <% end %>
+                            <% if (@checkbox_group.is_a?(OrganizationUnit)) %>
+                                <%= content_tag :div, @organization_unit_counts[@checkbox_group.id], class: "bs-fs-7 bs-ms-auto" %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                    <% if @show_publish_version%>
+                        <div class="bs-col">
+                            <% if (@checkbox_group.is_a?(OrganizationUserGroup) || @checkbox_group.class.to_s == "OrganizationUnit") %>
+                                    <% if @show_profile_version %>
+                                        <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% else %>
+                                        <%= (@existing_user_groups_info && @existing_user_groups_info[@checkbox_group.id]) || "N/A" %> 
+                                    <% end %>
+                             <% elsif (@checkbox_group.is_a?(DeviceGroup) || @checkbox_group.class.to_s == "DeviceGroup") %>  
+                                    <% if @show_profile_version %>
+                                        <%= (@existing_profile_info && @existing_profile_info[@checkbox_group.id]) || (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% else %>
+                                        <%= (@existing_groups_info && @existing_groups_info[@checkbox_group.id]) || "N/A" %>
+                                    <% end %>
+                             <% else%> 
+                               N/A
+                            <% end %>
+                        </div>
+                    <% end %>
+                    <% if @show_configuration_for_group %>
+                        <div class="bs-col">
+                            <%= @configuration_name_for_group_hash[@checkbox_group.id] || "N/A" %>
+                        </div>
+                    <% end %>
+                    <% if @show_configuration_for_group_for_pfw %>
+                        <div class="bs-col">
+                            <% if @checkbox_group.is_a?(DeviceGroup) %>
+                                <%= @pfw_configuration_for_group[:mapping][@checkbox_group.id]&.name || "N/A" %>
+                            <% else %>
+                                <%= @pfw_configuration_for_group[:user_group_mapping][@checkbox_group.id]&.name || "N/A" %>
+                            <% end %> 
+                        </div>  
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% end %>

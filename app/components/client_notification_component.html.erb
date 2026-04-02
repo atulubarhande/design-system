@@ -1,0 +1,28 @@
+<div style="top: 49px" data-controller="client-notification" data-client-notification-toast-id-value="bs-client-toast" data-client-notification-toast-error-value=false class="bs-toast-container bs-position-fixed bs-top-0 bs-end-0 bs-p-3 bs-client-notification">
+    <div id="bs-client-toast" class="bs-toast bs-bg-body bs-border-0 bs-shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="bs-d-flex bs-p-3">
+            <div class="bs-toast-body bs-fs-6">
+                <div class="bs-d-flex bs-align-items-center">
+                    <div data-client-notification-target="success" class="bs-d-none">
+                        <svg class="bs-text-success bs-me-2" height="25" width="25" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div data-client-notification-target="error" >
+                        <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" class="bs-text-danger bs-me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div data-client-notification-target="loading" class="bs-d-none">
+                        <div class="bs-spinner-border  bs-me-3" role="status">
+                            <span class="bs-visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <%= @message %>
+                    <span data-client-notification-target="message"></span>
+                </div>
+            </div>
+            <button type="button" class="bs-btn-close bs-me-2 bs-m-auto" data-bs-dismiss="bs-toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>

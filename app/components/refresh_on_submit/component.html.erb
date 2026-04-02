@@ -1,0 +1,7 @@
+ <%= content_tag :div, data: { 
+    controller: @refresh ? "refresh-on-submit" : "",
+    action: "turbo:submit-end->refresh-on-submit#submitEnd",
+    refresh_on_submit_frame_id_value: @frame_id,
+    refresh_on_submit_src_value: @src } do  %>
+    <%= content %>
+<% end %>

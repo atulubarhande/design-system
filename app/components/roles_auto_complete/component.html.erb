@@ -1,0 +1,51 @@
+<div data-controller="autocomplete roles-autocomplete"
+    data-action="<%= @action %>"
+    data-autocomplete-hidden-class="bs-d-none"
+    data-roles-autocomplete-hidden-class="bs-d-none"
+    data-autocomplete-active-class="bs-active">
+    <%= label_tag "", t("common.role"), class: "bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3" %>
+    <%= hidden_field_tag "array_response", selected_role&.id, name: "device_admin[role_id]", data: { roles_autocomplete_target: "roleField", edit_admin_form_target: "role" } %>
+    <div class="bs-d-flex bs-align-items-center bs-justify-content-between">
+        <div class="bs-dropdown bs-w-100" id="admin-device-group-dropdown" data-roles-autocomplete-target="dropdown">
+            <button class="bs-btn bs-btn-outline-secondary bs-dropdown-toggle bs-w-100 bs-d-flex bs-align-items-center bs-justify-content-between automation_select_role_dropdown" type="button" id="auto-complete" data-bs-toggle="dropdown" aria-expanded="false">
+                <div data-autocomplete-target="selected" class="bs-text-truncate"><%= selected_role&.name || "Select from list of roles" %></div>
+            </button>
+            <ul class="bs-dropdown-menu bs-shadow bs-w-100" aria-labelledby="auto-complete">
+                <div class="bs-position-relative bs-flex-grow-1 bs-m-3">
+                    <div class="bs-position-absolute bs-top-0 bs-end-0 bs-bottom-0 bs-start-0 bs-ps-3 bs-d-flex bs-align-items-center" style="pointer-events: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <input
+                        data-roles-autocomplete-target="searchInput"
+                        data-action="roles-autocomplete#searchRoles" type="text"
+                        placeholder="<%= I18n.t('common.search') %>"
+                        class="bs-d-flex bs-form-control bs-ps-5"
+                    />
+                </div>
+                <div class="bs-overflow-auto bs-scroll-sm" style="max-height: 280px;">
+                    <%= content_tag(:div, "Custom Roles", data: { roles_autocomplete_target: "customRolesHeading" }, class: "bs-text-primary-emphasis bs-p-3 bs-fw-semibold") %>
+                    <% non_system_roles(@roles).each do | role | %>
+                        <li>
+                            <%= button_tag(type: "button", value: role.id, class: "bs-dropdown-item bs-py-2 bs-text-truncate #{"bs-active" if selected_role&.id.to_i == role.id.to_i}", target: "current_user",
+                                data: { roles_autocomplete_target: "customRole", roles_autocomplete_role_id_param: role.id, name: role.name, action: "autocomplete#onChange roles-autocomplete#onRoleChange edit-admin-form#validateForm", roles_autocomplete_is_device_group_param: role&.is_device_group, autocomplete_target: "option" }) do %>
+                                <%= role.name %>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <li><hr class="bs-dropdown-divider"></li>
+                    <%= content_tag(:div, "System Roles", data: { roles_autocomplete_target: "systemRolesHeading" }, class: "bs-text-primary-emphasis bs-p-3 bs-fw-semibold") %>
+                    <% system_roles(@roles).each do | role | %>
+                        <li>
+                            <%= button_tag(type: "button", value: role.id, class: "bs-dropdown-item bs-py-2 bs-text-truncate #{"bs-active" if selected_role&.id.to_i == role.id.to_i}", target: "current_user",
+                                data: { roles_autocomplete_target: "systemRole", roles_autocomplete_role_id_param: role.id, name: role.name, action: "autocomplete#onChange roles-autocomplete#onRoleChange edit-admin-form#validateForm", roles_autocomplete_is_device_group_param: role&.is_device_group, autocomplete_target: "option" }) do %>
+                                <%= role.name %>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <%= content_tag :div, "No Result Found.", data: { roles_autocomplete_target:"empty" }, class: "bs-alert bs-alert-warning bs-d-none bs-text-center bs-m-3" %>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,13 @@
+<div data-controller="selectcountry">
+    <% if @label.present? %>
+        <label for="plan-<%= @id %>" class="bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3"><%= @label %></label>
+    <% end %>
+    
+    <input list= "plan-<%= @id %>" value="<%= selected_country_name(@value) %>" data-selectcountry-target="input" class="bs-form-control" <% if @required %> required <% end %> >
+    <datalist id="plan-<%= @id %>" data-selectcountry-target="countryList">
+        <% @options.each do |option| %>
+            <option data-value= "<%= option[:code] %>"><%= option[:name] %>
+        <% end %>
+    </datalist>
+    <input type="hidden" name="<%= @name %>" value="<%= @value %>" data-selectcountry-target="hiddenInput">
+</div>

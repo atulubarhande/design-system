@@ -1,0 +1,12 @@
+  <div class="bs-accordion-item" data-controller="collapse">
+      <h2 class="bs-accordion-header">
+        <button data-action="collapse#prevent" data-collapse-id-param="<%= @id %>" class="bs-accordion-button" type="button" aria-expanded="true" aria-controls="<%= @id %>">
+            <% if header? %> <%= header %> <% end %>
+        </button>
+      </h2>
+      <div id="<%= @id %>" class="bs-accordion-collapse bs-collapse bs-show" data-bs-parent="#<%= @parent_id %>">
+        <div class="bs-accordion-body">
+            <% if panel? %> <%= panel %> <% end %>
+        </div>
+      </div>
+  </div>

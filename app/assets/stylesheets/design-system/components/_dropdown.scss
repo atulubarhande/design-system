@@ -1,0 +1,11 @@
+.dropdown-item {
+    @include border-radius($ds-radius-lg);
+    &.active,
+    &:active {
+        padding-right: $input-height-inner;
+        background-image: escape-svg($form-feedback-icon-valid);
+        background-repeat: no-repeat;
+        background-position: right $input-height-inner-quarter center;
+        background-size: $input-height-inner-half $input-height-inner-half;
+    }
+}

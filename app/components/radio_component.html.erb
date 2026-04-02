@@ -1,0 +1,19 @@
+<div class="bs-form-check <%= @wrapper_class %>">
+    <input class="bs-form-check-input <%= @classes %>"
+        type="radio"
+        name="<%= @name %>"
+        id="<%= @id %>"
+        data-action="<%= @action %>"
+        <% if  @checked %> checked  <% end %>
+        <% if @data != nil %> <%= @data %> <% end %>
+        <% if @disabled %> disabled <% end %>
+        value="<%= @value %>">
+    <label class="bs-form-check-label bs-text-body-secondary <%= @lable_classes %>" for="<%= @id %>">
+        <% if custom_label? %>
+            <%= custom_label %>
+        <% else %>
+            <%= raw @label %>
+        <% end %>
+        <div class="bs-text-black-50 bs-fs-6"><%= @description %></div>
+    </label>
+</div>

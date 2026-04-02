@@ -1,0 +1,5 @@
+<span class="<%= @classes %>">
+    <% @browser.each do |browser| %>
+        <%= image_tag browsers[browser], class: "bs-mx-1", width: @width, height: @height %>
+    <% end %>
+</span>

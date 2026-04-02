@@ -1,0 +1,27 @@
+<div class="bs-mt-1 bs-shadow-sm bs-border bs-rounded bs-bg-white table-wrapper <%= "bs-overflow-hidden" if @hide_overflow %>">
+    <% if title? %>
+        <div class="bs-p-4 bs-bg-light">
+            <%= title %>
+        </div>
+    <% end %>
+    <div class="bs-p-4">
+        <table class="bs-table <%= "bs-table-hover" if @hoverable %>">
+            <thead class="bs-bg-body-secondary bs-text-dark-emphasis">
+                <tr>
+                    <% if @headers.count > 0 %>
+                      <% @headers&.each do |header| %>
+                        <th scope="bs-col" class="bs-fw-medium"><%= header %></th>
+                      <% end %>
+                    <% else %>
+                      <% column_headers&.each_with_index do |header, index| %>
+                        <th scope="bs-col" class="bs-fw-medium bs-text-nowrap"><%= header %></th>
+                      <% end %>
+                    <% end %>
+                </tr>
+            </thead>
+            <tbody>
+                <%= content %>
+            </tbody>
+        </table>
+    </div>
+</div>

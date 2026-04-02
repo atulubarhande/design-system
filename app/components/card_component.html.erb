@@ -1,0 +1,13 @@
+<div class="bs-card bs-shadow-sm <%= @has_border ? 'bs-border' : 'bs-border-0' %> <%= @card_classes %> <%= @parent_height %>" style="<%= @styles %>">
+    <%= card_header %>
+    <% if content.present? %>
+        <div class="bs-card-body <%= @classes %>"style="height: <%= @height %>">
+            <%= content %>
+        </div>
+        <% if footer? %>
+            <div class="bs-border-top bs-py-3 bs-d-flex bs-justify-content-end bs-gap-3 bs-pe-3">
+                <%= footer %>
+            </div>
+        <% end %>
+    <% end %>
+</div>

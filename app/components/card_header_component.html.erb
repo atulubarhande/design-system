@@ -1,0 +1,12 @@
+<div class="bs-px-4 bs-py-4 bs-border-bottom bs-rounded-top <%= @bg_class %>" style="<%= @styles %>" <% if @data != nil %> <%= @data %> <% end %>>
+    <div class="bs-d-flex bs-align-items-<%= @align_contents %> bs-justify-content-between bs-flex-wrap bs-flex-sm-nowrap">
+        <% if title? %>
+            <div class="bs-text-secondary bs-m-0 bs-w-100">
+                <%= title %>
+            </div>
+        <% end %>
+        <div class="bs-d-flex-shrink-0 bs-d-flex bs-align-items-<%= @align_contents %>">
+            <%= content %>
+        </div>
+    </div>
+</div>

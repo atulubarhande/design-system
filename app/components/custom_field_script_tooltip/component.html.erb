@@ -1,0 +1,15 @@
+<div data-controller="tooltip">
+  <%= content_tag :span, data: { tooltip_target: "trigger", bs_toggle: "bs-tooltip", bs_placement: @placement } do %>
+    <%= link_to "#", class: @icon_class do %>
+      <i class="zmdi zmdi-file-text zmdi-hc-lg"></i>
+    <% end %>
+  <% end %>
+
+  <div data-tooltip-target="content" class="bs-shadow bs-py-3 bs-px-4 bs-bg-secondary-subtle bs-rounded bs-position-fixed" hidden>
+    <%= sf "Label::", label: "Associated Scripts" %>
+    <div class="bs-my-2"><%= sf "PlatformSupport", platform: [:windows], classes: "bs-me-2" %><%= @custom_field&.windows_bounded_script || "N/A" %></div>
+    <div class="bs-my-2"><%= sf "PlatformSupport", platform: [:macos], classes: "bs-me-2" %><%= @custom_field&.macos_bounded_script || "N/A" %></div>
+    <div class="bs-my-2"><%= sf "PlatformSupport", platform: [:nix], classes: "bs-me-2" %><%= @custom_field&.nix_bounded_script || "N/A" %></div>
+  </div>
+</div>
+

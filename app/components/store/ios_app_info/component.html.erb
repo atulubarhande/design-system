@@ -1,0 +1,146 @@
+
+<div class="bs-accordion-item" data-controller = "ios-app-info">
+    <h2 class="bs-accordion-header">
+    <button class="bs-accordion-button bs-bg-primary-subtle <%= "bs-collapsed" unless @is_open %>" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-<%= @latest_release.id %>" aria-expanded="false" aria-controls="flush-collapseOne-<%= @latest_release.id %>">
+        <%= content_tag :div, "#{t("common.app_version")} #{@app_version}", class: "bs-fw-normal" %>
+    </button>
+    </h2>
+    <div id="flush-collapseOne-<%= @latest_release.id %>" class="bs-accordion-collapse bs-collapse <%= "bs-show" if @is_open %>" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            <div class="bs-d-flex bs-flex-column bs-gap-4 bs-border-0 bs-p-4">
+                <div class="bs-d-flex bs-justify-content-between bs-align-items-center">
+                    <div class="bs-d-flex bs-align-items-center bs-gap-3">
+                        <% unless read_only_access('AppStore-ReadOnly') %>
+                            <%= button_to publishable_data_ios_enterprise_app_path(@app.id), method: :get, 
+                                params: { 
+                                    release_id: @latest_release.id, 
+                                    app_type: params[:app_type], 
+                                    type: @app_type, 
+                                    name: "device_group_ids[]", 
+                                    org_user_group_name: "user_group_ids[]",
+                                    app_pf: params[:app_pf] 
+                                }, data: { turbo_frame: "ios_enterprise_app_mappings" }, class: "bs-btn bs-btn-primary automation_itunes_app_publish_button" do %>
+                                <%= t("common.publish") %>
+                            <% end %>
+                            <%= button_to uninstall_data_ios_enterprise_app_path(@app.id), method: :get, params: { release_id: @latest_release.id, app_type: params[:app_type], action_type: "uninstall", type: @app_type, name: "device_group_ids[]", org_user_group_name: "user_group_ids[]", app_pf: params[:app_pf]  }, data: { turbo_frame: "ios_enterprise_app_mappings" }, class: "bs-btn bs-btn-outline-primary automation_itunes_app_uninstall_button" do %>
+                                <%= params[:app_pf] == "macOS" ? t("common.unpublish") : t("common.uninstall") %>
+                            <% end %>
+                            <% if @app_published %>
+                                <%= button_to uninstall_data_ios_enterprise_app_path(@app.id), method: :get, params: { release_id: @latest_release.id, app_type: params[:app_type], action_type: "stop_rollout", type: @app_type, name: "device_group_ids[]", org_user_group_name: "user_group_ids[]", app_pf: params[:app_pf]  }, data: { turbo_frame: "ios_enterprise_app_mappings" }, class: "bs-btn bs-btn-outline-danger automation_itunes_app_stop_rollout_button" do %>
+                                    <%= t("enterpriseStore.stop_rollout") %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+
+                    </div>
+                    <div class="bs-d-flex bs-gap-4 bs-align-items-center">
+                    <%if @latest_release&.id && !@latest_release&.external_plist_url && !@latest_release&.external_pkg_url && @type != 'recommendedApps' %>
+                            <%= button_to download_ipa_url_ios_enterprise_app_path(@app), method: :get, title:t("enterpriseStore.copy_download_link") ,params: { release_id: @latest_release.id, has_download: false }, data: { turbo_stream: ""}, :class => "bs-btn bs-p-0" do %>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(108, 117, 125)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                            <% end %>
+                            <%= button_to download_ipa_url_ios_enterprise_app_path(@app), method: :get, title:t("enterpriseStore.download_app") , params: { release_id: @latest_release.id, has_download: true }, data: { turbo_stream: ""}, :class => "bs-btn bs-p-0" do %>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(108, 117, 125)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="bs-row bs-g-3">
+                    <% if @latest_release.present? %>
+                        <%= content_tag :div, I18n.t("common.size"), class: "bs-col-6 bs-text-secondary" %>
+                        <%= content_tag :div, number_to_human_size(@latest_release.ipa_size), class: "bs-col-6" %>
+
+                        <%= content_tag :div, I18n.t("enterpriseStore.uploaded_on"), class: "bs-col-6 bs-text-secondary" %>
+                        <%= content_tag :div, @latest_release.created_at.strftime('%b %d, %Y'), class: "bs-col-6" %>
+                    <% end %>
+                    <%= content_tag :div, t("common.installed_on"), class: "bs-col-6 bs-text-secondary" %>
+                    <%= content_tag :div, class: "bs-col-6" do %>
+                        <%= content_tag :div, class: "bs-row bs-d-flex bs-align-items-center" do %>
+                            <%= content_tag :div, class: "bs-col-1" do %>
+                                <%= @installed_on %>
+                            <% end %>
+                            <% unless read_only_access('AppStore-ReadOnly') %>
+                                <% if @installed_on > 0  %>
+                                    <%= content_tag :div, class: "bs-col-6" do %>
+                                        <%= button_to ios_enterprise_apps_reinstallation_path(@app.id), method: :get, params: {release_id: @latest_release.id, app_type: params[:app_type], type: @app_type }, data: { turbo_frame: "ios_enterprise_app_mappings" }, class: "bs-btn bs-px-0 bs-fw-bold bs-text-primary automation_store_app_view_status_button" do %>
+                                            <%= t("common.reinstall") %>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                    <%= content_tag :div, t("common.published_to"), class: "bs-col-6 bs-text-secondary" %>
+                    <%= content_tag :div, @published_to, class: "bs-col-6" %>
+                    <%= content_tag :div, t("emm.apple.made_for"), class: "bs-col-6 bs-text-secondary" %>
+                    <%= content_tag :div, @app.pkg? ? 'macOS' : @app.supported_devices.join(', '), class: "bs-col-6" %>
+                    <% if !@app.pkg?%>
+                        <div class="bs-d-flex bs-align-items-center">
+                            <%= content_tag :div, t("common.expires"), class: "bs-col-6 bs-text-secondary" %>
+                            <%= content_tag :div, @expires_on&.strftime('%b %d, %Y') || t("common.na"), class: "bs-col" %>
+                            <div class="bs-col-3">
+                                <% unless read_only_access('AppStore-ReadOnly') %>
+                                    <%= button_to refresh_expires_on_ios_enterprise_app_path(app), method: :put, params: {release_id: @release_id},  class: "bs-btn bs-btn-default" do %>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+
+                    <% if !Rails.env.production? && @app.app_type == "ipa" %>
+                        <% unless read_only_access('AppStore-ReadOnly') %>
+                            <div class="bs-d-flex">
+                                <div class="bs-col-5 bs-me-5">
+                                    <input type="date" min="<%= Date.today %>", class="bs-px-2 bs-pt-2 bs-pb-1 bs-rounded bs-form-control", data-action = "ios-app-info#setExpiresOn">
+                                </div>
+                                <div class="bs-col-6">
+                                    <%= button_to update_expires_on_ios_enterprise_app_path(app), method: :put, params: {release_id: @release_id }, class: "bs-btn bs-btn-primary" do %>
+                                        <%= hidden_field_tag "date","" , data:{ios_app_info_target: "testDateField"} %>
+                                            Test Update
+                                    <% end %>
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <% unless read_only_access('AppStore-ReadOnly') %>
+                    <% if type == "myApps" && @previous_releases.count >= 1 %>
+                        <%= button_to show_delete_version_ios_user_ios_enterprise_apps_path(app), method: :get, params: {id: app.id, release_id: release_id }, data: {turbo_frame: "delete_version" }, class: "bs-btn bs-px-2 bs-text-danger bs-fw-bold" do %>
+                            <%= I18n.t("common.delete_version") %>
+                        <% end %>
+
+                        <%# in future if needed for drop down for uninstall %>
+                        <%# sf "BsDropdown", title: "store-apps-delete-options", id: "device-dropdown", width: "150px", classes: "bs-p-0" do |c|
+                            <% c.with_title do
+                                <%=content_tag :div, I18n.t("common.delete_version"), class: "bs-btn bs-px-2 bs-text-danger automation_store_app_delete_dropdown_button bs-pe-5 bs-form-select"
+                            <% end
+                            <%= button_tag ({data: {turbo_frame: "google_play_app_details", bs_toggle: "modal", bs_target: "#ios-enterprises-delete-without-uninstall-modal" }, class: "automation_store_app_delete_button bs-dropdown-item bs-py-2 bs-d-flex bs-gap-3 bs-align-items-center"}) do
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                <%= t("common.delete")
+                            <% end
+                            <%= button_to emm_android_google_play_app_path(app), method: :get, data: {turbo_frame: "google_play_app_details" }, class: "automation_store_app_delete_and_uninstall_button bs-dropdown-item bs-py-2 bs-d-flex bs-gap-3 bs-align-items-center" do
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                <%= t("enterpriseStore.delete_and_uninstall")
+                            <% end
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <% if @published_to > 0 %>
+                    <%= button_to published_devices_status_ios_enterprise_app_path,
+                                    method: :get,
+                                    params: { app_id: app.id, release_id: release_id, page: 1, per_page: 20, q: "", app_type: "ent_apple_app", first_call: true},
+                                    data: { turbo_frame: "published_devices_status" },
+                                    class: "bs-btn bs-px-2 bs-fw-bold bs-text-primary automation_store_app_view_status_button" do %>
+                        <%= t("enterpriseStore.publish_status") %>
+                    <% end %>
+                <% end %>
+
+                <%# Release Action %>
+                <% actions.each do |action| %>
+                    <%= action %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+</div>

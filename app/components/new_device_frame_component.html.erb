@@ -1,0 +1,147 @@
+<div class="device-screen-component" style="max-width:100%">
+    <% if is_ios %>
+        <div class="iphone-x tw-bg-slate-400">
+            <div data-selection-target="wallpaper"
+                data-branding-target="iOSWallpaper"
+                data-branding-ios-lock-wallpaper-value="<%= ios_lock_wallpaper %>"
+                class="bs-w-100 bs-d-flex bs-overflow-auto bs-rounded" style="background-image: url(<%= ios_wallpaper %>); background-size: cover; background-position: center;">
+                <div class="bs-flex-grow-1">
+                    <%= content %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <% if is_android %>
+        <div class="android-rounded" style="height: <%= @device_frame_height %>; width: <%= @device_frame_width %>">
+            <div
+                class="bs-d-flex bs-flex-grow-1 bs-flex-column bs-h-100 bs-overflow-auto bs-scroll-sm">
+                <div data-selection-target="color" data-branding-target="androidStatusBar" class="bs-w-100 bs-px-4 bs-py-2 bs-position-sticky bs-z-2 bs-top-0 bs-shadow <%= 'bs-d-none' if @brand&.transparent_top_bar %>" style="background-color: <%= bar_color unless @brand&.transparent_top_bar %>">
+                    <div class="bs-d-flex bs-align-items-center">
+                        <img height="36" width="36" src="<%= logo %>" alt="logo" data-branding-target="logo"  data-selection-target="logo" class="bs-me-3 bs-rounded-circle <%= 'bs-d-none' if(show_logo_position == 'center') %>" style="background-clip: padding-box;">
+                        <div class="brand-title">
+                            <p data-branding-target="title" class="bs-text-truncate bs-fs-5 bs-m-0 <%= "bs-d-none" if show_brand_name == false %>" style="color: <%= @brand&.brand_name_text_color %>;" title="<%= @name %>"><%= @name %></p>
+                            <p class="bs-text-truncate bs-fs-6 bs-m-0 <%= "bs-d-none" if show_device_name ==  false %>" data-branding-target="deviceName" style="color: <%= @brand&.device_name_text_color %>;" title="Device name">
+                                <% if @device.present? %>
+                                    <span title="<%= @device&.name %>"><%= truncate(@device&.name&.to_s, length: 40) %></span>
+                                <% else %>
+                                    <%= t("common.device_name")%>
+                                <% end %>
+                            </p>
+                        </div>
+                        <% if show_logo_position.present? %>
+                            <img height="36" src="<%= logo %>" alt="logo" data-branding-target="centerLogo" class="bs-mx-auto <%= 'bs-d-none' if(show_logo_position == 'left') %>" style="background-clip: padding-box;">
+                        <% end %>
+                        <% if action? %>
+                            <div class="bs-ms-auto">
+                                <%= action %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="bs-flex-grow-1 bs-text-white wallpaper-container bs-overflow-auto scroll-sm"
+                    data-selection-target="wallpaper"
+                    data-branding-target="androidWallpaper"
+                    style="background-image: url(<%= wallpaper %>);">
+                    <%= content %>
+                </div>
+                <% if @hide_nav == false %>
+                    <div data-branding-target="navBar" class="bs-d-flex bs-align-items-center bs-justify-content-around bs-px-4 bs-py-3 bs-position-absolute bs-bottom-0 bs-z-2 android-navbar bs-bg-opacity-50 bs-w-100">
+                        <svg class="rotate" style="fill: #fff" height="15" with="15" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"><path d="M19.586,23.046H4.414A4.391,4.391,0,0,1,.655,20.963a4.311,4.311,0,0,1-.2-4.216L8.064,3.354a4.428,4.428,0,0,1,7.893.041L23.5,16.674a4.341,4.341,0,0,1-.159,4.289A4.391,4.391,0,0,1,19.586,23.046ZM12,3.955a1.4,1.4,0,0,0-1.27.774l-.039.074L3.1,18.156a1.288,1.288,0,0,0,.1,1.226,1.394,1.394,0,0,0,1.209.664H19.586a1.394,1.394,0,0,0,1.209-.664,1.318,1.318,0,0,0,.061-1.3L13.309,4.8A1.449,1.449,0,0,0,12,3.955Z"/></svg>
+                        <svg style="fill: #fff" height="15" with="15" xmlns="http://www.w3.org/2000/svg" id="Isolation_Mode" data-name="Isolation Mode" viewBox="0 0 24 24"><path d="M12,24A12,12,0,1,1,24,12,12.013,12.013,0,0,1,12,24ZM12,3a9,9,0,1,0,9,9A9.01,9.01,0,0,0,12,3Z"/></svg>
+                        <svg style="fill: #fff" height="15" with="15" xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24"><path d="M18.5,0H5.5A5.506,5.506,0,0,0,0,5.5v13A5.506,5.506,0,0,0,5.5,24h13A5.506,5.506,0,0,0,24,18.5V5.5A5.506,5.506,0,0,0,18.5,0ZM21,18.5A2.5,2.5,0,0,1,18.5,21H5.5A2.5,2.5,0,0,1,3,18.5V5.5A2.5,2.5,0,0,1,5.5,3h13A2.5,2.5,0,0,1,21,5.5Z"/></svg>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+    <% if is_windows %>
+        <div class="windows-rounded">
+            <div
+                data-selection-target="wallpaper"
+                data-branding-target="windowsWallpaper"
+                class="bs-d-flex bs-flex-grow-1 bs-flex-column bs-overflow-hidden"
+                style="background-image: url(<%= windows_wallpaper %>); background-size: cover; background-position: center;">
+                <%= content %>
+            </div>
+            <div class="bs-position-absolute windows-logo bs-d-flex bs-align-items-center bs-justify-content-center">
+                <i class="zmdi zmdi-windows zmdi-hc-2x bs-text-white"></i>
+            </div>
+        </div>
+    <% end %>
+    <% if is_nix %>
+        <div class="nix-rounded">
+            <div
+                data-selection-target="wallpaper"
+                data-branding-target="windowsWallpaper"
+                class="bs-d-flex bs-flex-grow-1 bs-flex-column bs-overflow-hidden"
+                style="background-image: url(<%= windows_wallpaper %>); background-size: cover;">
+                <div class="bs-flex-grow bs-d-flex bs-h-100 bs-flex-grow-1 bs-text-white">
+                    <%= content %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <% if is_mac %>
+        <div class="mac-rounded">
+            <div
+                data-selection-target="wallpaper"
+                data-branding-target="macWallpaper"
+                class="bs-d-flex bs-flex-grow-1 bs-flex-column bs-overflow-auto"
+                style="background-image: url(<%= mac_wallpaper %>); background-size: cover; background-position: center;">
+                <div class="">
+                    <%= content %>
+                </div>
+            </div>
+            <div class="bs-position-absolute mac-logo bs-d-flex bs-align-items-center bs-justify-content-center">
+                <i class="zmdi zmdi-apple zmdi-hc-2x bs-text-white"></i>
+            </div>
+        </div>
+    <% end %>
+    <% if is_advanced_branding %>
+        <div class="view-section tw-bg-slate-400">
+            <div data-selection-target="wallpaper"
+                data-branding-target="advancedBrandingWallpaper"
+                class="bs-w-100 bs-d-flex bs-overflow-auto bs-rounded" style="background-image: url(<%= ios_wallpaper %>); background-size: cover;">
+                <div class="bs-flex-grow-1">
+                    <%= content %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <% if is_apple_tv %>
+        <div class="bs-d-flex bs-justify-content-center">
+            <div class="apple-tv-rounded">
+                <div
+                    data-selection-target="wallpaper"
+                    data-branding-target="windowsWallpaper"
+                    class="bs-d-flex bs-flex-grow-1 bs-flex-column bs-overflow-hidden"
+                    style="background-image: url(<%= apple_tv_wallpaper %>); background-size: cover;">
+                    <div class="bs-h-100 bs-d-flex bs-flex-column bs-p-4 bs-mb-5">
+                        <div class="bs-position-relative bs-d-flex bs-flex-column bs-flex-grow-1 bs-overflow-auto scroll-sm bs-z-1 bs-mb-5" style="height: 0px;">
+                            <%= content %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <% if chromeos? %>
+        <div class="chromeos-rounded">
+            <div
+                data-selection-target="wallpaper"
+                data-branding-target="chromeosWallpaper"
+                data-chromeos-device-wallpaper="<%= chromeos_device_wallpaper %>"
+                data-chromeos-user-wallpaper="<%= chromeos_user_wallpaper %>"
+                data-chromeos-guest-wallpaper="<%= chromeos_guest_wallpaper %>"
+                class="bs-d-flex bs-flex-grow-1 bs-flex-column bs-overflow-hidden"
+                style="background-image: url(<%= chromeos_device_wallpaper %>); background-size: cover; background-position: center;">
+                <div class="bs-flex-grow bs-d-flex bs-h-100 bs-flex-grow-1 bs-text-white">
+                    <%= content %>
+                </div>
+            </div>
+            <div class="bs-position-absolute chromeos-logo bs-d-flex bs-align-items-center bs-justify-content-center">
+                <img src="<%= asset_path('v2/icons/platform_icons/google-chrome.svg') %>" width="16" height="16" alt="ChromeOS" class="chromeos-logo-icon">
+            </div>
+        </div>
+    <% end %>
+</div>

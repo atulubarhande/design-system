@@ -1,0 +1,68 @@
+<turbo-frame id="<%= @frame_id %>"> 
+    <div data-controller="checkbox infinite-scroll"
+        data-checkbox-hidden-class="bs-d-none" data-checkbox-selected-value="<%= @selected.present? ? @selected : []  %>"
+        data-infinite-scroll-url-value="<%= request&.base_url + @paginate_url %>"
+        data-infinite-scroll-page-value="<%= 1 %>"
+        data-infinite-scroll-query-value=""
+        data-infinite-scroll-total-page-value="<%= @subscribers.total_pages %>">
+        <% if @subscribe_section_tip %>
+            <div class="bs-alert bs-alert-warning bs-d-flex bs-px-2 bs-py-1 bs-fs-6">
+                <small><%= @subscribe_section_tip %></small>
+            </div>
+        <% end %>
+        <div class="bs-form-check bs-ps-5 bs-pb-2 bs-pt-3">
+            <input class="bs-form-check-input" data-action="checkbox#toggleShowHideSelected" data-checkbox-target="showSelected" type="checkbox" id="device-show-selected-<%= @frame_id %>" <% if disabled %> disabled <% end %>>
+            <label class="bs-form-check-label" for="device-show-selected-<%= @frame_id %>">
+                <%= I18n.t('common.show_selected') %>
+                <span data-checkbox-target="selectedCount" class="bs-badge bs-text-bg-secondary bs-rounded bs-ms-2 bs-mb-2"><%= @selected.present? ? @selected.length : 0 %></span>
+            </label>
+        </div>
+        <% if has_subscribers %>
+            <div data-checkbox-target="searchInput">
+                <% if search_bar? %>
+                    <%= search_bar %>
+                <% end %>
+            </div>
+        <% end %>
+        <div class="bs-border bs-rounded bs-mt-3">
+            <div class="bs-row bs-align-items-center bs-border-bottom bs-g-0 bs-shadow-sm">
+                <div class="bs-col-6 bs-py-3">
+                    <div class="bs-form-check bs-ps-5">
+                        <input class="bs-form-check-input" data-action="checkbox#toggleAll" data-checkbox-target="selectAll" type="checkbox" id="device-select-all-<%= @frame_id %>" <% if disabled %> disabled <% end %>>
+                        <label class="bs-form-check-label" for="device-select-all-<%= @frame_id %>">
+                            <%= @subscribers_name %>
+                        </label>
+                    </div>
+                </div>
+                <div class="bs-col-6"><label class="bs-form-check-label"><%= @subscribers_email %></label></div>
+            </div>
+            <div 
+                data-infinite-scroll-target="list"
+                style="height: 300px; overflow-x: hidden;"
+                class="bs-scroll-sm">
+                <%= turbo_frame_tag  "devices_total_page_value", class: "bs-visually-hidden", data: { infinite_scroll_target: "deviceTotalPage" , total_pages: @subscribers.total_pages} do %>
+                    <%= @subscribers.total_pages %>
+                <% end %>
+                <%= turbo_frame_tag  "org_users_total_page_value", class: "bs-visually-hidden", data: { infinite_scroll_target: "deviceTotalPage" , total_pages: @subscribers.total_pages} do %>
+                    <%= @subscribers.total_pages %>
+                <% end %>
+                <%= turbo_frame_tag  "admin_user_total_page_value", class: "bs-visually-hidden", data: { infinite_scroll_target: "deviceTotalPage" , total_pages: @subscribers.total_pages} do %>
+                    <%= @subscribers.total_pages %>
+                <% end %>
+                <%= render @partial_path, subscribers: @subscribers, name: @name %>
+                <div class="bs-d-none" data-checkbox-target="map"></div>
+                <div data-checkbox-target="emptyDevices" class="bs-alert bs-alert-warning bs-m-3 bs-text-center bs-d-none"><%= I18n.t('common.no_devices_selected') %></div>
+                <div data-checkbox-target="bottom" style="height: 2px" data-infinite-scroll-target="bottom" class="<%= "bs-d-none" unless @subscribers.total_pages > 1 %>"></div>
+                <div data-infinite-scroll-target="loader" class="bs-d-none">
+                    <% 2.times do %>
+                        <p class="bs-placeholder-glow bs-px-3 bs-d-flex bs-align-items-center bs-justify-content-between bs-border-top bs-border-bottom bs-py-4 bs-m-0">
+                            <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-4 bs-me-2"></span>
+                            <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-3 bs-me-2"></span>
+                            <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-4"></span>
+                        </p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</turbo-frame>

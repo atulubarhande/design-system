@@ -1,0 +1,27 @@
+<%= content_tag :div, class: "bs-btn-group v3-location-tracking-buttons", role: "group", aria_label:"Basic outlined example" do %>
+    <% radio_buttons.each_with_index do |button, index| %>
+        <% if index <= active_position %>
+            <%= radio_button_tag @name, 
+                button[:value], 
+                checked: @checked == button[:value], 
+                id: "button-#{index}",
+                class: "bs-btn-check",
+                data: @data.merge({
+                    profile_location_settings_frequency_param: button[:value]
+                }) %>
+                <%= content_tag :label, class: "bs-btn bs-btn-outline-primary bs-mb-0", for: "button-#{index}" do %>
+                    <%= button[:label] %>
+                <% end %>
+        <% else %>
+            <%= content_tag :span, class: "bs-btn bs-btn-outline-primary bs-d-flex" do %>
+                <%= button[:label] %>
+                <% if index > active_position %>
+                    <%= sf "UpgradePlan", current_user: @owner %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
+
+
+

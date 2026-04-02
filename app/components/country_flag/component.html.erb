@@ -1,0 +1,23 @@
+<%= content_tag :div,
+    data: { controller:"country-flag",
+        country_flag_input_id_value: @id,
+        country_flag_required_value: @required} do %>
+    <% if @country_name %>
+        <%= hidden_field_tag @contact_name, @contact_value, data: { country_flag_target:"contactNo"} %>
+        <%= hidden_field_tag @country_name, @country_value, data: { country_flag_target:"countryCode"} %>
+    <% else %>
+        <%= hidden_field_tag @contact_name, @contact_value, data: { country_flag_target:"contactNumber"} %>
+    <% end %>
+    <%= text_field_tag "", "",
+        disabled: @disabled,
+        placeholder: @placeholder,
+        maxlength: @maxlength,
+        data: custom_data,
+        required: @required,
+        id: @id,
+        value: contact_number,
+        type: @type,
+        class: "bs-form-control"
+    %>
+    <label class="bs-form-label bs-fs-6 bs-text-danger bs-d-none" data-country-flag-target="errorText"><%=t("v2.organization.validations.phone_error") %></label>
+<% end %>

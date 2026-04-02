@@ -1,0 +1,8 @@
+<div class="bs-h-100 tw-card-body">
+    <%= card_header %>
+    <% if content.present? %>
+        <div class="<%= @has_padding.nil? ? "" : "bs-px-4" %>bs-py-4">
+            <%= content %>
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,46 @@
+<%= content_tag :div, class: "bs-my-#{vertical_margin}" do %>
+  <div class= "<%=@wrapper_class%>" >
+    <!-- label -->
+    <%= label_tag @name, class: "bs-form-check-label bs-fs-#{font_size} bs-text-body-secondary bs-m-0 bs-flex-grow-1 bs-col-#{@label_col}" do %>
+      <% if custom_label? %>
+        <%= custom_label %>
+        <% if has_label_required %>
+          <span class="bs-text-danger">*</span>
+        <% end %>
+      <% else %>
+        <%= @label %>
+        <% if has_label_required %>
+          <span class="bs-text-danger">*</span>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <!-- textfield -->
+    <div class="bs-col-<%=@textfield_col%>">
+      <%= text_field_tag @name, @value, 
+        min:@min, 
+        max: @max,
+        disabled: @disabled, 
+        placeholder: @placeholder, 
+        required: @required, 
+        data: @data, 
+        class: "bs-form-control ", 
+        readonly: @read_only, 
+        type: @type,
+        step: @step
+      %>
+    </div>
+
+    <!-- postfix -->
+    <%= label_tag @name, class: "bs-form-label bs-fs-6 bs-px-3 bs-text-body-secondary bs-col-#{@postfix_col}" do %>
+      <%= @postfix %>
+    <% end %>
+  </div>
+
+  <!-- description -->
+  <div class="">
+    <p class="bs-text-black-50 bs-fs-6 bs-mb-3">
+      <%= @description %>
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,63 @@
+<%= content_tag :div, class: "bs-w-100 device-filters-wrapper", data: {
+    controller: "devices-filters",
+    action: "turbo:submit-end->devices-filters#submitEnd turbo:submit-start->devices-filters#submitStart",
+    devices_filters_hidden_class: "bs-d-none",
+    devices_filters_transition_class: "transition-d-none",
+    devices_filters_full_width_class: "bs-w-100",
+    devices_filters_advanced_text_value: I18n.t("common.advanced"),
+    devices_filters_has_deep_dive_value: params[:deep_dive_filter].present?,
+    devices_filters_android_filter_value: "android_devices",
+    devices_filters_user_id_value: current_user.id,
+    devices_filters_basic_text_value: I18n.t("common.basic"),
+    devices_filters_basic_search_hint_value: @basic_search_hint,
+    devices_filters_view_for_value: @view_for,
+    devices_filters_groups_url_value: request&.base_url + groups_filter_modal_user_v3_devices_path(current_user),
+    devices_filters_input_expanded_class: "bs-w-100" ,
+    devices_filters_bulk_entity_threshold_value: current_user.bulk_entity_threshold_reached?('groups')} do %>
+    <!-- Used to reset filter bar -->
+    <%= form_with(url: search_url, method: :get, data: {
+            turbo_stream: "",
+            devices_filters_target: "resetAnchor"
+        }, class: "bs-d-none") do |form| %>
+            <%= form.hidden_field "count", value: 100 %>
+            <%= form.hidden_field "page", value: 1 %>
+            <%= form.hidden_field "ui_template", value: ui_template if ui_template.present? %>
+            <% @aditional_params.each do |key, value| %>
+                <%= form.hidden_field key, value: params[:key] || value %>
+            <% end %>
+    <% end %>
+    <!-- devices_target: "form" is shared by device controller for sorting and form submission -->
+    <%= form_with(url: search_url , method: :get, data: custom_data) do |form| %>
+        <% @aditional_params.each do |key, value| %>
+            <%= form.hidden_field key, value: params[:key] || value %>
+        <% end %>
+        <div class="filter-toolbar-container bs-row bs-g-3 bs-align-items-end">
+            <!-- Elastic Input -->
+            <div class="bs-col input-container bs-d-flex bs-gap-3 bs-g-0 bs-gy-3 bs-justify-content-md-end bs-justify-content-start">
+                <% search_by_params = params[:search_by] || [] %>
+                <%= form.hidden_field "search_by", value: search_by_params, data: { devices_filters_target: "searchByParams" } %>
+                <%= form.text_field "", value: params.dig(:q), data: { action: "devices-filters#onBasicQueryChange", devices_filters_target: "searchInput", name: "search_by[][value]" }, class: "search-input bs-form-control bs-w-100", placeholder: @basic_search_hint %>
+                <%= turbo_frame_tag "search_options", src: search_options_user_v3_devices_path(current_user, view_for: view_for), data: { devices_filters_target: "advancedSearch" }, class: "bs-w-100 bs-border bs-rounded bs-d-flex bs-align-items-center bs-d-none", loading: :lazy do %>
+                    <%= form.text_field "", value: "", class: "search-input bs-form-control bs-w-100", placeholder: I18n.t("devices.advance_search_hint") %>
+                <% end %>
+                <div class="bs-d-flex bs-align-items-center bs-gap-3">
+                    <%= button_tag(type: "button", class: "bs-btn bs-btn-outline-primary", data: { action: "devices-filters#toggleSearchType", devices_filters_target: "searchButton" }) do %>
+                        <%= I18n.t("common.advanced") %>
+                    <% end %>
+                    <div class="bs-d-flex bs-align-items-center bs-gap-3">
+                        <%= link_to "#{reset_url || search_url}", 
+                            method: :get, 
+                            target: "device-list", 
+                            data: { turbo_stream: "", turbo_method: "", devices_filters_target: "clearButton" }, 
+                            class: "bs-btn bs-text-primary bs-fw-semibold bs-px-2 bs-d-none" do %> 
+                            <%= I18n.t("devices.clear_filter") %>
+                        <% end %>
+
+                        <svg data-devices-filters-target="closeButton" data-action="click->devices-filters#showBasicSearch click->devices#showBasicSearch" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle bs-text-secondary bs-btn bs-p-0 bs-d-none"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Elastic Input -->
+        </div>
+    <% end %>
+<% end %>

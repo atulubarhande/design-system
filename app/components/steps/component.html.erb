@@ -1,0 +1,23 @@
+<div data-controller="steps" data-steps-active-step-value="<%=active_step_index%>"  class="bs-position-relative steps">
+    <div class="bs-d-flex bs-align-items-center bs-justify-content-center <%= header_class%>">
+        <%steps.each_with_index do |item, index|%>
+            <div class="bs-d-flex bs-align-items-center bs-col-auto step-wrapper">
+                <div class="<%= disable_steps ? 'bs-mx-3' : 'bs-btn'%> bs-d-flex bs-my-3 bs-align-items-center" data-action="<%= disable_steps ? '' : 'click->steps#onStepSelect'%>" data-steps-index-param="<%=index%>" role="button">
+                    <button class="bs-shadow bs-btn bs-fs-4 circle bs-py-3 bs-me-3 <%= active_step_index == index ? 'bs-btn-primary' : 'bs-btn-outline-primary'%>" data-steps-target="step"  ><%= index+1%></button>
+                    <h5 class="bs-text-truncate" ><%= item%></h5>
+                </div>
+                 <div class="bs-border-primary <%= steps.length == (index+1) ? 'bs-d-none' : 'hr-line' %>"></div>
+            </div>
+        <% end %>
+    </div>
+    <% panels.each_with_index do |panel, index| %>
+        <div class="bs-mt-5 <%= active_step_index == index ? '' : 'bs-d-none'%> " data-steps-target="pannel">
+            <%= panel%>
+        </div>
+    <% end %>
+    <div class="bs-d-flex bs-justify-content-<%=action_position%>">
+        <%if show_prev %><button class="bs-btn bs-btn-primary bs-me-3 bs-my-3 <%= action_classes %> <%= active_step_index == 0 ? 'bs-d-none' : ''%>" data-action="click->steps#onPrev" data-steps-target="prev"><%= prev_button_text%></button><% end %>
+        <%if show_next %><button class="bs-btn bs-btn-primary bs-my-3 <%= action_classes %> <%= active_step_index + 1 == panels.length ? 'bs-d-none' : ''%>" data-action="click->steps#onNext" data-steps-target="next"><%= next_button_text%></button><% end %>
+        <%if complete_button%><span data-steps-target="complete" class="<%= action_classes %> <%= active_step_index + 1 == panels.length ? '' : 'bs-d-none'%>"> <%= complete_button%> </span> <% end %>
+    </div>
+</div>

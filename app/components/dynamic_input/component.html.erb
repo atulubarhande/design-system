@@ -1,0 +1,57 @@
+<div class="bs-row bs-mb-3 input-box">
+  <%= label_tag @label, class: "#{@labelClass} bs-col-form-label bs-fs-6 bs-text-body-secondary" do %>
+      <span><%= @label %></span>
+      <% if @required %>
+        <span class="text-danger">*</span>
+      <% end %>
+      <% if @infotext.present? %>
+        <span class="bs-margin-info-icon" data-controller="tooltip" data-bs-toggle="bs-tooltip" data-bs-placement="top" data-bs-title="<%= @infotext %>">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#585c5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        </span>
+      <% end %>
+  <% end %>
+  <% if ['text', 'password', 'email', 'number'].include?(@type) %>
+    <div class="<%= @inputClass %>">
+        <input
+          id="<%= @id %>" 
+          name="<%= @name %>"
+          value="<%= @value %>"
+          <% if @min %> min="<%= @min %>" <% end %>
+          <% if @max %> max="<%= @max %>" <% end %>
+          <% if @start %> start="<%= @start %>" <% end %>
+          <% if @step %> step="<%= @step %>" <% end %>
+          <% if @required %> required <% end %>
+          <% if @controller  %> data-controller="<%= @controller %>" <% end %>
+          <% if @data != nil %> <%= @data %> <% end %>
+          <% if @action.present? %> data-action="<%= @action %>" <% end %>
+          type="<%= @type %>"
+          <% if @required %> pattern=".*\S+.*" <% end %>
+          class="bs-form-control input-control <%= @classes %>"
+          placeholder="<%= @placeholder %>"
+        >
+        <%= content %>
+    </div>
+  <% elsif @type == 'toggle' %>
+    <div class="bs-form-check bs-form-switch <%= @inputClass %> bs-dynamic-field-toggle">
+      <input type="hidden" name="<%= @name %>" value="false">
+      <input class="bs-form-check-input bs-fs-4 bs-m-0 <%= @classes %>"
+          type="checkbox"
+          name="<%= @name %>"
+          id="<%= @id %>"
+          <% if @action.present? %> data-action="<%= @action %>" <% end %>
+          value="true" <% if  @checked %> checked  <% end %>
+          <% if @data != nil %> <%= @data %> <% end %>
+          <% if @disabled %> disabled <% end %>
+          >
+    </div>
+  <% elsif @type == 'dropdown' %>
+    <div class="<%= @inputClass %>">
+      <%= select_tag @name, options_for_select(@options, @value), class: "bs-form-select #{@classes}",
+      data: @data %>
+    </div>
+  <% end %>
+  <% if @extra_text %>
+    <p class="bs-text-body-secondary bs-pt-2"><%= @extra_text %>
+    </p>
+  <% end %>
+</div>

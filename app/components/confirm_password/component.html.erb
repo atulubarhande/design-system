@@ -1,0 +1,50 @@
+<%= content_tag :div, data: { controller: "submit-pin", submit_pin_has_pin_value: !is_sf_account } do %>
+    <%= hidden_field_tag is_sf_account ? @field_name : @pin_name, "", data: { submit_pin_target: "input" } %>
+    <% if is_sf_account %>
+        <div class="bs-pt-2 bs-mb-3">
+            <label for="current_password" class="bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3"><%= I18n.t('common.confirm_action_password_text') %></label>
+            <div class="bs-d-flex bs-align-items-center bs-justify-content-between">
+                <input
+                    data-submit-pin-target="currentPassword"
+                    autocomplete="new-password"
+                    type="password"
+                    data-action="submit-pin#handlePasswordChange"
+                    id="current_password"
+                    class="bs-form-control"
+                />
+                <button type="button" class="bs-icon-button" data-submit-pin-target="toggleButton" data-action="submit-pin#togglePasswordVisibility">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    <% else %>
+        <label for="current_password" class="bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3"><%= I18n.t('accounts.confirm_pin_action') %></label>
+        <div class="bs-d-flex bs-align-items-center bs-justify-content-center bs-my-3">
+            <div class="bs-d-flex bs-align-items-center" data-submit-pin-target="currentPassword">
+                <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="password" data-tabindex="0" data-action="submit-pin#enterPin" otp-index="0" class="bs-form-control bs-text-center bs-me-3" style="height: 35px;width: 35px" maxlength="1">
+                <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="password" data-tabindex="1" data-action="submit-pin#enterPin" otp-index="0" class="bs-form-control bs-text-center bs-me-3" style="height: 35px;width: 35px" maxlength="1">
+                <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="password" data-tabindex="2" data-action="submit-pin#enterPin" otp-index="0" class="bs-form-control bs-text-center bs-me-3" style="height: 35px;width: 35px" maxlength="1">
+                <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="password" data-tabindex="3" data-action="submit-pin#enterPin" otp-index="0" class="bs-form-control bs-text-center bs-me-3" style="height: 35px;width: 35px" maxlength="1">
+                <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="password" data-tabindex="4" data-action="submit-pin#enterPin" otp-index="0" class="bs-form-control bs-text-center bs-me-3" style="height: 35px;width: 35px" maxlength="1">
+                <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="password" data-tabindex="5" data-action="submit-pin#enterPin" otp-index="0" class="bs-form-control bs-text-center bs-me-3" style="height: 35px;width: 35px" maxlength="1">
+            </div>
+            <button type="button" class="bs-icon-button" data-submit-pin-target="toggleButton" data-action="submit-pin#togglePasswordVisibility">
+                <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    <% end %>
+    <% if footer? %>
+        <%= content_tag :div, class: "bs-modal-footer bs-border-0 bs-flex-column bs-flex-sm-row bs-p-4" do %>
+            <% if @show_cancel_button %>
+                <button type="button" class="bs-btn bs-btn-outline-secondary bs-me-3" data-action="turbo-modal#hideModal" aria-label="Close"><%= I18n.t("common.cancel") %></button>
+            <% end %>
+            <%= footer %>
+        <% end %>
+    <% end %>
+<% end %>

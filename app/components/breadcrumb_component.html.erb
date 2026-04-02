@@ -1,0 +1,30 @@
+<div class="v3-breadcrumb bs-mt-3 bs-d-sm-flex bs-align-items-sm-center bs-justify-content-sm-between bs-bg-body bs-py-3 bs-px-4 bs-border bs-shadow-sm bs-rounded-top <%= @container_class %>">
+    <% if links.present? %>
+        <nav class="bs-d-sm-none" aria-label="Back">
+            <a data-turbo="false" href="<%= @home_url %>" class="bs-d-flex bs-align-items-center bs-text-black-50">
+                <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Back
+            </a>
+        </nav>
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="bs-fs-5 bs-breadcrumb bs-m-0 bs-d-none bs-d-sm-flex" title="<%= @list_title %>">
+                <% links.each_with_index do |link, index| %>
+                    <li class="bs-breadcrumb-item <%= "bs-active" if index == links.size - 1 %>"><%= link %></li>
+                <% end %>
+            </ol>
+        </nav>
+    <% end %>
+    <figure class="bs-m-0">
+        <blockquote class="bs-blockquote bs-m-0 bs-border-0 bs-p-0">
+            <% if @title %>
+                <div class="crumb-title bs-m-0 "><%= @title %></div>
+            <% end %>
+            <div class="crumb-title"><% if header? %><%= header %><% end %></div>
+        </blockquote>
+    </figure>
+    <div class="bs-d-flex bs-mt-3 bs-mt-sm-0 <%= @content_classes %>">
+        <%= content %>
+    </div>
+</div>

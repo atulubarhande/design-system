@@ -1,0 +1,16 @@
+/**
+ * ===============================================
+ * Bootstrap variable overrides (barrel)
+ * ===============================================
+ * Runs after `bootstrap/_token-map.scss` (maps `$ds-*` → app variables).
+ * Each partial: Bootstrap `$variable` assignments only — no selectors.
+ */
+@import "global";
+@import "buttons";
+@import "spacing";
+@import "dropdown";
+@import "form-control";
+@import "modal";
+// @import "forms";
+// @import "modals";
+// @import "typography";

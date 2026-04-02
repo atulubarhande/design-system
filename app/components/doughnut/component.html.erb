@@ -1,0 +1,28 @@
+<div data-controller="deep-dive-chart"
+    data-deep-dive-chart-action-value=""
+    data-deep-dive-chart-devices-path-value=<%= @devices_path %>
+    class="bs-d-flex bs-justify-content-center"
+    style="position: relative;"
+    data-deep-dive-chart-used-value="<%= @used_value if @storage_tooltip || @device_storage %>"
+    data-deep-dive-chart-available-value="<%= @available_value if @storage_tooltip || @device_storage %>"
+    data-show-legend="<%= @show_legend %>"
+    data-deep-dive-chart-custom-tooltip-value="<%= @custom_tooltip %>"
+    data-deep-dive-chart-tab-value="<%= @tab %>"
+    data-deep-dive-chart-group-id-value="<%= @group_id %>"
+    data-deep-dive-chart-storage-tooltip-value="<%= @storage_tooltip %>"
+    <% if @group_ids.present? %>
+        data-deep-dive-chart-group-ids-value="<%= @group_ids %>"
+    <% end %>
+    <% if @group_name.present? %>
+        data-deep-dive-chart-group-name-value="<%= @group_name %>"
+    <% end %>
+    data-deep-dive-chart-device-storage-value="<%= @device_storage %>"
+    data-deep-dive-chart-type-value='<%= @chart_type %>'
+    data-deep-dive-chart-options-value='<%= @options %>'
+    data-deep-dive-chart-chart-click-value="<%= @chart_click %>"
+    data-deep-dive-chart-plugins-value='<%= @plugins %>'
+    data-deep-dive-chart-name-value="system"
+    data-deep-dive-chart-data-value='{"labels": <%= @labels %>, "datasets":[{"data": <%= @data %>, <%= @overrides %>}]}'
+    data-deep-dive-chart-data-url-value="<%= @data_url %>">
+    <%= content %>
+</div>

@@ -1,0 +1,34 @@
+<% if @has_true_or_false %>
+    <%# Submits false value without unchecking toggle %>
+    <%= content_tag :div, data: { controller: "toggle" }, class: "bs-form-check bs-form-switch bs-d-flex bs-align-items-center bs-flex-row-reverse bs-ps-0 bs-justify-content-between bs-my-3 #{container_classes}" do %>
+        <div class="bs-d-flex bs-justify-content-sm-end">
+            <%= hidden_field_tag @name, @checked, data: { toggle_target: "hiddenInput" } %>
+            <%= check_box_tag "", @value, @checked, id: @id, class: "bs-form-check-input bs-fs-5 #{@classes}", disabled: @disabled, data: { action: ["toggle#updateValue", @data[:action]].compact.join(" ") }.merge(@data.except(:action) || {}) %>
+        </div>
+        <label class="bs-form-check-label bs-m-0 bs-me-3 bs-flex-grow-1 <%= @automation_class %>" for="<%= @id %>">
+            <% if custom_label? %>
+                <%= custom_label %>
+            <% else %>
+                <%= @label %>
+            <% end %>
+            <div class="bs-text-body-secondary bs-fs-6"><%= @description %></div>
+        </label>
+    <% end %>
+<% else %>
+    <%= content_tag :div, class: "bs-form-check bs-form-switch bs-d-flex bs-align-items-center bs-flex-row-reverse bs-ps-0 bs-justify-content-between bs-my-3 #{container_classes}" do %>
+        <div class="bs-d-flex bs-justify-content-sm-end">
+            <% if @default_value %>
+                <%= hidden_field_tag @name, false, data: @hidden_input_data %>
+            <% end %>
+            <%= check_box_tag @name, @value, @checked, id: @id, class: "bs-form-check-input bs-fs-5 #{@classes}", disabled: @disabled, data: @data %>
+        </div>
+        <label class="bs-form-check-label  bs-m-0 bs-me-3 bs-flex-grow-1 <%= @automation_class %>" for="<%= @id %>">
+            <% if custom_label? %>
+                <%= custom_label %>
+            <% else %>
+                <%= @label %>
+            <% end %>
+            <div class="bs-text-body-secondary bs-fs-6"><%= @description %></div>
+        </label>
+    <% end %>
+<% end %>

@@ -1,0 +1,64 @@
+<% @links.each_with_index do |tab, index| %>
+    <%= turbo_frame_tag "#{tab[:slug]}" do %>
+        <% if tab[:visible] %>
+            <% if tab[:sub_tabs].present? %>
+                <div class="bs-accordion-item bs-border-0">
+                    <h2 class="bs-accordion-header">
+                        <%= button_tag data: {
+                                bs_toggle: "collapse",
+                                dashboard_target: "collapse",
+                                match: tab[:match],
+                                bs_target: "#flush-collapse-#{tab[:slug]}",
+                                id: "flush-collapse-#{tab[:slug]}" 
+                            },
+                            type: "button",
+                            "aria-expanded": false,
+                            "aria-controls": "flush-collapse-#{tab[:slug]}",
+                            :class => "sidebar-bs-accordion-button bs-accordion-button sidebar-accordion-button link-padding bs-pe-3 bs-text-nowrap bs-d-flex bs-align-items-center bs-gap-3 bs-text-body #{tab[:active] ? "bs-active" : "bs-collapsed" }" do %>
+                            <%= image_tag tab[:icon], height: 24, width: 24, class: "inactive-image" %>
+                            <%= tab[:title] %>
+                            <% if (tab[:has_badge].present? && tab[:has_badge]) %>
+                                <%= content_tag :span, class: " bs-p-2 bs-bg-primary bs-border bs-border-light bs-rounded-circle bs-ms-auto bs-me-3" do %>
+                                    <span class="bs-visually-hidden">New alerts</span>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </h2>
+                    <div id="flush-collapse-<%= tab[:slug] %>" class="bs-accordion-collapse device-profiles-collapse <%= "#{tab[:active] ? "bs-show" : "bs-collapse"}" %>" data-bs-parent="#dashboard-sidebar-accordion">
+                        <div class="bs-accordion-body bs-px-0 bs-ps-5">
+                            <% tab[:sub_tabs].each_with_index do |sub_tab, index| %>
+                                <% if sub_tab[:visible] %>
+                                    <%= link_to sub_tab[:path], id: sub_tab[:slug], target: "content-frame", data: {
+                                        turbo_frame: "content-frame",
+                                        dashboard_target: "link",
+                                        match: sub_tab[:match],
+                                        action: "dashboard#beforeLeave dashboard#onLinkClick",
+                                        dashboard_parent_collapse_id_param: "flush-collapse-#{tab[:slug]}"
+                                        }, class:  "bs-nav-link bs-sub-nav-link bs-pe-3 profile-nav-link bs-w-100 bs-text-start bs-rounded-0 bs-ps-4 bs-text-body #{"bs-active" if active_sidebar_class(sub_tab[:path])}"  do %>
+                                        <%= sub_tab[:title] %>
+                                        <!-- For tab notifications like pending actions -->
+                                        <%= content_tag :span, sub_tab[:badge], class: "bs-badge bs-rounded-pill bs-bg-primary bs-ms-3 bs-fs-6" if (sub_tab[:badge].present? && sub_tab[:badge] > 0) %>
+                                        <!-- For beta text -->
+                                        <%= content_tag :span, sub_tab[:beta_text], class: "beta" if (sub_tab[:beta_text].present?) %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            <% else %>
+                <%= link_to tab[:path], id: tab[:slug], target: "content-frame", data: {
+                        turbo_frame: "content-frame",
+                        dashboard_target: "link",
+                        href: tab[:path],
+                        match: tab[:match],
+                        action: "dashboard#beforeLeave dashboard#onLinkClick dashboard#unCollapse",
+                        dashboard_parent_collapse_id_param: "flush-collapse-#{tab[:slug]}"
+                    }, class:  "bs-nav-link link-padding bs-pe-3 profile-nav-link bs-w-100 bs-text-start bs-rounded-0 bs-d-flex bs-align-items-center bs-gap-3 #{"bs-active" if active_sidebar_class(tab[:path])}"  do %>
+                    <%= image_tag tab[:icon], height: 24, width: 24, class: "inactive-image" %>
+                    <%= tab[:title] %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

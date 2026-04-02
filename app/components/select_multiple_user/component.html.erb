@@ -1,0 +1,67 @@
+<div data-controller="multi-users-checkbox" data-multi-users-checkbox-hidden-class="bs-d-none">
+
+  <%= hidden_field_tag "billing_contact[#{@name}][]", nil %>
+
+  <% if @label.present? %>
+    <%= label_tag @name, class: "bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3" do %>
+      <%= @label %>
+    <% end %>
+  <% end %>
+
+  <div class="bs-d-flex bs-align-items-center bs-justify-content-between">
+    <div class="bs-dropdown bs-w-100" data-multi-users-checkbox-target="dropdown">
+      <button class="bs-btn bs-btn-outline-secondary bs-dropdown-toggle bs-w-100 bs-d-flex bs-align-items-center bs-justify-content-between" type="button" id="auto-complete" data-bs-toggle="dropdown" aria-expanded="false">
+          <div data-multi-users-checkbox-target="selected" class="bs-text-truncate"><%= selected_users_names %></div>
+      </button>
+      <ul class="bs-dropdown-menu bs-shadow bs-w-100" aria-labelledby="auto-complete">
+        <div class="bs-position-relative bs-flex-grow-1 bs-m-3 <%= users.blank? ? 'bs-d-none' : '' %>">
+          <div class="bs-position-absolute bs-top-0 bs-end-0 bs-bottom-0 bs-start-0 bs-ps-3 bs-d-flex bs-align-items-center" style="pointer-events: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <input data-multi-users-checkbox-target="searchInput" data-action="multi-users-checkbox#searchUsers" type="text" placeholder="<%= t('common.search') %>" class="bs-d-flex bs-form-control bs-ps-5" />
+        </div>
+        <div class="bs-d-flex">
+          <li class="bs-align-self-end">
+            <%= content_tag :label, class: "bs-form-label bs-w-100 cursor-pointer bs-p-2 #{ users.blank? ? 'bs-d-none' : '' }", data: { action: 'click->multi-users-checkbox#holdDropdown' } do %>
+              <%= check_box_tag('show_selected', 'show_selected', false, class: "bs-checkbox-input", data: { action: "multi-users-checkbox#toggleShowSelectedUsers" }) %>
+              <%= t('common.show_selected') %>
+            <% end %>
+          </li>
+          <li class=<%= hide_select_all_checkbox ? 'bs-d-none' : '' %>>
+            <%= content_tag :label, class: "bs-form-label bs-w-100 cursor-pointer bs-p-2 #{ users.blank? ? 'bs-d-none' : '' }", data: { action: 'click->multi-users-checkbox#holdDropdown' } do %>
+              <%= check_box_tag('select_all_checkbox', 'select_all', false, class: "bs-checkbox-input", data: {
+                      multi_users_checkbox_target: "selectAll",
+                      action: "multi-users-checkbox#onSelectAll",
+                  }) %>
+              <%= t('common.select_all') %>
+            <% end %>
+          </li>
+        </div>
+        <li><hr class="bs-dropdown-divider"></li>
+        <div class="bs-overflow-auto bs-scroll-sm" style="max-height: 280px;">
+          <% if users.present? %>
+            <div data-multi-users-checkbox-target="usersDrodpdown">
+              <% users.each do |user| %>
+                <li class="bs-ms-2">
+                    <%= content_tag :label, class: "bs-form-label bs-w-100 #{( disable_all_options || disabled_user_ids.include?(user.id)) ? 'disabled' : 'cursor-pointer'}", data: { action: 'click->multi-users-checkbox#holdDropdown' } do %>
+                        <%= check_box_tag("billing_contact[#{@name}][]", user.id, selected_users_ids.include?(user.id), class: "bs-checkbox-input", disabled: (disable_all_options || disabled_user_ids.include?(user.id)), data: {
+                                multi_users_checkbox_target: "user",
+                                name: user.name,
+                                email: user.email,
+                                action: "multi-users-checkbox#onUserChange",
+                            }) %>
+                        <%= "#{user.name} ( #{user.email} )" %>
+                    <% end %>
+                </li>
+              <% end %>
+            </div>
+          <% end %>
+          <%= content_tag :div, t('common.no_result'), data: { multi_users_checkbox_target: "empty" }, class: "bs-alert bs-alert-warning bs-text-center bs-m-3 #{ users.blank? ? '' : 'bs-d-none' }" %>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

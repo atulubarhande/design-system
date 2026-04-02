@@ -1,0 +1,50 @@
+<%# Container DIV %>
+<%= content_tag :div, 
+    data: { controller: "multi-select-card", 
+            multi_select_card_name_value: @name,
+            multi_select_card_required_value: @required,
+            multi_select_card_selected_value_value: @selected_value, 
+            multi_select_card_select_all_index_value: @select_all_index || 0 }, 
+    class: @container_class || ""  do %>
+
+    <div class="bs-row">
+        <% if custom_label? %>
+            <%= custom_label %>
+        <% elsif custom_label? && description? %>
+            <label class="bs-form-check-label bs-text-body-secondary bs-m-0 bs-flex-grow-1 <%= @label_classes %>">
+                <%= @label %>
+                <%= content_tag :div, raw(@description), class: "bs-text-black-50 bs-fs-6" if @description.present? %>
+            </label>
+        <% else %>
+            <label class="bs-form-check-label bs-text-body-secondary bs-m-0 bs-flex-grow-1 <%= @label_classes %>">
+                <%= @label %>
+            </label>
+        <% end %>
+        <div class="<%= @select_tag_classes %>" data-multi-select-card-target="container">
+            <template data-multi-select-card-target="template">
+                <div class="bs-col-auto">
+                    <% input_id = SecureRandom.uuid %>
+                    <%= check_box_tag "NAME", "VALUE", checked: true, :id => input_id, class: "bs-btn-check" %>
+                    <label class = "bs-d-flex bs-align-items-center bs-gap-2 bs-px-3 bs-py-2 bs-bg-body-secondary bs-rounded bs-fs-6 bs-mb-3" id=INDEX>
+                        <span>APPITEM</span>
+                        <button type="button" data-action="<%= @remove_action %> multi-select-card#removeItem" class="bs-btn bs-p-0 bs-d-flex bs-align-items-center bs-text-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>         
+                        </button> 
+                    </label>
+                </div>
+            </template>
+            <%= content_tag :div, data: { multi_select_card_target:"applist" }, class: "bs-d-flex bs-align-items-center bs-gap-2 bs-flex-wrap bs-overflow-scroll bs-scroll-sm", style: "max-height:#{@max_height}; width: #{@width};" do %>
+            <% end %>
+            <%= sf "Select::", 
+                list: @list ,
+                promt_message: @placeholder,
+                id: @id,
+                name: @required ? @name : "",
+                required: @required,
+                disabled_options: @disabled_options,
+                selected: nil,
+                classes: "bs-scroll-sm",
+                data: custom_data %>
+        </div>
+    </div>
+<% end %>

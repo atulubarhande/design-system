@@ -1,0 +1,60 @@
+<div data-controller="clipboard field-validation" data-clipboard-pointer-none-class="bs-pe-none" class="<%= @container_classes %>">
+    <div data-bs-toggle="tooltip" data-bs-placement="top" title="<%=@value%>" class="bs-p-4 bs-d-flex bs-align-items-center bs-justify-content-between bs-border bs-border-primary-subtle bs-rounded bs-bg-secondary-subtle <%= @text_area ? 'bs-align-items-center-start' : 'bs-align-items-center' %>">
+        <%if @is_text_area %>
+            <template class="bs-visually-hidden" data-clipboard-target="tick">
+                <div style="height: 25px;" class="bs-d-flex bs-align-items-center bs-justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check bs-me-1"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <%= I18n.t("common.copied") %>
+                </div>
+            </template>
+            <textarea class="bs-form-control bs-bg-secondary-subtle bs-scroll-sm" 
+                data-clipboard-target="source" 
+                readonly="true" 
+                style="height: <%= @textarea_height %>"><%= @value.class != String ? JSON.pretty_generate(@value) : @value %></textarea>
+            <div data-clipboard-target="button" data-action="click->clipboard#copy" class="bs-btn bs-position-absolute bs-top-0 bs-end-0"  title="copy">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+            </div>
+        <% else %>
+            <template class="bs-visually-hidden" data-clipboard-target="tick">
+                <div style="height: 25px;" class="bs-d-flex bs-align-items-center bs-justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check bs-me-1"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <%= I18n.t("common.copied") %>
+                </div>
+            </template>
+            <div class="bs-w-100 <%= @classes %>">
+                <% if custom_label? %>
+                    <label class="bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3"><%= custom_label %></label>
+                <% end %>
+                <%= tag.input(
+                    type: @password_field ? 'password' : 'text',
+                    readonly: @readonly,
+                    value: @value,
+                    name: @name,
+                    placeholder: @placeholder,
+                    disabled: @disabled,
+                    data: custom_data,
+                    required: @required,
+                    maxlength: @maxlength,
+                    minlength: @minlength,
+                    class: "bs-form-control #{ @readonly ? "bs-border-0 bs-bg-secondary-subtle bs-p-0 bs-text-truncate" : ""}"
+                    ) 
+                %>
+
+            </div>
+            <% if @password_field %>
+                <button type="button" class="bs-icon-button bs-me-3 " data-action="clipboard#toggleVisibility">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            <% end %>
+            <div style="height: 25px;" data-clipboard-target="button" data-action="click->clipboard#copy" class="bs-btn bs-text-primary-emphasis bs-p-0"  title="copy">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+            </div>
+        <% end %>
+    </div>
+    <% if @show_validation_errors %>
+        <%= label_tag "", "", data: { field_validation_target: "errorText" }, class: "bs-form-label bs-fs-6 bs-text-danger bs-d-none #{@error_label_class}" %>
+    <% end %>
+</div>

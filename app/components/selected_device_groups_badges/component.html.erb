@@ -1,0 +1,19 @@
+<div class="bs-d-flex bs-align-items-center v3-device-group-badges bs-flex-wrap bs-gap-2">
+    <% if groups.present? %>
+        <% groups&.first(@visible_chip_count).each do |c| %>
+            <% name = c.public_send(:[], :name) %>
+            <li class="bs-badge bs-bg-secondary-subtle bs-text-secondary-emphasis bs-fs-6 bs-fw-normal" title="<%= name %>">
+                <%= ((name&.length || 0) > 9) ? "#{name&.slice(0, 9)}..." : name.to_s %>
+            </li>
+        <% end %>
+        <% if groups&.length > @visible_chip_count %>
+            <li class="bs-badge bs-bg-secondary-subtle bs-text-secondary-emphasis bs-fs-6 bs-fw-normal">
+                + <%= groups&.length - @visible_chip_count %>
+            </li>
+        <% end %>
+    <% else %>
+        <div class="bs-badge bs-bg-secondary-subtle bs-text-secondary-emphasis bs-fs-6 bs-fw-normal bs-text-truncate" title="<%= I18n.t("common.none_selected") %>">
+            <%= I18n.t("common.none_selected") %>
+        </div>
+    <% end %>
+</div>

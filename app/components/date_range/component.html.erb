@@ -1,0 +1,18 @@
+<%= content_tag :div, 
+    class: "bs-position-relative bs-d-flex bs-align-items-center bs-form-control bs-p-2 bs-justify-content-between", 
+    data: { 
+        controller: "date-range", 
+        date_range_start_date_value: @start_date,  
+        date_range_end_date_value: @end_date,
+        date_range_max_date_value: @max_date,
+        date_range_max_range_value: @max_range,
+        date_range_placeholder_value: @placeholder,
+        date_range_custom_event_value: @custom_event
+    } do %>
+    <%= hidden_field_tag @start_date_name, @start_date, data: { date_range_target: "startDate", name: @start_date_name} %>
+    <%= hidden_field_tag @end_date_name, @end_date, data: { date_range_target: "endDate", name: @end_date_name }  %>
+    <%= text_field_tag "","", id: @id, class: 'fp_date_time bs-border-0 bs-pe-3 bs-w-100', data: { date_range_target: "dateRange", action: @action } %>
+    <label for="<%= @id %>" class="bs-m-0 bs-d-flex" role="button" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+    </label>
+<% end %>

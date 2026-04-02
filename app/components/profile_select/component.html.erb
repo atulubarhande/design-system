@@ -1,0 +1,39 @@
+<%= content_tag :div, class: "bs-row brands bs-m-3 #{@container_classes}", data: {
+        controller: "selection lazy-load-images",
+        selection_active_class: "bs-border-primary bs-opacity-100",
+        selection_hidden_class: "bs-d-none",
+        selection_logo_value: asset_path('logo/sf_mark.svg'),
+        selection_wallpaper_value: asset_path('v2/bg/img_wallpaper_default@2x.png')
+    } do %>
+    <div class="bs-col <%= "#{"bs-col-12" unless @show_screen}" %>"> 
+        <% if device_profiles.present? %>
+            <%= sf "SearchInput", id: @id, placeholder: @placeholder_for_search %>
+        <% end %>
+        <% if switch_profile_mode? %>
+            <%= switch_profile_mode %> 
+        <% else %>
+            <div class="choose-profiles-tab bs-overflow-auto bs-scroll-sm bs-mt-3">
+                <%= sf "SearchList", id: @id, controller: "search profiles" do %>
+                    <div class="bs-d-flex bs-flex-wrap bs-gap-2 bs-py-3">
+                        <%= profiles_list if profiles_list? %>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <% if @show_screen %>
+        <div class="bs-col" data-selection-target="selectedProfileWrapper">
+            <%= content_tag :div, class: "" do %>
+                <%= selected_profile if selected_profile? %>
+            <% end %>
+            <div class="bs-row">
+                <div class="bs-col-11 bs-mx-auto bs-mt-5">
+                    <%= sf "DeviceProfileScreen::", device_profile: @device_profile , current_user: @current_user do %>
+                        <%= content_tag :ul, data: { selection_target: "preview" }, class: "grid-apps unstyled-list bs-rounded bs-overflow-auto scroll-sm bs-p-3 bs-m-0" do %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% end %>

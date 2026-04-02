@@ -1,0 +1,20 @@
+<div class="bs-row bs-align-items-center bs-overflow-visible">
+    <% if @is_catalog_app %>
+        <div class="bs-col-3 bs-me-3">
+            <span class="app-store-logo store-logo-xl bs-text-truncate bs-object-fit-contain"><%= @name.split(' ').map(&:chr).join.upcase %></span>
+        </div>
+    <% else %> 
+        <%= image_tag @logo, height: 100, width: 100, class: "bs-col-3 bs-rounded bs-object-fit-contain" %>
+    <% end %>
+    <div class="bs-col-8">
+        <%= content_tag "dd", @name, class: "bs-mt-1 bs-text-truncate bs-fw-semibold bs-fs-5" %>
+        <%= content_tag :div, class: "bs-text-black-50 bs-fs-6 bs-d-flex bs-align-items-center bs-text-truncate", title: "#{@product_id&.sub('app:', '')} #{@version if @is_google_play_app }" do %>
+            <%= @product_id&.sub('app:', '') %>
+            <% if @is_google_play_app %>
+                <%= @version %>
+            <% end %> 
+        <% end %>
+        <%= content %>
+    </div>
+</div>
+<%= footer if footer? %>

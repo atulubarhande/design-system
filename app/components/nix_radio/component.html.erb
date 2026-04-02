@@ -1,0 +1,11 @@
+<div class="bs-form-check bs-form-check-inline">
+  <input type="hidden" name="<%#= @name %>" value="false">
+  <%= radio_button_tag @name, @value, @checked, :id => @id,  data: @data, class: "bs-form-check-input" %>
+  <%= label_tag @id, class: "bs-form-check-label bs-text-body-secondary" do %>
+    <% if custom_label? %>
+      <%= custom_label %>
+    <% else %>
+      <%= raw @label %>
+    <% end %>
+  <% end %>
+</div>

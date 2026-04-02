@@ -1,0 +1,32 @@
+<%= content_tag :div,
+    data: custom_data,
+    class: @classes do %>
+    <% if @label.present? || custom_label? %>
+        <%= label_tag @name, class: "bs-form-label bs-text-body-secondary bs-mb-3 bs-fs-#{@fontsize}" do %>
+            <% if custom_label? %>
+                <%= custom_label %>
+            <% else %>
+                <%= @label %>
+            <% end %>
+        <% end %>
+    <% end %>
+    <%= text_field_tag @name, @value, disabled: @disabled, 
+        placeholder: @placeholder, 
+        pattern: @pattern, 
+        required: @required, 
+        data: @data, 
+        class: "bs-form-control #{@input_class}", 
+        readonly: @read_only, 
+        type: @type,
+        inputmode: @inputmode,
+        autocomplete: "new-password",
+        min: @min,
+        max: @max,
+        minlength: @minlength,
+        maxlength: @maxlength,
+        id: @id,
+        step: @step,
+        form: @form
+    %>
+    <%= label_tag "", "", data: { field_validation_target: "errorText" }, class: "bs-form-label bs-fs-6 bs-text-danger bs-d-none #{@error_label_class}" %>
+<% end %>

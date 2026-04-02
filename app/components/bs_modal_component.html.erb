@@ -1,0 +1,47 @@
+<%= content_tag :div, nil, class: "bs-modal-backdrop bs-fade bs-show modal-on-modal-backdrop bs-d-none", data: { controller: "modal-backdrop", modal_backdrop_modal_id_value: @id, modal_backdrop_trigger_on_value: @trigger_on } if @add_backdrop %>
+<div
+    data-controller="bs-modal modal-form <%= @extra_controller %>"
+    data-bs-modal-target-value="<%= @id %>"
+    data-action="<%= @close_on_submit == true ? "turbo:submit-end->bs-modal#submitEnd " : "" %> turbo:submit-start->bs-modal#onSubmitStart"
+    data-bs-backdrop=<%=@backdrop%>
+    data-bs-keyboard="false"
+    class="bs-modal bs-fade" id="<%= @id %>" tabindex="-1" aria-labelledby="<%= @id %>ModalLabel" aria-hidden="true">
+    <div class="bs-modal-dialog bs-modal-dialog-centered <%= "bs-modal-dialog-scrollable" if @scroll %> <%= @size %>">
+        <div class="bs-modal-content <%= @classes %>" style="height: <%= @custom_modal_height %>">
+            <% if @show_header %>
+                <div class="bs-modal-header">
+                    <h5 class="bs-modal-title bs-text-body bs-text-truncate" id="<%= @id %>ModalLabel">
+                        <% if title? %>
+                            <%= title %>
+                        <% else %>
+                            <%= raw @title %>
+                        <% end %>
+                    </h5>
+                    <% if @show_dismiss_btn %>
+                        <button type="button" class="bs-btn-close" data-action="<%= @on_close_action%>" data-bs-dismiss="bs-modal" aria-label="Close"></button>
+                    <% end %>
+                    <% if dismiss_button? %>
+                        <%= dismiss_button %>
+                    <% end %>
+                </div>
+            <% end %>
+            <% if header? %><div class="bs-m-4"> <%= header %> </div><% end %>
+            <div class="bs-modal-body bs-text-body bs-ms-0 bs-me-0 bs-scroll-sm <%= @modal_body_class %>" style="height: <%= @height %>"><%= content %></div>
+            <% if footer? %>
+                <div class="bs-modal-footer bs-border-0 bs-flex-column bs-flex-sm-row bs-gap-3">
+                    <% if @is_destructive_action %>
+                        <%= footer %>
+                        <% if @show_cancel_button %>
+                            <button type="button" class="bs-btn bs-btn-outline-secondary bs-me-3" data-action="<%= @on_close_action%>" data-bs-dismiss="bs-modal" aria-label="Close"><%= I18n.t("common.cancel") %></button>
+                        <% end %>
+                    <% else %>
+                        <% if @show_cancel_button %>
+                            <button type="button" class="bs-btn bs-btn-outline-secondary bs-me-3" data-action="<%= @on_close_action%>" data-bs-dismiss="bs-modal" aria-label="Close"><%= I18n.t("common.cancel") %></button>
+                        <% end %>
+                        <%= footer %>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

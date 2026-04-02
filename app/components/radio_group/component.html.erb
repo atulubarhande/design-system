@@ -1,0 +1,16 @@
+<div class="bs-form-check bs-form-check-inline radio-group-field bs-ps-0" data-controller="radio-group-field">
+    <input type="hidden" name="<%= @input_name %>" value="<%= @selected%>" data-radio-group-field-target="input" class="field" <%= @disabled ? 'disabled' : '' %> />
+    <%= label_tag @id, class: "bs-form-check-label bs-text-body-secondary" do %>
+        <% if custom_label? %>
+            <%= custom_label %>
+        <% else %>
+            <%= raw @label %>
+        <% end %>
+    <% end %>
+    <% @options.each_with_index do |option, i|%>
+        <%= sf "Radio::",
+            data: {
+                action: 'change->radio-group-field#handleChange'
+            }, name: @name, value: option[:value], checked: @selected == option[:value], label: option[:label], disabled: @disabled %>
+    <% end %>
+</div>

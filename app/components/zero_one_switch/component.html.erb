@@ -1,0 +1,14 @@
+<%= content_tag :div, data: {controller: "zero-one-switch" },class: "bs-form-check bs-form-switch bs-d-flex bs-align-items-center bs-flex-row-reverse bs-ps-0 bs-justify-content-between bs-my-3 #{@container_classes}" do %>
+    <div class="bs-d-flex bs-justify-content-sm-end">
+        <%= hidden_field_tag @name, 0 %>
+        <%= check_box_tag @name, @value, @checked, id: @id, class: "bs-form-check-input #{@classes}", disabled: @disabled, data: custom_data %>
+    </div>
+    <label class="bs-form-check-label bs-text-body-secondary bs-m-0 bs-me-3 bs-flex-grow-1 bs-fw-normal <%= @automation_class %>" for="<%= @id %>">
+        <% if custom_label? %>
+            <%= custom_label %>
+        <% else %>
+            <%= @label %>
+        <% end %>
+        <div class="bs-text-black-50 bs-fs-6"><%= @description %></div>
+    </label>
+<% end %>

@@ -1,0 +1,157 @@
+<% if (is_unpublish_presentation) %> 
+    <% if @checkbox_group.sub_groups.present? %>
+        <div class="bs-d-flex bs-align-items-center" data-name="<%= group_n_sub_group_names %>" data-search-target="item">
+            <span class="bs-w-100" title="<%= workflow_title(@workflow_name) %>">
+                <div class="bs-form-check bs-mx-3 bs-my-2 bs-d-flex <%= "bs-ui-disabled" if @disabled_group %>"> 
+                        <input
+                            name= <%= group_name_attr(@checkbox_group, params) %>
+                            class="bs-form-check-input <%= @disabled_group ? "bs-ui-disabled" : "" %>"
+                            data-orignal-name= "<%= @checkbox_group.name %>"
+                            data-hierarchical-name= "<%= @checkbox_group.hierarchical_name %>"
+                            <% if current_selected %> checked  <% end %>
+                            data-action="<%= @action %>"
+                            data-accessible-groups-target="checkbox"
+                            type="checkbox"
+                            value="<%= @checkbox_group.id %>"
+                            id="<%= dom_id(@checkbox_group) %>">
+                        
+                        <label class="bs-form-check-label bs-mx-2 bs-mb-0 <%= parent_selected ? "bs-ui-disabled" : "" %>" for="<%= dom_id(checkbox_group) %>">
+                            <%=  @checkbox_group.hierarchical_name  %>
+                        </label>
+                        <% if @disabled_group %>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock bs-mt-2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                        <% end %>
+                        <% if @group_device_counts.present? %>
+                          <%= content_tag :div, @group_device_counts[checkbox_group.id], class: "bs-ms-auto" %>
+                        <% end %>
+                </div>
+            </span>
+        </div>
+        <% if @checkbox_group.is_a?(DeviceGroup) && @accessible_device_group_ids.include?(@checkbox_group.id) %>
+            <% @checkbox_group.sub_groups.each do |sub_group| %>
+                <% unless @accessible_device_group_ids.nil? %>
+                    <% if @accessible_device_group_ids.include?(sub_group.id) %>
+                            <%= sf "CheckboxGroupInput::",
+                                checkbox_group: sub_group,
+                                selected_groups: params[:selected_groups],
+                                parent_group: @checkbox_group,
+                                action:  @action,
+                                group_device_counts: @group_device_counts,
+                                name: group_name_attr(@checkbox_group, params),
+                                parent_name: group_n_sub_group_names,
+                                accessible_device_group_ids: @accessible_device_group_ids,
+                                workflow_name: @workflow_name,
+                                disabled_group: @disabled_group,
+                                is_unpublish_presentation: @is_unpublish_presentation %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <div data-name="<%= group_n_sub_group_names %>" data-search-target="item" title="<%= workflow_title(@workflow_name) %>">
+            <div class="bs-form-check bs-mx-3 bs-my-2 bs-d-flex <%= "bs-ui-disabled" if @disabled_group %>">
+                <div class="<%= "bs-d-flex bs-gap-2" if @disabled_group %>">
+                    <input
+                        data-action="<%= @action %>"
+                        data-accessible-groups-target="checkbox" 
+                        data-orignal-name= "<%= @checkbox_group.name %>"
+                        data-hierarchical-name= "<%= @checkbox_group.hierarchical_name %>"
+                        name= <%= group_name_attr(@checkbox_group, params) %>
+                        <% if current_selected %> checked  <% end %>
+                        class="bs-form-check-input <%= @disabled_group ? "bs-ui-disabled" : "" %>"
+                        type="checkbox"
+                        value="<%= @checkbox_group.id %>"
+                        id="<%= dom_id(@checkbox_group) %>">
+                    <label class="bs-form-check-label bs-m-0 <%= parent_selected ? "bs-ui-disabled" : "" %>" for="<%= dom_id(@checkbox_group) %>">
+                        <%= @checkbox_group.hierarchical_name %>
+                    </label>
+                    <% if @disabled_group %>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock bs-mt-2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                    <% end %>
+                </div>
+                <% if @group_device_counts.present? %>
+                    <%= content_tag :div, @group_device_counts[checkbox_group.id], class: " bs-fs-7 bs-ms-auto" %>
+                <% end %> 
+            </div>
+        </div>
+    <% end %>
+<% end %>
+<% if (is_publish_presentation) %> 
+    <% if @checkbox_group.sub_groups.present? %>
+        <details open="open" class="<%= "details-inner" unless has_last_visible_group(@checkbox_group)  %>">
+            <summary class="bs-d-flex bs-align-items-center <%= "summary" unless has_last_visible_group(@checkbox_group) %>" data-name="<%= group_n_sub_group_names %>" data-search-target="item">
+                <div class="bs-form-check bs-mx-3 bs-my-2 bs-d-flex bs-w-100">
+                        <input
+                            name= <%= group_name_attr(@checkbox_group, params) %>
+                            class="bs-form-check-input <%= parent_selected ? "bs-ui-disabled" : "" %>"
+                            data-orignal-name= "<%= @checkbox_group.name %>"
+                            data-hierarchical-name= "<%= @checkbox_group.hierarchical_name %>"
+                            data-child-group-ids="<%= @checkbox_group.child_group_ids %>"
+                            <% if current_selected %> checked  <% end %>
+                            data-action="<%= @action %>"
+                            data-accessible-groups-target="checkbox"
+                            type="checkbox"
+                            value="<%= @checkbox_group.id %>"
+                            id="<%= dom_id(@checkbox_group) %>">
+                        <label class="bs-form-check-label bs-mx-2 bs-mb-0 <%= parent_selected ? "bs-ui-disabled" : "" %>" for="<%= dom_id(checkbox_group) %>">
+                            <%= @checkbox_group.name  %>
+                        </label>
+                    <% if @group_device_counts.present? %>
+                        <%= content_tag :div, @group_device_counts[checkbox_group.id], class: "bs-ms-auto" %>
+                    <% end %>
+                </div>
+            </summary>
+            <% if checkbox_group.is_a?(DeviceGroup) && @accessible_device_group_ids.include?(checkbox_group.id) %>
+                <% @checkbox_group.sub_groups.each do |sub_group| %>
+                    <% unless @accessible_device_group_ids.nil? %>
+                        <% if @accessible_device_group_ids.include?(sub_group.id) %>
+                            <div class="folder" id="subgroup-id">
+                                <%= sf "CheckboxGroupInput::",
+                                    checkbox_group: sub_group,
+                                    selected_groups: params[:selected_groups],
+                                    parent_group: @checkbox_group,
+                                    action: @action,
+                                    group_device_counts: @group_device_counts,
+                                    name: group_name_attr(@checkbox_group, params),
+                                    parent_name: group_n_sub_group_names,
+                                    accessible_device_group_ids: @accessible_device_group_ids,
+                                    workflow_name: @workflow_name,
+                                    disabled_group: @disabled_group,
+                                    published_presentation_ids: @published_presentation_ids,
+                                    is_publish_presentation: @is_publish_presentation %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </details>
+    <% else %>
+        <div data-name="<%= group_n_sub_group_names %>" data-search-target="item">
+            <div class="bs-form-check bs-mx-3 bs-my-2 bs-d-flex">
+                <div>
+                    <input
+                        data-action="<%= @action %>"
+                        data-accessible-groups-target="checkbox" 
+                        data-orignal-name= "<%= @checkbox_group.name %>"
+                        data-hierarchical-name= "<%= @checkbox_group.hierarchical_name %>"
+                        name= <%= group_name_attr(@checkbox_group, params) %>
+                        <% if current_selected %> checked  <% end %>
+                        class="bs-form-check-input <%= parent_selected ? "bs-ui-disabled" : "" %>"
+                        type="checkbox"
+                        value="<%= @checkbox_group.id %>"
+                        id="<%= dom_id(@checkbox_group) %>">
+                    <label class="bs-form-check-label bs-m-0 <%= parent_selected ? "bs-ui-disabled" : "" %>" for="<%= dom_id(@checkbox_group) %>">
+                        <%= @checkbox_group.name  %>
+                    </label>
+                </div>
+                <% if @group_device_counts.present? %>
+                    <%= content_tag :div, @group_device_counts[checkbox_group.id], class: " bs-fs-7 bs-ms-auto" %>
+                <% end %> 
+            </div>
+        </div>
+    <% end %>
+<% end %>

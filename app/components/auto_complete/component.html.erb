@@ -1,0 +1,18 @@
+<div data-controller="autocomplete"
+    data-autocomplete-app-id-value="<%= @app_id %>"
+    data-action="<%= @action %>"
+    data-autocomplete-active-class="bs-active">
+    <div class="bs-d-flex bs-align-items-center bs-justify-content-between">
+        <div class="bs-dropdown bs-w-100">
+            <button class="bs-btn bs-btn-outline-secondary bs-dropdown-toggle bs-w-100 bs-d-flex bs-align-items-center bs-justify-content-between" type="button" id="auto-complete" data-bs-toggle="dropdown" aria-expanded="false">
+                <div data-autocomplete-target="selected" class="bs-text-truncate"><%= @selected %></div>
+            </button>
+            <ul class="bs-dropdown-menu bs-shadow bs-w-100" aria-labelledby="auto-complete">
+                <div class="bs-px-4 bs-mt-3 bs-overflow-auto" style="height: 300px;">
+                    <%= content %>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+

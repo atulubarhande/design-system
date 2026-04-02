@@ -1,0 +1,12 @@
+<%= content_tag :div, data: { controller: "slider-range", slider_range_min_value: @min, slider_range_max_value: @max } do %>
+    <div class="range-slider">
+    <div class="slider-track"></div>
+    <div class="slider-range" id="slider-range" data-slider-range-target="sliderRange"></div>
+    <%= tag.input type: "range", name: @min_value_name, id: "rangeMin", min: @min, max: @max, value: @start_value, step: 1, data: { action: "slider-range#updateSlider", slider_range_target: "rangeMin"} %>
+    <%= tag.input type: "range", name: @max_value_name, id: "rangeMax", min: @min, max: @max, value: @end_value, step: 1, data: { action: "slider-range#updateSlider", slider_range_target: "rangeMax"} %>
+    </div>
+
+    <div class="range-values bs-text-center bs-mt-3">
+        <%= tag.span @start_value, id: "minValue", data: { slider_range_target: "minValue" } %> - <%= tag.span @end_value, id: "maxValue", data: { slider_range_target: "maxValue" } %>
+    </div>
+<% end %>

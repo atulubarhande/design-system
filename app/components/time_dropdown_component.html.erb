@@ -1,0 +1,4 @@
+<%= content_tag :div, data: { controller: "time-dropdown", time_dropdown_minutes_from_midnight_value: @minutes_from_midnight, time_dropdown_same_time_not_allowed_value: @same_time_not_allowed, time_dropdown_validate_from_to_value: @validate_from_to, time_dropdown_end_time_value: @end_time } do %>
+    <%= hidden_field_tag @name, @value, data: { time_dropdown_target: "input" } %>
+    <%= select_tag "", options_for_select(@times_array_for, selected: @selected, disabled: disabled_options), disabled: @disabled, data: custom_data, id: @id, class: "bs-form-select bs-overflow-scroll bs-scroll-sm", prompt: @promt_message  %>
+<% end %>

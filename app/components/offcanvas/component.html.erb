@@ -1,0 +1,29 @@
+<div
+  data-action="<%= @close_on_submit == true ? "turbo:submit-end->turbo-offcanvas#submitEnd" : "" %> turbo:submit-start->turbo-offcanvas#onSubmitStart <%= @turbo_submit %>"
+  data-bs-backdrop="<%=@backdrop%>"
+  data-controller="turbo-offcanvas modal-form" class="bs-offcanvas bs-offcanvas-end bs-card bs-rounded-0 bs-overflow-visible"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+  data-bs-scroll="true" data-bs-backdrop="<%= @backdrop %>"
+  style="width: <%= custom_width %>;">
+    <% if title? %>
+      <div class="bs-offcanvas-header bs-modal-header bs-card-header bs-p-4 bs-align-items-start bs-overflow-visible" id="offcanvasHeader">
+        <div class="bs-offcanvas-title bs-w-100 bs-text-truncate bs-overflow-visible <%= @header_classes %>" id="bs-offcanvasRightLabel">
+                  <%= title %>
+        </div>
+        <% if @show_close %>
+          <button type="button" class="bs-btn-close" data-bs-dismiss="bs-offcanvas" aria-label="Close" data-action="<%= @dismiss_canvas_action %>"></button>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="bs-offcanvas-body bs-scroll-sm <%= @body_class || "bs-p-4" %>">
+        <%= content %>
+    </div>
+
+    <% if footer? %>
+        <div class="bs-offcanvas-footer">
+            <%= footer %>
+        </div>
+    <% end %>
+</div>

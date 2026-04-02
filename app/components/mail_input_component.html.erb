@@ -1,0 +1,23 @@
+<% if @label.present? %>
+    <label for="<%= @id %>" class="bs-form-label bs-fs-6 bs-text-body-secondary bs-mb-3"><%= @label %></label>
+<% end %>
+<input
+  id="<%= @id %>" 
+  <% if @pattern.present? %> pattern="<%= @pattern %>" <% end %>
+  <% if @action %> data-action="<%= @action %>" <% end %>
+  name="<%= @name %>"
+  <% if @autofocus %> autofocus <% end %>
+  value="<%= @value %>"
+  <% if @min %> minlength="<%= @min %>" <% end %>
+  <% if @min %> min="<%= @min %>" <% end %>
+  <% if @required %> required <% end %>
+  <% if @multiple %> multiple <% end %>
+  type="<%= @type %>" 
+  <% if @data %> <%= @data %> <% end %>
+  class="bs-form-control"
+  placeholder="<%= @placeholder %>">
+  <% if icon? %>
+    <div class="bs-position-absolute bs-top-0 bs-bottom-0 bs-end-0 bs-pr-3 bs-d-flex bs-align-items-center">
+          <%= icon %>
+    </div>
+  <% end %>

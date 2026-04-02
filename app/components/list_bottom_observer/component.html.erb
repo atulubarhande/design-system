@@ -1,0 +1,17 @@
+<% if list? %>
+    <%= list %>
+<% else %>
+    <ul class="bs-dropdown-menu scroll-sm search-option-dropdown" aria-labelledby="<%= @aria %>" data-controller="list-bottom-observer" data-list-bottom-observer-hidden-class="bs-d-none" data-list-bottom-observer-is-pagination-value="false">
+        <%= content %>
+        <div data-list-bottom-observer-target="bottom">
+        </div>
+        <%= button_tag :class => "bs-btn bs-btn-light bs-py-0 bs-d-flex bs-align-items-center bs-justify-content-center bs-sticky-bottom bs-w-100",
+            type: "button",
+            data: {
+                action: "list-bottom-observer#scrollToBottom",
+                list_bottom_observer_target: "scrollButton",
+            } do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <% end %>
+    </ul>
+<% end %>

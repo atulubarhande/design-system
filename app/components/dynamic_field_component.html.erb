@@ -1,0 +1,102 @@
+<div class="bs-row bs-mb-3 input-box">
+  <%= label_tag @label, class: "bs-col-4 bs-col-form-label bs-fs-6 bs-text-body-secondary" do %>
+      <span><%= @label %></span>
+      <% if @required %>
+        <span class="text-danger">*</span>
+      <% end %>
+      <% if @infotext.present? %>
+        <span class="bs-margin-info-icon" data-controller="tooltip" data-bs-toggle="bs-tooltip" data-bs-placement="top" data-bs-title="<%= @infotext %>">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#585c5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        </span>
+      <% end %>
+  <% end %>
+  <% if ['text', 'password', 'email', 'number'].include?(@type) %>
+    <!-- Don't remove remote-command-custom-property class because it handle in custom property for append %% in UI like if i select $user.name form custom property dropdown then it will display %$user.name% -->
+    <div class="bs-col-6" data-controller="typehead">
+        <input
+          id="<%= @id %>" 
+          name="<%= @name %>"
+          value="<%= @value %>"
+          <% if @min %> min="<%= @min %>" <% end %>
+          <% if @max %> max="<%= @max %>" <% end %>
+          <% if @start %> start="<%= @start %>" <% end %>
+          <% if @step %> step="<%= @step %>" <% end %>
+          <% if @required %> required <% end %>
+          <% if @controller  %> data-controller="<%= @controller %>" <% end %>
+          <% if @data != nil %> <%= @data %> <% end %>
+          <% if @action.present? %> data-action="<%= @action %>" <% end %>
+          <% if @disabled %> disabled <% end %>
+          type="<%= @type %>"
+          <% if @required %> pattern=".*\S+.*" <% end %>
+          class="bs-form-control input-control remote-command-custom-property <%= @classes %>"
+          placeholder="<%= @placeholder %>"
+        >
+
+        <% if @type == 'text' %>
+          <%= turbo_frame_tag "user_custom_fields_options", src: custom_fields_options_v3_user_custom_fields_path(default: true), loading: :lazy do |c| %>
+          <% end %>
+          <%= turbo_frame_tag "dashboard_user_fields", src: v3_dashboard_user_fields_path(default: true), loading: :lazy do |c| %>
+          <% end %>
+        <% end %>
+    </div>
+    <% if @type == 'password' %>
+      <div class="bs-col-2 bs-p-0">
+        <button type="button" class="bs-icon-button password-toggle-btn" data-action="remote-command-form#togglePasswordVisibility">
+            <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+            </svg>
+        </button>
+      </div>
+    <% end %>
+  <% elsif @type == 'radio' %>
+    <div class="bs-col-6">
+      <% @options.each do |option| %>
+        <div>
+          <input class="bs-form-check-input bs-me-1 <%= @classes %>"
+            type="radio"
+            name="<%= @name %>"
+            id="<%= option %>" 
+            data-action="<%= @action %>"
+            <% if  option == @value %> checked  <% end %>
+            <% if @data != nil %> <%= @data %> <% end %>
+            value="<%= option %>">
+          <label class="bs-form-check-label bs-margin-icon bs-me-2 bs-fs-6 bs-text-body-secondary" for="<%= option %>">
+              <%= option %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+  <% elsif @type == 'checkbox' %>
+    <div class="bs-col-6">
+      <% @options.each do |key, value| %>
+        <div>
+          <input type="hidden" name=<%= "#{@name}[#{key}]" %> value="false" />
+          <%= check_box_tag "#{@name}[#{key}]", true, is_checked(key), id: key, data: @data, 
+              class: "bs-form-check-input #{@classes}" %>
+          <%= label_tag key, class: "bs-margin-icon bs-pe-2 bs-form-check-label bs-fs-6 bs-text-body-secondary" do %>
+            <%= value %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% elsif @type == 'toggle' %>
+    <div class="bs-form-check bs-form-switch bs-col-6 bs-dynamic-field-toggle">
+      <input type="hidden" name="<%= @name %>" value="false">
+      <input class="bs-form-check-input bs-fs-4 bs-m-0 <%= @classes %>"
+          type="checkbox"
+          name="<%= @name %>"
+          id="<%= @id %>"
+          <% if @action.present? %> data-action="<%= @action %>" <% end %>
+          value="true" <% if  @checked %> checked  <% end %>
+          <% if @data != nil %> <%= @data %> <% end %>
+          <% if @disabled %> disabled <% end %>
+          >
+    </div>
+  <% elsif @type == 'dropdown' %>
+    <div class="bs-col-6">
+      <%= select_tag @name, options_for_select(@options, @value), class: "bs-form-select #{@classes}",
+      data: @data %>
+    </div>
+  <% end %>
+</div>

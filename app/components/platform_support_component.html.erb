@@ -1,0 +1,5 @@
+<span class="bs-d-inline-flex bs-align-middle bs-gap-2 flex-wrap <%= @classes %>">
+    <% @platform.each do |platform| %>
+        <%= image_tag platforms[platform], height: @height, class: "" %>
+    <% end %>
+</span>

@@ -1,0 +1,170 @@
+<div class="bs-mb-4">
+    <!-- Factory Reset via IA compliance-->
+    <% if device&.compliance_based_fr_status[:show_note] %>
+        <%= sf "WarningMessage::", classes: "bs-alert-danger bs-p-3 bs-d-flex bs-gap-3" do |c| %>
+            <% c.with_custom_label do %>
+                <% fr_time = device&.compliance_based_fr_status[:estimated_duration] %>
+                <div class="bs-d-flex bs-align-items-center">
+                    <i class="zmdi zmdi-replay zmdi-hc-flip-horizontal zmdi-hc-1x bs-me-2"></i>
+                    <%= device&.compliance_based_fr_status[:already_fr] ? t('common.inactivity_already_fr_note', fr_time: fr_time) : t('common.inactivity_will_be_fr_note', fr_time: fr_time) %>
+                </div>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <!-- iOS/macOS Specific cases -->
+    <% if device&.macos? || device&.ios? %>
+        <!-- Factory Reset -->
+        <% if device&.factory_reset %>
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-align-items-center bs-alert-danger" do |c| %>
+                <% c.with_custom_label do %>
+                    <i class="zmdi zmdi-replay zmdi-hc-flip-horizontal zmdi-hc-1x"></i>
+                    <% if device&.state == 'factory_reset' %>
+                        <% if device.return_service_setting&.enabled %>
+                            <%= t('common.factory_reset_rts_note') if (device.return_service_setting&.factory_reset?) %>
+                            <%= t('common.fr_rts_assign_user_note') if (device.return_service_setting&.assigned_user?) %>
+                            <%= t('common.fr_rts_unassign_user_note') if (device.return_service_setting&.unassigned_user?) %> 
+                        <% else %>
+                            <%= t('common.factory_reset_note') %>
+                        <% end %>
+                    <% end %>
+                    <%= t('devices.org_user_deleted') if device&.state == 'api_blocked' %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <% if !device&.factory_reset %>
+            <%# <i class="zmdi zmdi-delete zmdi-hc-1x"></i> %>
+            <!-- MDM Removed from Device-->
+            <%  if device&.state == 'mdm_removed' %>
+                <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-align-items-center bs-alert-danger" do |c| %>
+                    <% c.with_custom_label do %>
+                        <i class="zmdi zmdi-delete zmdi-hc-1x"></i>
+                        <%= t('devices.mdm_uninstalled') %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <!-- Device inactive -->
+            <% if device&.state != 'mdm_removed' && device&.inactive? && !(device&.state == 'apns_expired') %>
+                <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-align-items-center" do |c| %>
+                    <% c.with_custom_label do %>
+                        <i class="zmdi zmdi-block zmdi-hc-1x"></i>
+                        <%= t('devices.inactive_ios_device') %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <% if device&.state != 'mdm_removed' && device&.lost_mode_applied %>
+                <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-align-items-center" do |c| %>
+                    <% c.with_custom_label do %>
+                        <i class="zmdi zmdi-block zmdi-hc-1x"></i>
+                        <%= t('devices.lost_mode_enabled') %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <!---apns expired------>
+            <% if device&.state == 'apns_expired' %>
+                <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-align-items-center bs-alert-danger" do |c| %>
+                    <% c.with_custom_label do %>
+                        <i class="zmdi zmdi-delete zmdi-hc-1x"></i>
+                        <%= t('devices.apns_expired') %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+
+         <!-- Device Unenrolled due to Jailbreak action -->
+        <% if device && device.apple_device_detail&.compliance_action.present? %>
+            <% apple_detail = device.apple_device_detail %>
+            <% detection_type = apple_detail.integrity_detection_type.humanize.titleize %>
+            <% action = apple_detail.compliance_action.humanize.titleize %>
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-align-items-center bs-alert-danger" do |c| %>
+                <% c.with_custom_label do %>
+                    <i class="zmdi zmdi-info zmdi-hc-1x p-r-10 c-red"></i>
+                    <%= t("v2.profiles.restrictions.device_integrity_protection.device_compromised_note", action: action, detection_type: detection_type) %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <!-- Android -->
+    <% if device&.os_type.downcase == 'android' %>
+        <% if !device&.factory_reset && (device&.gcm_disabled || device&.inactive? || device&.lost_mode_applied) %>
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-align-items-center bs-gap-3 #{"bs-alert-danger" if device&.gcm_disabled}" do |c| %>
+                <% c.with_custom_label do %>
+                    <i class="zmdi zmdi-hc-1x <%= "zmdi-delete" if device&.gcm_disabled %> <%= "zmdi-block" if device&.lost_mode_applied %> <%= "zmdi-block" if device&.inactive %>"> </i>
+                    <!-- MLP inactive case -->
+                    <%= t("devices.inactive_device", name: @subdomain ? @subdomain.site_title : 'Scalefusion') if device&.inactive? && !device&.gcm_disabled && !device.lost_mode_applied && management_agent(device) != 'Android Device Manager' %>
+                    <%= t("devices.inactive_ios_device") if device&.inactive? && !device&.gcm_disabled && !device&.lost_mode_applied && management_agent(device) == 'Android Device Manager' %>
+                    <!-- MLP Uninstalled -->
+                    <%= t("devices.uninstall_device", name: @subdomain ? @subdomain.site_title : 'Scalefusion') if device&.gcm_disabled %>
+                    <!-- Lost mode -->
+                    <%= t("devices.lost_mode_enabled") if device&.lost_mode_applied && !device&.gcm_disabled %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <% if device&.factory_reset %>
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-align-items-center bs-gap-3 bs-alert-danger" do |c| %>
+                <% c.with_custom_label do %>
+                    <% if device&.state == 'factory_reset' %>
+                        <i class="zmdi zmdi-replay zmdi-hc-flip-horizontal zmdi-hc-1x"></i>
+                        <%= t("common.factory_reset_note") %>
+                    <% elsif device&.state == 'api_blocked' %>
+                        <i class="zmdi zmdi-replay zmdi-hc-flip-horizontal zmdi-hc-1x"></i>
+                        <%= t("devices.org_user_deleted") %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+
+        <% if device&.profile_compliance_action != "no_action" && device&.attestation_status&.titleize == 'Failed' && management_agent(device) != 'Android Device Manager' %>
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-align-items-center bs-alert-danger" do |c| %>
+                <% c.with_custom_label do %>
+                    <i class="zmdi zmdi-info zmdi-hc-1x p-r-10 c-red"></i>
+                    <%= profile_compliance_action_message %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <!-- Windows -->
+    <% if device&.os_type.downcase == 'windows' %>
+        <!-- Factory Reset -->
+        <% if device&.factory_reset %>
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3 bs-alert-danger" do |c| %>
+                <% c.with_custom_label do %>
+                    <i class="zmdi zmdi-replay zmdi-hc-flip-horizontal zmdi-hc-1x"></i>
+                    <%= t('common.factory_reset_note') if device&.state == 'factory_reset' %>
+                    <%= t('devices.org_user_deleted') if device&.state == 'api_blocked' %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <% if device&.lost_mode_applied %>
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3" do |c| %>
+                <% c.with_custom_label do %>
+                    <i class="zmdi zmdi-block zmdi-hc-1x"></i>
+                    <%= t("devices.lost_mode_enabled") %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <% if !device&.factory_reset %>
+            <!-- MDM Removed from Device-->
+            <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3" do |c| %>
+                <%  if device&.state == 'mdm_removed' %>
+                    <% c.with_custom_label do %>
+                        <img src="<%= asset_path("v2/icons/information-yellow-outline.svg")%>">
+                        <%= t('windows.user_unenrolled') %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <!-- Device inactive -->
+            <% if device&.state != 'mdm_removed' && device.inactive?(nil, device.last_updated_at) %>
+                <%= sf "WarningMessage::", classes: "bs-p-3 bs-d-flex bs-gap-3" do |c| %>
+                    <% c.with_custom_label do %>
+                        <img src="<%= asset_path("v2/icons/information-yellow-outline.svg")%>">
+                        <%= t('windows.device_inactive') %>
+                        <%= "#{time_ago_in_words(device&.windows? ? device&.last_updated_at : device&.last_connected_at)} ago" %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+</div>

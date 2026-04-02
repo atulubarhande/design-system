@@ -1,0 +1,10 @@
+<fieldset class="bs-fieldset bs-border bs-rounded <%= @classes %>">
+    <legend class="bs-legend">
+        <% if custom_label? %>
+            <%= custom_label %>
+        <% else %>
+            <%= raw @label %>
+        <% end %>
+    </legend>
+    <%= content %>
+</fieldset>

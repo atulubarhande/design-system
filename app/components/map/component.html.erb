@@ -1,0 +1,8 @@
+<%= content_tag :div,
+    style: "height: #{@height}",
+    class: "bs-overflow-hidden map #{@info_text.present? ? "pointer-none warning-text": ""}",
+    data: { 
+        controller: "map-view",
+        map_view_data_value: data.to_json
+    } do %>
+<%end%>

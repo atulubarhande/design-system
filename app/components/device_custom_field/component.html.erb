@@ -1,0 +1,202 @@
+<% unless current_user.admin_parent.user_subscription.allow_custom_fields %>
+    <%= content_tag :div, class: "bs-m-4" do %>
+        <%= sf "UpgradePlan", current_user: current_user, classes: "bs-justify-content-start" do %>
+            <%= "To use this feature please upgrade your Plan" %>
+        <% end %>
+    <% end %>
+<% end %>
+<%= content_tag :div, class: "#{"bs-ui-disabled" unless current_user.admin_parent.user_subscription.allow_custom_fields}" do %> 
+    <% @fields.each do |field| %>
+        <% bounded = field.try(:bounded) && (@is_device_group || @device.os_type.in?(ScriptCustomField::SUPPORTED_PLATFORMS)) %>
+        <%= content_tag :div, class: "bs-my-3" do %>
+                <% case field.data_type %>
+                <% when 'Boolean' %>
+                    <%= content_tag :div, class: "bs-row bs-align-items-center" do %>
+                        <%= content_tag :div, class: "bs-col-3", title: (bounded ? t("script_custom_field.cannot_update_tooltip") : nil) do %>
+                            <%= field.name  %>
+                        <% end %>
+                        <%= content_tag :div, class: "bs-col bs-form-check bs-ms-2 #{'bs-ui-disabled' if bounded}" do %>
+                            <%= sf "Switch::",
+                                checked: field.value.present? ? ActiveModel::Type::Boolean.new.cast(field.value) : false,
+                                has_true_or_false: true,
+                                name: "#{@name}[][value]" ,
+                                id: "custom-field-checkbox"
+                            %>
+                            <%= hidden_field_tag "#{@name}[][id]", field.id %>
+                            <%= hidden_field_tag "#{@name}[][name]", field.name %>
+                            <%= hidden_field_tag "#{@name}[][data_type]", field.data_type %>
+                            <%= hidden_field_tag "#{@name}[][user_custom_field_id]", field.user_custom_field_id %>
+                            <%#= hidden_field_tag "#{@name}[][_destroy]", true, disabled: !field.value.nil?, data: { custom_fields_target: 'boolean' } %>
+                            
+                            <% if is_device_group %>
+                                <%= sf "Checkbox",
+                                    name: "#{@name}[][subgroup_supported]",
+                                    label: t("devices.group_custom_fields"),
+                                    checked: field.subgroup_supported,
+                                    css_class: "bs-mt-2"
+                                %>
+                            <% end %>
+                        <% end %>
+                        <%= content_tag :div, class: "bs-col-3 bs-text-end" do %>
+                            <%= "Type: #{field.data_type}" %>
+                        <% end %>
+                    <% end %>
+                <% when 'String' %>
+                    <%= content_tag :div, class: "bs-align-items-center bs-row #{"bs-ui-disabled" if field.name == "Checkpoint Activation Status" || field.name == "Checkpoint Risk Status" || field.name == "Checkpoint App Status"}" do %>
+                        <%= content_tag :div, class: "bs-col-3", title: (bounded ? t("script_custom_field.cannot_update_tooltip") : nil) do %>
+                            <%= field.name  %>
+                        <% end %>
+                        <%= content_tag :div, title: bounded ? field.value : nil, class: "bs-col", data: bounded ? { controller: "clipboard-text", text: field.value, action: "dblclick->clipboard-text#copy", show_toast: true } : {} do %>
+                            <%= content_tag :div, class: "#{'bs-ui-disabled' if bounded}" do %>
+                                <%= sf "Input",
+                                    id: field.id,
+                                    name: "#{@name}[][value]",
+                                    autofocus: true,
+                                    value: field.value
+                                %>
+                                <%# maxlength: 50 %>
+                                <%= hidden_field_tag "#{@name}[][id]", field.id %>
+                                <%= hidden_field_tag "#{@name}[][name]", field.name %>
+                                <%= hidden_field_tag "#{@name}[][data_type]", field.data_type %>
+                                <%= hidden_field_tag "#{@name}[][user_custom_field_id]", field.user_custom_field_id %>
+                                <%#= hidden_field_tag "#{@name}[][_destroy]", true, disabled: !field.value.nil?, data: { custom_fields_target: 'input' } %>
+
+                                <% if is_device_group %>
+                                    <%= sf "Checkbox",
+                                        name: "#{@name}[][subgroup_supported]",
+                                        label: t("devices.group_custom_fields"),
+                                        checked: field.subgroup_supported,
+                                        css_class: "bs-mt-2"
+                                    %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                        <%= content_tag :div, class: "bs-col-3 bs-text-end" do %>
+                            <%= "Type: #{field.data_type}" %>
+                        <% end %>
+                    <% end %>
+                <% when 'Integer' %>
+                    <%= content_tag :div, class: "bs-row bs-align-items-center" do %>
+                        <%= content_tag :div, class: "bs-col-3", title: (bounded ? t("script_custom_field.cannot_update_tooltip") : nil) do %>
+                            <%= field.name  %>
+                        <% end %>
+                        <%= content_tag :div, title: bounded ? field.value : nil, class: "bs-col", data: bounded ? { controller: "clipboard-text", text: field.value, action: "dblclick->clipboard-text#copy", show_toast: true } : {} do %>
+                            <%= content_tag :div, class: "#{'bs-ui-disabled' if bounded}" do %>
+                                <%= sf "Input",
+                                    id: field.id,
+                                    name: "#{@name}[][value]",
+                                    action: "custom-fields#validateInteger",
+                                    autofocus: true,
+                                    value: field.value
+                                %>
+
+                                <%= hidden_field_tag "#{@name}[][id]", field.id %>
+                                <%= hidden_field_tag "#{@name}[][name]", field.name %>
+                                <%= hidden_field_tag "#{@name}[][data_type]", field.data_type %>
+                                <%= hidden_field_tag "#{@name}[][user_custom_field_id]", field.user_custom_field_id %>
+                                <%#= hidden_field_tag "#{@name}[][_destroy]", true, disabled: !field.value.nil?, data: { custom_fields_target: 'integer' } %>
+
+                                <% if is_device_group %>
+                                    <%= sf "Checkbox",
+                                        name: "#{@name}[][subgroup_supported]",
+                                        label: t("devices.group_custom_fields"),
+                                        checked: field.subgroup_supported,
+                                        css_class: "bs-mt-2"
+                                    %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                        <%= content_tag :div, class: "bs-col-3 bs-text-end" do %>
+                            <%= "Type: #{field.data_type}" %>
+                        <% end %>
+                    <% end %>
+                <% when 'Email' %>
+                    <%= content_tag :div, class: "bs-row bs-align-items-center" do %>
+                        <%= content_tag :div, class: "bs-col-3", title: (bounded ? t("script_custom_field.cannot_update_tooltip") : nil) do %>
+                            <%= field.name  %>
+                        <% end %>
+                        <%= content_tag :div, title: bounded ? field.value : nil, class: "bs-col", data: bounded ? { controller: "clipboard-text", text: field.value, action: "dblclick->clipboard-text#copy", show_toast: true } : {} do %>
+                            <%= content_tag :div, class: "#{'bs-ui-disabled' if bounded}" do %>
+                                <%= sf "TextField::",
+                                    id: field.id,
+                                    type: "email",
+                                    value: field.value,
+                                    name: "#{@name}[][value]",
+                                    pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+                                    data: { invalid_error: t("v2.config_files.email_error_text", name: "#{field.name}") }
+                                %>
+                                <%# maxlength: 50 %>
+                                <%= hidden_field_tag "#{@name}[][id]", field.id %>
+                                <%= hidden_field_tag "#{@name}[][name]", field.name %>
+                                <%= hidden_field_tag "#{@name}[][data_type]", field.data_type %>
+                                <%= hidden_field_tag "#{@name}[][user_custom_field_id]", field.user_custom_field_id %>
+                                <%#= hidden_field_tag "#{@name}[][_destroy]", true, disabled: !field.value.nil?, data: { custom_fields_target: 'email' } %>
+
+                                <% if is_device_group %>
+                                    <%= sf "Checkbox",
+                                        name: "#{@name}[][subgroup_supported]",
+                                        label: t("devices.group_custom_fields"),
+                                        checked: field.subgroup_supported,
+                                        css_class: "bs-mt-2"
+                                    %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                        <%= content_tag :div, class: "bs-col-3 bs-text-end" do %>
+                            <%= "Type: #{field.data_type}" %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+        <% end %>
+    <% end %>
+        
+    <% if @device&.chromeos? %>
+        <div class="bs-my-3" data-controller="custom-fields">
+            <%= sf "Input",
+                    id: "annotated_asset_id",
+                    name: "device[metadata_info_attributes][annotated_asset_id]",
+                    autofocus: true,
+                    action: "custom-fields#validateInput",
+                    value: @device&.metadata_info.annotated_asset_id,
+                    label: "Annotated Asset Id" %>
+        </div>
+        <div class="bs-my-3" data-controller="custom-fields">
+            <%= sf "Input",
+                    id: "annotated_user",
+                    name: "device[metadata_info_attributes][annotated_user]",
+                    autofocus: true,
+                    action: "custom-fields#validateInput",
+                    value: @device&.metadata_info.annotated_user,
+                    label: "Annotated User" %>
+        </div>
+        <div class="bs-my-3" data-controller="custom-fields">
+            <%= sf "Input",
+                    id: "annotated_location",
+                    name: "device[metadata_info_attributes][annotated_location]",
+                    autofocus: true,
+                    action: "custom-fields#validateInput",
+                    value: @device&.metadata_info.annotated_location,
+                    label: "Contact" %>
+        </div>
+    <% end %>
+    <% if @device&.printer? %>
+        <div class="bs-my-3" data-controller="custom-fields">
+            <%= sf "Input",
+                    id: "contact",
+                    name: "device[printer_system_attributes][contact]",
+                    autofocus: true,
+                    action: "custom-fields#validateInput",
+                    value: @device&.printer_system.contact,
+                    label: "Contact" %>
+        </div>
+        <div class="bs-my-3" data-controller="custom-fields">
+            <%= sf "Input",
+                    id: "location",
+                    name: "device[printer_system_attributes][location]",
+                    autofocus: true,
+                    action: "custom-fields#validateInput",
+                    value: @device&.printer_system.location,
+                    label: "Location" %>
+        </div>
+    <% end %>
+<% end %>

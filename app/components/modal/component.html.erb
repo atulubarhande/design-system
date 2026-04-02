@@ -1,0 +1,38 @@
+<%= content_tag :div, nil, class: "bs-modal-backdrop bs-fade bs-show modal-on-modal-backdrop bs-d-none", data: { controller: "modal-backdrop", modal_backdrop_modal_id_value: @id, modal_backdrop_trigger_on_value: @trigger_on } if @add_backdrop %>
+<div
+    
+    data-bs-backdrop=<%=@backdrop%>
+    data-bs-keyboard="false"
+    class="bs-modal bs-fade" id="<%= @id %>" tabindex="-1" aria-labelledby="<%= @id %>ModalLabel" aria-hidden="true">
+    <div class="bs-modal-dialog bs-modal-dialog-centered">
+        <div class="bs-modal-content">
+            <div class="bs-modal-header bs-align-items-start">
+                <div class="bs-modal-title" id="<%= @id %>ModalLabel">
+                    <div class="bs-d-flex bs-align-items-center bs-gap-4">
+                        <img src="<%= asset_path("DS/success-tick.svg")%>">
+                        <% if header? %>
+                            <%= header %>
+                        <% else %>
+                            <div>
+                                <div class="bs-label-md bs-fw-medium bs-mb-1"><%= @title %></div>
+                                <div class="bs-label-md bs-fw-normal bs-text-muted"><%= @subtitle %></div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <button type="button" class="bs-btn-close bs-flex-shrink-0" data-bs-dismiss="bs-modal" aria-label="Close"></button>
+            </div>
+            <% if content? %>
+                <div class="bs-modal-body bs-text-body bs-ms-0 bs-me-0 bs-scroll-sm">
+                    <%= content %>
+                </div>
+            <% end %>
+            <% if footer? %>
+                <div class="bs-modal-footer bs-border-0 bs-flex-column bs-flex-sm-row bs-gap-3">
+                    <%= footer_actions if footer_actions? %>
+                    <%= footer %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

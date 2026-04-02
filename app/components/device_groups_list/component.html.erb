@@ -1,0 +1,171 @@
+    <%= content_tag :div, data: {
+            controller: "choose-groups multi-select-groups-checkbox device-groups-infinite-scroll",
+            device_groups_infinite_scroll_frame_id_value: @frame_id,
+            device_groups_infinite_scroll_search_param_name_value: @search_param_name,
+            device_groups_infinite_scroll_query_value: "",
+            action: "choose-groups:itemSelected->multi-select-groups-checkbox#subscribeChanges #{@action}",
+            choose_groups_row_class: @row_class,
+            multi_select_groups_checkbox_hidden_class:"bs-d-none",
+            multi_select_groups_checkbox_disabled_class:"bs-disabled",
+            multi_select_groups_checkbox_select_multiple_value: @select_multiple,
+            multi_select_groups_checkbox_refresh_same_frame_value: @refresh_same_frame,
+            choose_groups_select_multiple_value: @select_multiple,
+            choose_groups_search_input_id_value: @id }, class: "bs-row" do %>
+        
+        <% if radio_buttons? %>
+            <%= radio_buttons %>
+        <% end %>
+        
+        <% if @has_user_groups %>
+            <div class="bs-mb-3">
+                <%= sf "Radio::",
+                    id: "deivce-groups", 
+                    name: "os_name_prefix", 
+                    checked: true, 
+                    label: "Device Groups",
+                    data: {
+                        action: "multi-select-groups-checkbox#onDeviceGroupsChange"
+                    }
+                 %>
+                <%= sf "Radio::",
+                    id: "user-groups", 
+                    name: "os_name_prefix", 
+                    checked: false, 
+                    label: "User Groups",
+                    data: {
+                        action: "multi-select-groups-checkbox#onUserGroupsChange"
+                    } 
+                %>
+                <% if @show_org_units %>
+                    <%= sf "Radio::",
+                        id: "organization-units", 
+                        name: "os_name_prefix", 
+                        checked: false, 
+                        label: "Organization Units",
+                        data: {
+                            action: "multi-select-groups-checkbox#onOrganizationUnitsChange"
+                        }
+                    %>
+                <% end %>
+            </div>
+        <% end %>
+        <div class="bs-col-6">
+            <div data-multi-select-groups-checkbox-target="searchInput">
+                <% if search_bar? %>
+                    <div class="bs-row bs-align-items-center">
+                        <div class="bs-col bs-flex-grow-1">
+                            <%= search_bar %>
+                        </div>
+                    </div>
+                    
+                <% end %>
+            </div>
+            <div class="bs-bg-body bs-border bs-rounded bs-mt-3">
+                <div class="bs-d-flex bs-align-items-start bs-mt-3 bs-border-bottom bs-shadow-sm bs-pb-2 bs-justify-content-between">
+                    <div class="bs-col-7">
+                        <div class="bs-form-check bs-ps-5">
+                            <% if @select_multiple %>
+                                <input class="bs-form-check-input"
+                                    data-action="multi-select-groups-checkbox#toggleAll"
+                                    data-multi-select-groups-checkbox-target="selectAll"
+                                    type="checkbox" id="device-select-all-<%= @frame_id %>" <% if disabled %> disabled <% end %>>
+                            <% end %>
+                            <% if app_show_devices_label %>
+                                <%= content_tag :div, show_devices ? I18n.t('full_device_info.device_info') : I18n.t('common.group_name'), class: "bs-form-check-label bs-fw-normal bs-text-body bs-text-uppercase", id: "device-select-all-#{@frame_id}" %>
+                            <% else %>
+                                <%= content_tag :div, show_devices ? I18n.t('common.devices') : I18n.t('common.group_name'), class: "bs-form-check-label bs-fw-normal bs-text-body bs-text-uppercase", id:"device-select-all-#{@frame_id}" %>
+                            <% end %>
+                        </div>
+                    </div>
+                    <% if @show_version_label %>
+                        <% if @byod_device %>
+                            <%= content_tag :div, I18n.t("common.user_count"), class: "bs-col-3 bs-text-uppercase" %>
+                        <% else %>
+                            <% if app_show_devices_label %>
+                                <%= content_tag :div, show_devices ? I18n.t("common.version") : I18n.t("common.device_count"), class: "bs-col-3 bs-text-uppercase bs-text-center", data: { multi_select_groups_checkbox_target: "deviceCountText"} %>
+                            <% else %>
+                                <%= content_tag :div, show_devices ? I18n.t("common.os_version") : I18n.t("common.device_count"), class: "bs-col-3 bs-text-uppercase bs-text-center", data: { multi_select_groups_checkbox_target: "deviceCountText"} %>
+                            <% end %>
+                            <%= content_tag :div, I18n.t("common.user_count"), class: "bs-col-3 bs-d-none bs-text-uppercase", data: { multi_select_groups_checkbox_target: "userCountText"} %>
+                            <%= content_tag :div, I18n.t("common.org_unit_count"), class: "bs-col-3 bs-d-none bs-text-uppercase", data: { multi_select_groups_checkbox_target: "orgUnitCountText"} %>
+                        <% end %>
+                    <% end %>
+                    <div class="bs-col-2 bs-text-center">
+                        <% if @select_multiple %>
+                            <%= content_tag :div, data: { multi_select_groups_checkbox_target:"addAllButton", action: "click->choose-groups#addAllAssociations" }, :class => "bs-btn bs-btn-link bs-p-0 bs-me-2 bs-disabled" do %>
+                                <i class="zmdi zmdi-mail-send zmdi-hc-1x bs-align-middle"></i>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+                <div 
+                    data-device-groups-infinite-scroll-target="list"
+                    style="height: 349px; overflow-x: hidden;"
+                    class="bs-scroll-sm">
+                    <%= turbo_frame_tag  "total_pages_for_groups", class: "bs-visually-hidden", data: { device_groups_infinite_scroll_target: "totalPages"} do %>
+                    <% end %>
+
+                    <%= render @partial_path, hide_empty_groups_on_load: @hide_empty_groups_on_load %>
+                    <div data-multi-select-groups-checkbox-target="emptyDevices" class="bs-alert bs-alert-warning bs-m-3 bs-text-center bs-d-none"><%= I18n.t('common.no_groups_found') %></div>
+                    <!-- Handle visiblity and activation in View and remove .js -->
+                    <div data-multi-select-groups-checkbox-target="bottom" style="height: 2px" data-device-groups-infinite-scroll-target="bottom" hidden></div>
+                    <div data-device-groups-infinite-scroll-target="loader" class="bs-d-none">
+                        <% 2.times do %>
+                            <p class="bs-placeholder-glow bs-px-3 bs-d-flex bs-align-items-center bs-justify-content-between bs-border-top bs-border-bottom bs-py-4 bs-m-0">
+                                <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-7 bs-me-2"></span>
+                                <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-3 bs-me-2"></span>
+                                <span class="bs-placeholder bs-placeholder-lg bs-rounded bs-col-2"></span>
+                            </p>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bs-col-6">
+            <div class="bs-row bs-align-items-center">
+                <div class="bs-col-auto bs-d-flex bs-align-items-center bs-gap-2">
+                  <%= t("common.selected")%>  <span data-choose-groups-target="selectedCount" class="bs-badge bs-text-bg-secondary"><%= @selected.present? ? @selected.length : 0 %></span> 
+                </div>
+                <div class="bs-col bs-flex-grow-1">
+                    <%= sf "SearchInput", id: @id, action: "input->search-input#findAndApply", placeholder: show_devices ? I18n.t("common.search_device") : I18n.t("common.search_group_placeholder"), controller: "search-input" %>
+                </div>
+            </div>
+            <div class="bs-bg-body bs-border bs-rounded bs-mt-3">
+                <div class="bs-d-flex bs-align-items-start bs-mt-3 bs-border-bottom bs-shadow-sm bs-pb-2 bs-justify-content-between">
+                    <div class="bs-col-7">
+                        <div class="bs-form-check bs-ps-5">
+                            <% if app_show_devices_label %>
+                                <%= content_tag :div, show_devices ? I18n.t('full_device_info.device_info') : I18n.t('common.group_name'),class:"bs-form-check-label bs-fw-normal bs-text-body bs-text-uppercase" %>
+                            <% else %>
+                                <%= content_tag :div, show_devices ? I18n.t('common.devices') : I18n.t('common.group_name'), class:"bs-form-check-label bs-fw-normal bs-text-body bs-text-uppercase" %>
+                            <% end %>
+                        </div>
+                    </div>
+                    <% if @show_version_label %>
+                        <% if @byod_device %>
+                            <%= content_tag :div, t("common.user_count"), class: "bs-col-3 bs-text-uppercase" %>
+                        <% else %>
+                            <% if app_show_devices_label %>
+                                <%= content_tag :div, show_devices ? I18n.t("common.version") : I18n.t("common.device_count"), class: "bs-col-3 bs-text-uppercase bs-text-center", data: { multi_select_groups_checkbox_target: "deviceCountText"} %>
+                            <% else %>
+                                <%= content_tag :div, show_devices ? I18n.t("common.os_version") : I18n.t("common.device_count"), class: "bs-col-3 bs-text-uppercase bs-text-center", data: { multi_select_groups_checkbox_target: "deviceCountText"} %>
+                            <% end %>
+                            <%= content_tag :div, t("common.user_count"), class: "bs-col-3 bs-d-none bs-text-uppercase", data: { multi_select_groups_checkbox_target: "userCountText"} %>
+                            <%= content_tag :div, I18n.t("common.org_unit_count"), class: "bs-col-3 bs-d-none bs-text-uppercase", data: { multi_select_groups_checkbox_target: "orgUnitCountText"} %>
+                        <% end %>
+                    <% end %>
+                    <div class="bs-col-2 bs-text-center"></div>
+                </div>
+                <div style="height: 349px; overflow-x: hidden;"
+                    class="bs-scroll-sm">
+                    <%= sf "SearchList", id: @id, controller: "search", message: show_devices ? I18n.t('common.no_devices_found') : t('common.no_groups_found') do %>
+                        <div data-choose-groups-target="output">
+                            <% if selected_list? %>
+                                <%= selected_list %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
