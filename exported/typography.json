@@ -5,7 +5,7 @@
     "type": "fontFamily"
   },
   "displayDisplayXlFontWeight": {
-    "value": "Bold",
+    "value": "700",
     "type": "fontWeight"
   },
   "displayDisplayXlFontSize": {
@@ -41,7 +41,7 @@
     "type": "fontFamily"
   },
   "displayDisplayLgFontWeight": {
-    "value": "Bold",
+    "value": "700",
     "type": "fontWeight"
   },
   "displayDisplayLgFontSize": {
@@ -149,7 +149,7 @@
     "type": "fontFamily"
   },
   "headingHeadingXlFontWeight": {
-    "value": "Bold",
+    "value": "700",
     "type": "fontWeight"
   },
   "headingHeadingXlFontSize": {
@@ -185,7 +185,7 @@
     "type": "fontFamily"
   },
   "headingHeadingLgFontWeight": {
-    "value": "Bold",
+    "value": "700",
     "type": "fontWeight"
   },
   "headingHeadingLgFontSize": {
@@ -221,7 +221,7 @@
     "type": "fontFamily"
   },
   "headingHeadingMdFontWeight": {
-    "value": "Bold",
+    "value": "700",
     "type": "fontWeight"
   },
   "headingHeadingMdFontSize": {
@@ -257,7 +257,7 @@
     "type": "fontFamily"
   },
   "headingHeadingSmFontWeight": {
-    "value": "Bold",
+    "value": "700",
     "type": "fontWeight"
   },
   "headingHeadingSmFontSize": {
@@ -293,7 +293,7 @@
     "type": "fontFamily"
   },
   "labelLabelLgFontWeight": {
-    "value": "Medium",
+    "value": "500",
     "type": "fontWeight"
   },
   "labelLabelLgFontSize": {
@@ -329,7 +329,7 @@
     "type": "fontFamily"
   },
   "labelLabelMdFontWeight": {
-    "value": "Medium",
+    "value": "500",
     "type": "fontWeight"
   },
   "labelLabelMdFontSize": {
@@ -365,7 +365,7 @@
     "type": "fontFamily"
   },
   "labelLabelSmFontWeight": {
-    "value": "Medium",
+    "value": "500",
     "type": "fontWeight"
   },
   "labelLabelSmFontSize": {
@@ -401,7 +401,7 @@
     "type": "fontFamily"
   },
   "labelLabelXsFontWeight": {
-    "value": "Medium",
+    "value": "500",
     "type": "fontWeight"
   },
   "labelLabelXsFontSize": {
@@ -437,7 +437,7 @@
     "type": "fontFamily"
   },
   "paragraphParaXlFontWeight": {
-    "value": "Regular",
+    "value": "400",
     "type": "fontWeight"
   },
   "paragraphParaXlFontSize": {
@@ -473,7 +473,7 @@
     "type": "fontFamily"
   },
   "paragraphParaLgFontWeight": {
-    "value": "Regular",
+    "value": "400",
     "type": "fontWeight"
   },
   "paragraphParaLgFontSize": {
@@ -509,7 +509,7 @@
     "type": "fontFamily"
   },
   "paragraphParaMdFontWeight": {
-    "value": "Regular",
+    "value": "400",
     "type": "fontWeight"
   },
   "paragraphParaMdFontSize": {
@@ -545,7 +545,7 @@
     "type": "fontFamily"
   },
   "paragraphParaSmFontWeight": {
-    "value": "Regular",
+    "value": "400",
     "type": "fontWeight"
   },
   "paragraphParaSmFontSize": {
@@ -581,7 +581,7 @@
     "type": "fontFamily"
   },
   "paragraphParaXsFontWeight": {
-    "value": "Regular",
+    "value": "400",
     "type": "fontWeight"
   },
   "paragraphParaXsFontSize": {
@@ -610,6 +610,42 @@
   },
   "paragraphParaXsLineHeight": {
     "value": "0.8571rem",
+    "type": "lineHeight"
+  },
+  "textSmMediumFontFamily": {
+    "value": "Inter",
+    "type": "fontFamily"
+  },
+  "textSmMediumFontWeight": {
+    "value": "500",
+    "type": "fontWeight"
+  },
+  "textSmMediumFontSize": {
+    "value": "1rem",
+    "type": "fontSize"
+  },
+  "textSmMediumLetterSpacing": {
+    "value": "0rem",
+    "type": "letterSpacing"
+  },
+  "textSmMediumParagraphSpacing": {
+    "value": "1rem",
+    "type": "paragraphSpacing"
+  },
+  "textSmMediumParagraphIndent": {
+    "value": "0rem",
+    "type": "paragraphSpacing"
+  },
+  "textSmMediumTextDecoration": {
+    "value": "None",
+    "type": "textDecoration"
+  },
+  "textSmMediumTextCase": {
+    "value": "Original",
+    "type": "textCase"
+  },
+  "textSmMediumLineHeight": {
+    "value": "1.4286rem",
     "type": "lineHeight"
   }
 }
