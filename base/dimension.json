@@ -1,0 +1,849 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "dimension": {
+    "spacing": {
+      "0rem": {
+        "dark": {
+          "value": "0rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0rem",
+          "type": "dimension"
+        }
+      },
+      "0-125rem": {
+        "dark": {
+          "value": "0.143rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.143rem",
+          "type": "dimension"
+        }
+      },
+      "0-25rem": {
+        "dark": {
+          "value": "0.286rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.286rem",
+          "type": "dimension"
+        }
+      },
+      "0-375rem": {
+        "dark": {
+          "value": "0.429rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.429rem",
+          "type": "dimension"
+        }
+      },
+      "0-5rem": {
+        "dark": {
+          "value": "0.714rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.714rem",
+          "type": "dimension"
+        }
+      },
+      "0-75rem": {
+        "dark": {
+          "value": "1rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "1rem",
+          "type": "dimension"
+        }
+      },
+      "1rem": {
+        "dark": {
+          "value": "1.286rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "1.286rem",
+          "type": "dimension"
+        }
+      },
+      "1-25rem": {
+        "dark": {
+          "value": "1.429rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "1.429rem",
+          "type": "dimension"
+        }
+      },
+      "1-5rem": {
+        "dark": {
+          "value": "1.714rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "1.714rem",
+          "type": "dimension"
+        }
+      },
+      "2rem": {
+        "dark": {
+          "value": "2.286rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "2.286rem",
+          "type": "dimension"
+        }
+      },
+      "2-5rem": {
+        "dark": {
+          "value": "2.857rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "2.857rem",
+          "type": "dimension"
+        }
+      },
+      "3rem": {
+        "dark": {
+          "value": "3.429rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "3.429rem",
+          "type": "dimension"
+        }
+      },
+      "4rem": {
+        "dark": {
+          "value": "4.571rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "4.571rem",
+          "type": "dimension"
+        }
+      },
+      "5rem": {
+        "dark": {
+          "value": "5.714rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "5.714rem",
+          "type": "dimension"
+        }
+      },
+      "6rem": {
+        "dark": {
+          "value": "6.857rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "6.857rem",
+          "type": "dimension"
+        }
+      },
+      "8rem": {
+        "dark": {
+          "value": "9.143rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "9.143rem",
+          "type": "dimension"
+        }
+      }
+    },
+    "radius": {
+      "xs": {
+        "dark": {
+          "value": "0.143rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.143rem",
+          "type": "dimension"
+        }
+      },
+      "sm": {
+        "dark": {
+          "value": "0.286rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.286rem",
+          "type": "dimension"
+        }
+      },
+      "md": {
+        "dark": {
+          "value": "0.429rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.429rem",
+          "type": "dimension"
+        }
+      },
+      "lg": {
+        "dark": {
+          "value": "0.571rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.571rem",
+          "type": "dimension"
+        }
+      },
+      "xl": {
+        "dark": {
+          "value": "0.857rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "0.857rem",
+          "type": "dimension"
+        }
+      },
+      "2xl": {
+        "dark": {
+          "value": "1.143rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "1.143rem",
+          "type": "dimension"
+        }
+      },
+      "3xl": {
+        "dark": {
+          "value": "1.429rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "1.429rem",
+          "type": "dimension"
+        }
+      },
+      "4xl": {
+        "dark": {
+          "value": "1.714rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "1.714rem",
+          "type": "dimension"
+        }
+      },
+      "5xl": {
+        "dark": {
+          "value": "2.571rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "2.571rem",
+          "type": "dimension"
+        }
+      },
+      "full": {
+        "dark": {
+          "value": "71.357rem",
+          "type": "dimension"
+        },
+        "light": {
+          "value": "71.357rem",
+          "type": "dimension"
+        }
+      }
+    },
+    "font-size": {
+      "display": {
+        "display-2xl": {
+          "dark": {
+            "value": "6.857rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "6.857rem",
+            "type": "dimension"
+          }
+        },
+        "display-xl": {
+          "dark": {
+            "value": "5.143rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "5.143rem",
+            "type": "dimension"
+          }
+        },
+        "display-lg": {
+          "dark": {
+            "value": "4.286rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "4.286rem",
+            "type": "dimension"
+          }
+        },
+        "display-md": {
+          "dark": {
+            "value": "3.429rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "3.429rem",
+            "type": "dimension"
+          }
+        },
+        "display-sm": {
+          "dark": {
+            "value": "2.571rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "2.571rem",
+            "type": "dimension"
+          }
+        },
+        "display-xs": {
+          "dark": {
+            "value": "1.714rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.714rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "heading": {
+        "heading-xl": {
+          "dark": {
+            "value": "2.857rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "2.857rem",
+            "type": "dimension"
+          }
+        },
+        "heading-lg": {
+          "dark": {
+            "value": "2.286rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "2.286rem",
+            "type": "dimension"
+          }
+        },
+        "heading-md": {
+          "dark": {
+            "value": "1.714rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.714rem",
+            "type": "dimension"
+          }
+        },
+        "heading-sm": {
+          "dark": {
+            "value": "1.286rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.286rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "paragraph": {
+        "para-xl": {
+          "dark": {
+            "value": "1.286rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.286rem",
+            "type": "dimension"
+          }
+        },
+        "para-lg": {
+          "dark": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.143rem",
+            "type": "dimension"
+          }
+        },
+        "para-md": {
+          "dark": {
+            "value": "1.071rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.071rem",
+            "type": "dimension"
+          }
+        },
+        "para-sm": {
+          "dark": {
+            "value": "0.929rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "0.929rem",
+            "type": "dimension"
+          }
+        },
+        "para-xs": {
+          "dark": {
+            "value": "0.857rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "0.857rem",
+            "type": "dimension"
+          }
+        },
+        "para-xxs": {
+          "dark": {
+            "value": "0.714rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "0.714rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "label": {
+        "label-lg": {
+          "dark": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.143rem",
+            "type": "dimension"
+          }
+        },
+        "label-md": {
+          "dark": {
+            "value": "1.071rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.071rem",
+            "type": "dimension"
+          }
+        },
+        "label-sm": {
+          "dark": {
+            "value": "0.929rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "0.929rem",
+            "type": "dimension"
+          }
+        },
+        "label-xs": {
+          "dark": {
+            "value": "0.857rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "0.857rem",
+            "type": "dimension"
+          }
+        }
+      }
+    },
+    "line-height": {
+      "display": {
+        "display-xl": {
+          "dark": {
+            "value": "9.429rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "9.429rem",
+            "type": "dimension"
+          }
+        },
+        "display-lg": {
+          "dark": {
+            "value": "7.143rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "7.143rem",
+            "type": "dimension"
+          }
+        },
+        "display-md": {
+          "dark": {
+            "value": "6rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "6rem",
+            "type": "dimension"
+          }
+        },
+        "display-sm": {
+          "dark": {
+            "value": "4.571rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "4.571rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "heading": {
+        "heading-xl": {
+          "dark": {
+            "value": "4rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "4rem",
+            "type": "dimension"
+          }
+        },
+        "heading-lg": {
+          "dark": {
+            "value": "3.143rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "3.143rem",
+            "type": "dimension"
+          }
+        },
+        "heading-md": {
+          "dark": {
+            "value": "2.571rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "2.571rem",
+            "type": "dimension"
+          }
+        },
+        "heading-sm": {
+          "dark": {
+            "value": "2rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "2rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "label": {
+        "label-lg": {
+          "dark": {
+            "value": "1.714rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.714rem",
+            "type": "dimension"
+          }
+        },
+        "label-md": {
+          "dark": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.429rem",
+            "type": "dimension"
+          }
+        },
+        "label-sm": {
+          "dark": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.429rem",
+            "type": "dimension"
+          }
+        },
+        "label-xs": {
+          "dark": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.143rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "paragraph": {
+        "para-xl": {
+          "dark": {
+            "value": "2rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "2rem",
+            "type": "dimension"
+          }
+        },
+        "para-lg": {
+          "dark": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.429rem",
+            "type": "dimension"
+          }
+        },
+        "para-md": {
+          "dark": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.429rem",
+            "type": "dimension"
+          }
+        },
+        "para-sm": {
+          "dark": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "1.143rem",
+            "type": "dimension"
+          }
+        },
+        "para-xs": {
+          "dark": {
+            "value": "0.857rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "0.857rem",
+            "type": "dimension"
+          }
+        },
+        "para-xxs": {
+          "dark": {
+            "value": "0.714rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "0.714rem",
+            "type": "dimension"
+          }
+        }
+      }
+    },
+    "letter-spacing": {
+      "display": {
+        "display-xl": {
+          "dark": {
+            "value": "-0.271rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.271rem",
+            "type": "dimension"
+          }
+        },
+        "display-lg": {
+          "dark": {
+            "value": "-0.207rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.207rem",
+            "type": "dimension"
+          }
+        },
+        "display-md": {
+          "dark": {
+            "value": "-0.171rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.171rem",
+            "type": "dimension"
+          }
+        },
+        "display-sm": {
+          "dark": {
+            "value": "-0.129rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.129rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "heading": {
+        "heading-xl": {
+          "dark": {
+            "value": "-0.057rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.057rem",
+            "type": "dimension"
+          }
+        },
+        "heading-lg": {
+          "dark": {
+            "value": "-0.043rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.043rem",
+            "type": "dimension"
+          }
+        },
+        "heading-md": {
+          "dark": {
+            "value": "-0.036rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.036rem",
+            "type": "dimension"
+          }
+        },
+        "heading-sm": {
+          "dark": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "label": {
+        "label-lg": {
+          "dark": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          }
+        },
+        "label-md": {
+          "dark": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          }
+        },
+        "label-sm": {
+          "dark": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          }
+        },
+        "label-xs": {
+          "dark": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          }
+        }
+      },
+      "paragraph": {
+        "para-xl": {
+          "dark": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          }
+        },
+        "para-lg": {
+          "dark": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          }
+        },
+        "para-md": {
+          "dark": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          }
+        },
+        "para-sm": {
+          "dark": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          }
+        },
+        "para-xs": {
+          "dark": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          },
+          "light": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "string": {
+    "font-size": {
+      "font-family": {
+        "font-family-display": {
+          "dark": {
+            "value": "Inter",
+            "type": "string"
+          },
+          "light": {
+            "value": "Inter",
+            "type": "string"
+          }
+        },
+        "font-family-heading": {
+          "dark": {
+            "value": "Inter",
+            "type": "string"
+          },
+          "light": {
+            "value": "Inter",
+            "type": "string"
+          }
+        },
+        "font-family-label": {
+          "dark": {
+            "value": "Inter",
+            "type": "string"
+          },
+          "light": {
+            "value": "Inter",
+            "type": "string"
+          }
+        },
+        "font-family-paragraph": {
+          "dark": {
+            "value": "Inter",
+            "type": "string"
+          },
+          "light": {
+            "value": "Inter",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "font-weight": {
+      "light": {
+        "dark": {
+          "value": "Light",
+          "type": "string"
+        },
+        "light": {
+          "value": "Light",
+          "type": "string"
+        }
+      },
+      "light-italic": {
+        "dark": {
+          "value": "Light Italic",
+          "type": "string"
+        },
+        "light": {
+          "value": "Light Italic",
+          "type": "string"
+        }
+      },
+      "regular": {
+        "dark": {
+          "value": "Regular",
+          "type": "string"
+        },
+        "light": {
+          "value": "Regular",
+          "type": "string"
+        }
+      },
+      "medium": {
+        "dark": {
+          "value": "Medium",
+          "type": "string"
+        },
+        "light": {
+          "value": "Medium",
+          "type": "string"
+        }
+      },
+      "medium-italic": {
+        "dark": {
+          "value": "Medium Italic",
+          "type": "string"
+        },
+        "light": {
+          "value": "Medium Italic",
+          "type": "string"
+        }
+      },
+      "semibold": {
+        "dark": {
+          "value": "SemiBold",
+          "type": "string"
+        },
+        "light": {
+          "value": "SemiBold",
+          "type": "string"
+        }
+      },
+      "bold": {
+        "dark": {
+          "value": "Bold",
+          "type": "string"
+        },
+        "light": {
+          "value": "Bold",
+          "type": "string"
+        }
+      },
+      "extrabold": {
+        "dark": {
+          "value": "ExtraBold",
+          "type": "string"
+        },
+        "light": {
+          "value": "ExtraBold",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
