@@ -4,44 +4,44 @@
     "shadows": {
       "shadow-xs": {
         "dark": {
-          "value": "0px 1px 2px 0px #0a0d120d",
+          "value": "0rem 0rem 0rem 0rem rgba(10, 13, 18, 0)",
           "type": "shadow"
         },
         "light": {
-          "value": "0px 1px 2px 0px #0a0d120d",
+          "value": "0rem 0rem 0rem 0rem rgba(10, 13, 18, 0)",
           "type": "shadow"
         },
         "description": "Shadows allow you to add depth and realism to designs by positioning elements on a z-axis."
       },
       "shadow-xs-skeuomorphic": {
         "dark": {
-          "value": "0px 1px 2px 0px #0a0d120d, inset 0px -2px 0px 0px #0a0d120d, inset 0px 0px 0px 1px #0a0d122e",
+          "value": "0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), inset 0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), inset 0rem 0rem 0rem 0rem rgba(10, 13, 18, 0)",
           "type": "shadow"
         },
         "light": {
-          "value": "0px 1px 2px 0px #0a0d120d, inset 0px -2px 0px 0px #0a0d120d, inset 0px 0px 0px 1px #0a0d122e",
+          "value": "0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), inset 0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), inset 0rem 0rem 0rem 0rem rgba(10, 13, 18, 0)",
           "type": "shadow"
         },
         "description": "Used to create a subtle skeuomorphic effect in components such as buttons and tabs.\n\nThis can be removed or replaced with shadow-xs if you prefer a flat style."
       },
       "shadow-lg": {
         "dark": {
-          "value": "0px 2px 2px -1px #0a0d120a, 0px 4px 6px -2px #0a0d1208, 0px 12px 16px -4px #0a0d1214",
+          "value": "0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), 0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), 0rem 1rem 1rem 0rem rgba(10, 13, 18, 0)",
           "type": "shadow"
         },
         "light": {
-          "value": "0px 2px 2px -1px #0a0d120a, 0px 4px 6px -2px #0a0d1208, 0px 12px 16px -4px #0a0d1214",
+          "value": "0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), 0rem 0rem 0rem 0rem rgba(10, 13, 18, 0), 0rem 1rem 1rem 0rem rgba(10, 13, 18, 0)",
           "type": "shadow"
         },
         "description": "Shadows allow you to add depth and realism to designs by positioning elements on a z-axis."
       },
       "shadow-2xl": {
         "dark": {
-          "value": "0px 24px 48px -12px #1018282e",
+          "value": "0rem 2rem 3rem -1rem rgba(16, 24, 40, 0)",
           "type": "shadow"
         },
         "light": {
-          "value": "0px 24px 48px -12px #1018282e",
+          "value": "0rem 2rem 3rem -1rem rgba(16, 24, 40, 0)",
           "type": "shadow"
         },
         "description": "Shadows allow you to add depth and realism to designs by positioning elements on a z-axis."

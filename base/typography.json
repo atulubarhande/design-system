@@ -25,41 +25,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "72px",
+            "value": "5.1429rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "72px",
+            "value": "5.1429rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-3.8px",
+            "value": "-0.2714rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-3.8px",
+            "value": "-0.2714rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -85,11 +85,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "132px",
+            "value": "9.4286rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "132px",
+            "value": "9.4286rem",
             "type": "lineHeight"
           }
         }
@@ -117,41 +117,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "60px",
+            "value": "4.2857rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "60px",
+            "value": "4.2857rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-2.9px",
+            "value": "-0.2071rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-2.9px",
+            "value": "-0.2071rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -177,11 +177,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "100px",
+            "value": "7.1429rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "100px",
+            "value": "7.1429rem",
             "type": "lineHeight"
           }
         }
@@ -209,41 +209,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "60px",
+            "value": "4.2857rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "60px",
+            "value": "4.2857rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-2.4px",
+            "value": "-0.1714rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-2.4px",
+            "value": "-0.1714rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -269,11 +269,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "84px",
+            "value": "6rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "84px",
+            "value": "6rem",
             "type": "lineHeight"
           }
         }
@@ -301,41 +301,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "46px",
+            "value": "3.2857rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "46px",
+            "value": "3.2857rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-1.84px",
+            "value": "-0.1314rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-1.84px",
+            "value": "-0.1314rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -361,11 +361,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "64px",
+            "value": "4.5714rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "64px",
+            "value": "4.5714rem",
             "type": "lineHeight"
           }
         }
@@ -395,41 +395,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "40px",
+            "value": "2.8571rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "40px",
+            "value": "2.8571rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.8px",
+            "value": "-0.0571rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.8px",
+            "value": "-0.0571rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -455,11 +455,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "56px",
+            "value": "4rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "56px",
+            "value": "4rem",
             "type": "lineHeight"
           }
         }
@@ -487,41 +487,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "32px",
+            "value": "2.2857rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "32px",
+            "value": "2.2857rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.6px",
+            "value": "-0.0429rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.6px",
+            "value": "-0.0429rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -547,11 +547,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "44px",
+            "value": "3.1429rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "44px",
+            "value": "3.1429rem",
             "type": "lineHeight"
           }
         }
@@ -579,41 +579,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "24px",
+            "value": "1.7143rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "24px",
+            "value": "1.7143rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.5px",
+            "value": "-0.0357rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.5px",
+            "value": "-0.0357rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -639,11 +639,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "36px",
+            "value": "2.5714rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "36px",
+            "value": "2.5714rem",
             "type": "lineHeight"
           }
         }
@@ -671,41 +671,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "18px",
+            "value": "1.2857rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "18px",
+            "value": "1.2857rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.4px",
+            "value": "-0.0286rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.4px",
+            "value": "-0.0286rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -731,11 +731,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "28px",
+            "value": "2rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "28px",
+            "value": "2rem",
             "type": "lineHeight"
           }
         }
@@ -765,41 +765,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.4px",
+            "value": "-0.0286rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.4px",
+            "value": "-0.0286rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -825,11 +825,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "24px",
+            "value": "1.7143rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "24px",
+            "value": "1.7143rem",
             "type": "lineHeight"
           }
         }
@@ -857,41 +857,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "15px",
+            "value": "1.0714rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "15px",
+            "value": "1.0714rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -917,11 +917,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           }
         }
@@ -949,41 +949,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "13px",
+            "value": "0.9286rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "13px",
+            "value": "0.9286rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1009,11 +1009,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           }
         }
@@ -1041,41 +1041,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "12px",
+            "value": "0.8571rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "12px",
+            "value": "0.8571rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.2px",
+            "value": "-0.0143rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.2px",
+            "value": "-0.0143rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1101,11 +1101,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "lineHeight"
           }
         }
@@ -1135,41 +1135,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "18px",
+            "value": "1.2857rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "18px",
+            "value": "1.2857rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.4px",
+            "value": "-0.0286rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.4px",
+            "value": "-0.0286rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1195,11 +1195,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "28px",
+            "value": "2rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "28px",
+            "value": "2rem",
             "type": "lineHeight"
           }
         }
@@ -1227,41 +1227,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1287,11 +1287,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           }
         }
@@ -1319,41 +1319,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "15px",
+            "value": "1.0714rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "15px",
+            "value": "1.0714rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.3px",
+            "value": "-0.0214rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1379,11 +1379,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           }
         }
@@ -1411,41 +1411,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "13px",
+            "value": "0.9286rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "13px",
+            "value": "0.9286rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.2px",
+            "value": "-0.0143rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.2px",
+            "value": "-0.0143rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1471,11 +1471,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "lineHeight"
           }
         }
@@ -1503,41 +1503,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "12px",
+            "value": "0.8571rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "12px",
+            "value": "0.8571rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "-0.2px",
+            "value": "-0.0143rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "-0.2px",
+            "value": "-0.0143rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "16px",
+            "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1563,11 +1563,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "12px",
+            "value": "0.8571rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "12px",
+            "value": "0.8571rem",
             "type": "lineHeight"
           }
         }
@@ -1597,41 +1597,41 @@
         },
         "font-size": {
           "dark": {
-            "value": "14px",
+            "value": "1rem",
             "type": "fontSize"
           },
           "light": {
-            "value": "14px",
+            "value": "1rem",
             "type": "fontSize"
           }
         },
         "letter-spacing": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "letterSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "letterSpacing"
           }
         },
         "paragraph-spacing": {
           "dark": {
-            "value": "14px",
+            "value": "1rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "14px",
+            "value": "1rem",
             "type": "paragraphSpacing"
           }
         },
         "paragraph-indent": {
           "dark": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           },
           "light": {
-            "value": "0px",
+            "value": "0rem",
             "type": "paragraphSpacing"
           }
         },
@@ -1657,11 +1657,11 @@
         },
         "line-height": {
           "dark": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           },
           "light": {
-            "value": "20px",
+            "value": "1.4286rem",
             "type": "lineHeight"
           }
         }
