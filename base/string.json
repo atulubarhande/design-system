@@ -4,6 +4,10 @@
     "font-size": {
       "font-family": {
         "font-family-display": {
+          "base": {
+            "value": "Inter",
+            "type": "string"
+          },
           "dark": {
             "value": "Inter",
             "type": "string"
@@ -14,6 +18,10 @@
           }
         },
         "font-family-heading": {
+          "base": {
+            "value": "Inter",
+            "type": "string"
+          },
           "dark": {
             "value": "Inter",
             "type": "string"
@@ -24,6 +32,10 @@
           }
         },
         "font-family-label": {
+          "base": {
+            "value": "Inter",
+            "type": "string"
+          },
           "dark": {
             "value": "Inter",
             "type": "string"
@@ -34,6 +46,10 @@
           }
         },
         "font-family-paragraph": {
+          "base": {
+            "value": "Inter",
+            "type": "string"
+          },
           "dark": {
             "value": "Inter",
             "type": "string"
@@ -47,6 +63,10 @@
     },
     "font-weight": {
       "light": {
+        "base": {
+          "value": "Light",
+          "type": "string"
+        },
         "dark": {
           "value": "Light",
           "type": "string"
@@ -57,6 +77,10 @@
         }
       },
       "light-italic": {
+        "base": {
+          "value": "Light Italic",
+          "type": "string"
+        },
         "dark": {
           "value": "Light Italic",
           "type": "string"
@@ -67,6 +91,10 @@
         }
       },
       "regular": {
+        "base": {
+          "value": "Regular",
+          "type": "string"
+        },
         "dark": {
           "value": "Regular",
           "type": "string"
@@ -77,6 +105,10 @@
         }
       },
       "medium": {
+        "base": {
+          "value": "Medium",
+          "type": "string"
+        },
         "dark": {
           "value": "Medium",
           "type": "string"
@@ -87,6 +119,10 @@
         }
       },
       "medium-italic": {
+        "base": {
+          "value": "Medium Italic",
+          "type": "string"
+        },
         "dark": {
           "value": "Medium Italic",
           "type": "string"
@@ -97,6 +133,10 @@
         }
       },
       "semibold": {
+        "base": {
+          "value": "SemiBold",
+          "type": "string"
+        },
         "dark": {
           "value": "SemiBold",
           "type": "string"
@@ -107,6 +147,10 @@
         }
       },
       "bold": {
+        "base": {
+          "value": "Bold",
+          "type": "string"
+        },
         "dark": {
           "value": "Bold",
           "type": "string"
@@ -117,6 +161,10 @@
         }
       },
       "extrabold": {
+        "base": {
+          "value": "ExtraBold",
+          "type": "string"
+        },
         "dark": {
           "value": "ExtraBold",
           "type": "string"

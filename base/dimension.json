@@ -3,6 +3,10 @@
   "dimension": {
     "spacing": {
       "0rem": {
+        "base": {
+          "value": "0rem",
+          "type": "dimension"
+        },
         "dark": {
           "value": "0rem",
           "type": "dimension"
@@ -13,46 +17,66 @@
         }
       },
       "0-125rem": {
+        "base": {
+          "value": "0.143rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "0rem",
+          "value": "0.143rem",
           "type": "dimension"
         },
         "light": {
-          "value": "0rem",
+          "value": "0.143rem",
           "type": "dimension"
         }
       },
       "0-25rem": {
+        "base": {
+          "value": "0.286rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "0rem",
+          "value": "0.286rem",
           "type": "dimension"
         },
         "light": {
-          "value": "0rem",
+          "value": "0.286rem",
           "type": "dimension"
         }
       },
       "0-375rem": {
+        "base": {
+          "value": "0.429rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "0rem",
+          "value": "0.429rem",
           "type": "dimension"
         },
         "light": {
-          "value": "0rem",
+          "value": "0.429rem",
           "type": "dimension"
         }
       },
       "0-5rem": {
+        "base": {
+          "value": "0.714rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "1rem",
+          "value": "0.714rem",
           "type": "dimension"
         },
         "light": {
-          "value": "1rem",
+          "value": "0.714rem",
           "type": "dimension"
         }
       },
       "0-75rem": {
+        "base": {
+          "value": "1rem",
+          "type": "dimension"
+        },
         "dark": {
           "value": "1rem",
           "type": "dimension"
@@ -63,204 +87,284 @@
         }
       },
       "1rem": {
+        "base": {
+          "value": "1.286rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "1rem",
+          "value": "1.286rem",
           "type": "dimension"
         },
         "light": {
-          "value": "1rem",
+          "value": "1.286rem",
           "type": "dimension"
         }
       },
       "1-25rem": {
+        "base": {
+          "value": "1.429rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "1rem",
+          "value": "1.429rem",
           "type": "dimension"
         },
         "light": {
-          "value": "1rem",
+          "value": "1.429rem",
           "type": "dimension"
         }
       },
       "1-5rem": {
+        "base": {
+          "value": "1.714rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "2rem",
+          "value": "1.714rem",
           "type": "dimension"
         },
         "light": {
-          "value": "2rem",
+          "value": "1.714rem",
           "type": "dimension"
         }
       },
       "2rem": {
+        "base": {
+          "value": "2.286rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "2rem",
+          "value": "2.286rem",
           "type": "dimension"
         },
         "light": {
-          "value": "2rem",
+          "value": "2.286rem",
           "type": "dimension"
         }
       },
       "2-5rem": {
+        "base": {
+          "value": "2.857rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "3rem",
+          "value": "2.857rem",
           "type": "dimension"
         },
         "light": {
-          "value": "3rem",
+          "value": "2.857rem",
           "type": "dimension"
         }
       },
       "3rem": {
+        "base": {
+          "value": "3.429rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "3rem",
+          "value": "3.429rem",
           "type": "dimension"
         },
         "light": {
-          "value": "3rem",
+          "value": "3.429rem",
           "type": "dimension"
         }
       },
       "4rem": {
+        "base": {
+          "value": "4.571rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "5rem",
+          "value": "4.571rem",
           "type": "dimension"
         },
         "light": {
-          "value": "5rem",
+          "value": "4.571rem",
           "type": "dimension"
         }
       },
       "5rem": {
+        "base": {
+          "value": "5.714rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "6rem",
+          "value": "5.714rem",
           "type": "dimension"
         },
         "light": {
-          "value": "6rem",
+          "value": "5.714rem",
           "type": "dimension"
         }
       },
       "6rem": {
+        "base": {
+          "value": "6.857rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "7rem",
+          "value": "6.857rem",
           "type": "dimension"
         },
         "light": {
-          "value": "7rem",
+          "value": "6.857rem",
           "type": "dimension"
         }
       },
       "8rem": {
+        "base": {
+          "value": "9.143rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "9rem",
+          "value": "9.143rem",
           "type": "dimension"
         },
         "light": {
-          "value": "9rem",
+          "value": "9.143rem",
           "type": "dimension"
         }
       }
     },
     "radius": {
       "xs": {
+        "base": {
+          "value": "0.143rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "0rem",
+          "value": "0.143rem",
           "type": "dimension"
         },
         "light": {
-          "value": "0rem",
+          "value": "0.143rem",
           "type": "dimension"
         }
       },
       "sm": {
+        "base": {
+          "value": "0.286rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "0rem",
+          "value": "0.286rem",
           "type": "dimension"
         },
         "light": {
-          "value": "0rem",
+          "value": "0.286rem",
           "type": "dimension"
         }
       },
       "md": {
+        "base": {
+          "value": "0.429rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "0rem",
+          "value": "0.429rem",
           "type": "dimension"
         },
         "light": {
-          "value": "0rem",
+          "value": "0.429rem",
           "type": "dimension"
         }
       },
       "lg": {
+        "base": {
+          "value": "0.571rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "1rem",
+          "value": "0.571rem",
           "type": "dimension"
         },
         "light": {
-          "value": "1rem",
+          "value": "0.571rem",
           "type": "dimension"
         }
       },
       "xl": {
+        "base": {
+          "value": "0.857rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "1rem",
+          "value": "0.857rem",
           "type": "dimension"
         },
         "light": {
-          "value": "1rem",
+          "value": "0.857rem",
           "type": "dimension"
         }
       },
       "2xl": {
+        "base": {
+          "value": "1.143rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "1rem",
+          "value": "1.143rem",
           "type": "dimension"
         },
         "light": {
-          "value": "1rem",
+          "value": "1.143rem",
           "type": "dimension"
         }
       },
       "3xl": {
+        "base": {
+          "value": "1.429rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "1rem",
+          "value": "1.429rem",
           "type": "dimension"
         },
         "light": {
-          "value": "1rem",
+          "value": "1.429rem",
           "type": "dimension"
         }
       },
       "4xl": {
+        "base": {
+          "value": "1.714rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "2rem",
+          "value": "1.714rem",
           "type": "dimension"
         },
         "light": {
-          "value": "2rem",
+          "value": "1.714rem",
           "type": "dimension"
         }
       },
       "5xl": {
+        "base": {
+          "value": "2.571rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "3rem",
+          "value": "2.571rem",
           "type": "dimension"
         },
         "light": {
-          "value": "3rem",
+          "value": "2.571rem",
           "type": "dimension"
         }
       },
       "full": {
+        "base": {
+          "value": "71.357rem",
+          "type": "dimension"
+        },
         "dark": {
-          "value": "71rem",
+          "value": "71.357rem",
           "type": "dimension"
         },
         "light": {
-          "value": "71rem",
+          "value": "71.357rem",
           "type": "dimension"
         }
       }
@@ -268,208 +372,288 @@
     "font-size": {
       "display": {
         "display-2xl": {
+          "base": {
+            "value": "6.857rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "7rem",
+            "value": "6.857rem",
             "type": "dimension"
           },
           "light": {
-            "value": "7rem",
+            "value": "6.857rem",
             "type": "dimension"
           }
         },
         "display-xl": {
+          "base": {
+            "value": "5.143rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "5rem",
+            "value": "5.143rem",
             "type": "dimension"
           },
           "light": {
-            "value": "5rem",
+            "value": "5.143rem",
             "type": "dimension"
           }
         },
         "display-lg": {
+          "base": {
+            "value": "4.286rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "4rem",
+            "value": "4.286rem",
             "type": "dimension"
           },
           "light": {
-            "value": "4rem",
+            "value": "4.286rem",
             "type": "dimension"
           }
         },
         "display-md": {
+          "base": {
+            "value": "3.429rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "3rem",
+            "value": "3.429rem",
             "type": "dimension"
           },
           "light": {
-            "value": "3rem",
+            "value": "3.429rem",
             "type": "dimension"
           }
         },
         "display-sm": {
+          "base": {
+            "value": "2.571rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "3rem",
+            "value": "2.571rem",
             "type": "dimension"
           },
           "light": {
-            "value": "3rem",
+            "value": "2.571rem",
             "type": "dimension"
           }
         },
         "display-xs": {
+          "base": {
+            "value": "1.714rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "2rem",
+            "value": "1.714rem",
             "type": "dimension"
           },
           "light": {
-            "value": "2rem",
+            "value": "1.714rem",
             "type": "dimension"
           }
         }
       },
       "heading": {
         "heading-xl": {
+          "base": {
+            "value": "2.857rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "3rem",
+            "value": "2.857rem",
             "type": "dimension"
           },
           "light": {
-            "value": "3rem",
+            "value": "2.857rem",
             "type": "dimension"
           }
         },
         "heading-lg": {
+          "base": {
+            "value": "2.286rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "2rem",
+            "value": "2.286rem",
             "type": "dimension"
           },
           "light": {
-            "value": "2rem",
+            "value": "2.286rem",
             "type": "dimension"
           }
         },
         "heading-md": {
+          "base": {
+            "value": "1.714rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "2rem",
+            "value": "1.714rem",
             "type": "dimension"
           },
           "light": {
-            "value": "2rem",
+            "value": "1.714rem",
             "type": "dimension"
           }
         },
         "heading-sm": {
+          "base": {
+            "value": "1.286rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.286rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.286rem",
             "type": "dimension"
           }
         }
       },
       "paragraph": {
         "para-xl": {
+          "base": {
+            "value": "1.286rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.286rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.286rem",
             "type": "dimension"
           }
         },
         "para-lg": {
+          "base": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           }
         },
         "para-md": {
+          "base": {
+            "value": "1.071rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.071rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.071rem",
             "type": "dimension"
           }
         },
         "para-sm": {
+          "base": {
+            "value": "0.929rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "0.929rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "0.929rem",
             "type": "dimension"
           }
         },
         "para-xs": {
+          "base": {
+            "value": "0.857rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "0.857rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "0.857rem",
             "type": "dimension"
           }
         },
         "para-xxs": {
+          "base": {
+            "value": "0.714rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "0.714rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "0.714rem",
             "type": "dimension"
           }
         }
       },
       "label": {
         "label-lg": {
+          "base": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           }
         },
         "label-md": {
+          "base": {
+            "value": "1.071rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.071rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.071rem",
             "type": "dimension"
           }
         },
         "label-sm": {
+          "base": {
+            "value": "0.929rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "0.929rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "0.929rem",
             "type": "dimension"
           }
         },
         "label-xs": {
+          "base": {
+            "value": "0.857rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "0.857rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "0.857rem",
             "type": "dimension"
           }
         }
@@ -478,26 +662,38 @@
     "line-height": {
       "display": {
         "display-xl": {
+          "base": {
+            "value": "9.429rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "9rem",
+            "value": "9.429rem",
             "type": "dimension"
           },
           "light": {
-            "value": "9rem",
+            "value": "9.429rem",
             "type": "dimension"
           }
         },
         "display-lg": {
+          "base": {
+            "value": "7.143rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "7rem",
+            "value": "7.143rem",
             "type": "dimension"
           },
           "light": {
-            "value": "7rem",
+            "value": "7.143rem",
             "type": "dimension"
           }
         },
         "display-md": {
+          "base": {
+            "value": "6rem",
+            "type": "dimension"
+          },
           "dark": {
             "value": "6rem",
             "type": "dimension"
@@ -508,18 +704,26 @@
           }
         },
         "display-sm": {
+          "base": {
+            "value": "4.571rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "5rem",
+            "value": "4.571rem",
             "type": "dimension"
           },
           "light": {
-            "value": "5rem",
+            "value": "4.571rem",
             "type": "dimension"
           }
         }
       },
       "heading": {
         "heading-xl": {
+          "base": {
+            "value": "4rem",
+            "type": "dimension"
+          },
           "dark": {
             "value": "4rem",
             "type": "dimension"
@@ -530,26 +734,38 @@
           }
         },
         "heading-lg": {
+          "base": {
+            "value": "3.143rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "3rem",
+            "value": "3.143rem",
             "type": "dimension"
           },
           "light": {
-            "value": "3rem",
+            "value": "3.143rem",
             "type": "dimension"
           }
         },
         "heading-md": {
+          "base": {
+            "value": "2.571rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "3rem",
+            "value": "2.571rem",
             "type": "dimension"
           },
           "light": {
-            "value": "3rem",
+            "value": "2.571rem",
             "type": "dimension"
           }
         },
         "heading-sm": {
+          "base": {
+            "value": "2rem",
+            "type": "dimension"
+          },
           "dark": {
             "value": "2rem",
             "type": "dimension"
@@ -562,48 +778,68 @@
       },
       "label": {
         "label-lg": {
+          "base": {
+            "value": "1.714rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "2rem",
+            "value": "1.714rem",
             "type": "dimension"
           },
           "light": {
-            "value": "2rem",
+            "value": "1.714rem",
             "type": "dimension"
           }
         },
         "label-md": {
+          "base": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           }
         },
         "label-sm": {
+          "base": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           }
         },
         "label-xs": {
+          "base": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           }
         }
       },
       "paragraph": {
         "para-xl": {
+          "base": {
+            "value": "2rem",
+            "type": "dimension"
+          },
           "dark": {
             "value": "2rem",
             "type": "dimension"
@@ -614,52 +850,72 @@
           }
         },
         "para-lg": {
+          "base": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           }
         },
         "para-md": {
+          "base": {
+            "value": "1.429rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.429rem",
             "type": "dimension"
           }
         },
         "para-sm": {
+          "base": {
+            "value": "1.143rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "1.143rem",
             "type": "dimension"
           }
         },
         "para-xs": {
+          "base": {
+            "value": "0.857rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "0.857rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "0.857rem",
             "type": "dimension"
           }
         },
         "para-xxs": {
+          "base": {
+            "value": "0.714rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "1rem",
+            "value": "0.714rem",
             "type": "dimension"
           },
           "light": {
-            "value": "1rem",
+            "value": "0.714rem",
             "type": "dimension"
           }
         }
@@ -668,178 +924,246 @@
     "letter-spacing": {
       "display": {
         "display-xl": {
+          "base": {
+            "value": "-0.271rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.271rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.271rem",
             "type": "dimension"
           }
         },
         "display-lg": {
+          "base": {
+            "value": "-0.207rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.207rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.207rem",
             "type": "dimension"
           }
         },
         "display-md": {
+          "base": {
+            "value": "-0.171rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.171rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.171rem",
             "type": "dimension"
           }
         },
         "display-sm": {
+          "base": {
+            "value": "-0.129rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.129rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.129rem",
             "type": "dimension"
           }
         }
       },
       "heading": {
         "heading-xl": {
+          "base": {
+            "value": "-0.057rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.057rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.057rem",
             "type": "dimension"
           }
         },
         "heading-lg": {
+          "base": {
+            "value": "-0.043rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.043rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.043rem",
             "type": "dimension"
           }
         },
         "heading-md": {
+          "base": {
+            "value": "-0.036rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.036rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.036rem",
             "type": "dimension"
           }
         },
         "heading-sm": {
+          "base": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.029rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.029rem",
             "type": "dimension"
           }
         }
       },
       "label": {
         "label-lg": {
+          "base": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.029rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.029rem",
             "type": "dimension"
           }
         },
         "label-md": {
+          "base": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           }
         },
         "label-sm": {
+          "base": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           }
         },
         "label-xs": {
+          "base": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.014rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.014rem",
             "type": "dimension"
           }
         }
       },
       "paragraph": {
         "para-xl": {
+          "base": {
+            "value": "-0.029rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.029rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.029rem",
             "type": "dimension"
           }
         },
         "para-lg": {
+          "base": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           }
         },
         "para-md": {
+          "base": {
+            "value": "-0.021rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.021rem",
             "type": "dimension"
           }
         },
         "para-sm": {
+          "base": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.014rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.014rem",
             "type": "dimension"
           }
         },
         "para-xs": {
+          "base": {
+            "value": "-0.014rem",
+            "type": "dimension"
+          },
           "dark": {
-            "value": "0rem",
+            "value": "-0.014rem",
             "type": "dimension"
           },
           "light": {
-            "value": "0rem",
+            "value": "-0.014rem",
             "type": "dimension"
           }
         }
