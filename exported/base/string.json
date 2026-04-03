@@ -1,0 +1,59 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "string": {
+    "font-size": {
+      "font-family": {
+        "font-family-display": {
+          "value": "Inter",
+          "type": "string"
+        },
+        "font-family-heading": {
+          "value": "Inter",
+          "type": "string"
+        },
+        "font-family-label": {
+          "value": "Inter",
+          "type": "string"
+        },
+        "font-family-paragraph": {
+          "value": "Inter",
+          "type": "string"
+        }
+      }
+    },
+    "font-weight": {
+      "light": {
+        "value": "Light",
+        "type": "string"
+      },
+      "light-italic": {
+        "value": "Light Italic",
+        "type": "string"
+      },
+      "regular": {
+        "value": "Regular",
+        "type": "string"
+      },
+      "medium": {
+        "value": "Medium",
+        "type": "string"
+      },
+      "medium-italic": {
+        "value": "Medium Italic",
+        "type": "string"
+      },
+      "semibold": {
+        "value": "SemiBold",
+        "type": "string"
+      },
+      "bold": {
+        "value": "Bold",
+        "type": "string"
+      },
+      "extrabold": {
+        "value": "ExtraBold",
+        "type": "string"
+      }
+    }
+  }
+}
