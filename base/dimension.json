@@ -7,11 +7,11 @@
           "value": "0rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0rem",
           "type": "dimension"
         }
@@ -21,11 +21,11 @@
           "value": "0.143rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.143rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.143rem",
           "type": "dimension"
         }
@@ -35,11 +35,11 @@
           "value": "0.286rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.286rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.286rem",
           "type": "dimension"
         }
@@ -49,11 +49,11 @@
           "value": "0.429rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.429rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.429rem",
           "type": "dimension"
         }
@@ -63,11 +63,11 @@
           "value": "0.714rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.714rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.714rem",
           "type": "dimension"
         }
@@ -77,11 +77,11 @@
           "value": "1rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "1rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "1rem",
           "type": "dimension"
         }
@@ -91,11 +91,11 @@
           "value": "1.286rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "1.286rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "1.286rem",
           "type": "dimension"
         }
@@ -105,11 +105,11 @@
           "value": "1.429rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "1.429rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "1.429rem",
           "type": "dimension"
         }
@@ -119,11 +119,11 @@
           "value": "1.714rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "1.714rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "1.714rem",
           "type": "dimension"
         }
@@ -133,11 +133,11 @@
           "value": "2.286rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "2.286rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "2.286rem",
           "type": "dimension"
         }
@@ -147,11 +147,11 @@
           "value": "2.857rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "2.857rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "2.857rem",
           "type": "dimension"
         }
@@ -161,11 +161,11 @@
           "value": "3.429rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "3.429rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "3.429rem",
           "type": "dimension"
         }
@@ -175,11 +175,11 @@
           "value": "4.571rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "4.571rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "4.571rem",
           "type": "dimension"
         }
@@ -189,11 +189,11 @@
           "value": "5.714rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "5.714rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "5.714rem",
           "type": "dimension"
         }
@@ -203,11 +203,11 @@
           "value": "6.857rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "6.857rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "6.857rem",
           "type": "dimension"
         }
@@ -217,11 +217,11 @@
           "value": "9.143rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "9.143rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "9.143rem",
           "type": "dimension"
         }
@@ -233,11 +233,11 @@
           "value": "0.143rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.143rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.143rem",
           "type": "dimension"
         }
@@ -247,11 +247,11 @@
           "value": "0.286rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.286rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.286rem",
           "type": "dimension"
         }
@@ -261,11 +261,11 @@
           "value": "0.429rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.429rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.429rem",
           "type": "dimension"
         }
@@ -275,11 +275,11 @@
           "value": "0.571rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.571rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.571rem",
           "type": "dimension"
         }
@@ -289,11 +289,11 @@
           "value": "0.857rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "0.857rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "0.857rem",
           "type": "dimension"
         }
@@ -303,11 +303,11 @@
           "value": "1.143rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "1.143rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "1.143rem",
           "type": "dimension"
         }
@@ -317,11 +317,11 @@
           "value": "1.429rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "1.429rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "1.429rem",
           "type": "dimension"
         }
@@ -331,11 +331,11 @@
           "value": "1.714rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "1.714rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "1.714rem",
           "type": "dimension"
         }
@@ -345,11 +345,11 @@
           "value": "2.571rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "2.571rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "2.571rem",
           "type": "dimension"
         }
@@ -359,11 +359,11 @@
           "value": "71.357rem",
           "type": "dimension"
         },
-        "dark": {
+        "light": {
           "value": "71.357rem",
           "type": "dimension"
         },
-        "light": {
+        "dark": {
           "value": "71.357rem",
           "type": "dimension"
         }
@@ -376,11 +376,11 @@
             "value": "6.857rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "6.857rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "6.857rem",
             "type": "dimension"
           }
@@ -390,11 +390,11 @@
             "value": "5.143rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "5.143rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "5.143rem",
             "type": "dimension"
           }
@@ -404,11 +404,11 @@
             "value": "4.286rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "4.286rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "4.286rem",
             "type": "dimension"
           }
@@ -418,11 +418,11 @@
             "value": "3.429rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "3.429rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "3.429rem",
             "type": "dimension"
           }
@@ -432,11 +432,11 @@
             "value": "2.571rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "2.571rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "2.571rem",
             "type": "dimension"
           }
@@ -446,11 +446,11 @@
             "value": "1.714rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.714rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.714rem",
             "type": "dimension"
           }
@@ -462,11 +462,11 @@
             "value": "2.857rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "2.857rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "2.857rem",
             "type": "dimension"
           }
@@ -476,11 +476,11 @@
             "value": "2.286rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "2.286rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "2.286rem",
             "type": "dimension"
           }
@@ -490,11 +490,11 @@
             "value": "1.714rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.714rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.714rem",
             "type": "dimension"
           }
@@ -504,11 +504,11 @@
             "value": "1.286rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.286rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.286rem",
             "type": "dimension"
           }
@@ -520,11 +520,11 @@
             "value": "1.286rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.286rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.286rem",
             "type": "dimension"
           }
@@ -534,11 +534,11 @@
             "value": "1.143rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.143rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.143rem",
             "type": "dimension"
           }
@@ -548,11 +548,11 @@
             "value": "1.071rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.071rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.071rem",
             "type": "dimension"
           }
@@ -562,11 +562,11 @@
             "value": "0.929rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "0.929rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "0.929rem",
             "type": "dimension"
           }
@@ -576,11 +576,11 @@
             "value": "0.857rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "0.857rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "0.857rem",
             "type": "dimension"
           }
@@ -590,11 +590,11 @@
             "value": "0.714rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "0.714rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "0.714rem",
             "type": "dimension"
           }
@@ -606,11 +606,11 @@
             "value": "1.143rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.143rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.143rem",
             "type": "dimension"
           }
@@ -620,11 +620,11 @@
             "value": "1.071rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.071rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.071rem",
             "type": "dimension"
           }
@@ -634,11 +634,11 @@
             "value": "0.929rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "0.929rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "0.929rem",
             "type": "dimension"
           }
@@ -648,11 +648,11 @@
             "value": "0.857rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "0.857rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "0.857rem",
             "type": "dimension"
           }
@@ -666,11 +666,11 @@
             "value": "9.429rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "9.429rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "9.429rem",
             "type": "dimension"
           }
@@ -680,11 +680,11 @@
             "value": "7.143rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "7.143rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "7.143rem",
             "type": "dimension"
           }
@@ -694,11 +694,11 @@
             "value": "6rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "6rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "6rem",
             "type": "dimension"
           }
@@ -708,11 +708,11 @@
             "value": "4.571rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "4.571rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "4.571rem",
             "type": "dimension"
           }
@@ -724,11 +724,11 @@
             "value": "4rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "4rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "4rem",
             "type": "dimension"
           }
@@ -738,11 +738,11 @@
             "value": "3.143rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "3.143rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "3.143rem",
             "type": "dimension"
           }
@@ -752,11 +752,11 @@
             "value": "2.571rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "2.571rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "2.571rem",
             "type": "dimension"
           }
@@ -766,11 +766,11 @@
             "value": "2rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "2rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "2rem",
             "type": "dimension"
           }
@@ -782,11 +782,11 @@
             "value": "1.714rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.714rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.714rem",
             "type": "dimension"
           }
@@ -796,11 +796,11 @@
             "value": "1.429rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.429rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.429rem",
             "type": "dimension"
           }
@@ -810,11 +810,11 @@
             "value": "1.429rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.429rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.429rem",
             "type": "dimension"
           }
@@ -824,11 +824,11 @@
             "value": "1.143rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.143rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.143rem",
             "type": "dimension"
           }
@@ -840,11 +840,11 @@
             "value": "2rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "2rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "2rem",
             "type": "dimension"
           }
@@ -854,11 +854,11 @@
             "value": "1.429rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.429rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.429rem",
             "type": "dimension"
           }
@@ -868,11 +868,11 @@
             "value": "1.429rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.429rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.429rem",
             "type": "dimension"
           }
@@ -882,11 +882,11 @@
             "value": "1.143rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "1.143rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "1.143rem",
             "type": "dimension"
           }
@@ -896,11 +896,11 @@
             "value": "0.857rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "0.857rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "0.857rem",
             "type": "dimension"
           }
@@ -910,11 +910,11 @@
             "value": "0.714rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "0.714rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "0.714rem",
             "type": "dimension"
           }
@@ -928,11 +928,11 @@
             "value": "-0.271rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.271rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.271rem",
             "type": "dimension"
           }
@@ -942,11 +942,11 @@
             "value": "-0.207rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.207rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.207rem",
             "type": "dimension"
           }
@@ -956,11 +956,11 @@
             "value": "-0.171rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.171rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.171rem",
             "type": "dimension"
           }
@@ -970,11 +970,11 @@
             "value": "-0.129rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.129rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.129rem",
             "type": "dimension"
           }
@@ -986,11 +986,11 @@
             "value": "-0.057rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.057rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.057rem",
             "type": "dimension"
           }
@@ -1000,11 +1000,11 @@
             "value": "-0.043rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.043rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.043rem",
             "type": "dimension"
           }
@@ -1014,11 +1014,11 @@
             "value": "-0.036rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.036rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.036rem",
             "type": "dimension"
           }
@@ -1028,11 +1028,11 @@
             "value": "-0.029rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.029rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.029rem",
             "type": "dimension"
           }
@@ -1044,11 +1044,11 @@
             "value": "-0.029rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.029rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.029rem",
             "type": "dimension"
           }
@@ -1058,11 +1058,11 @@
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.021rem",
             "type": "dimension"
           }
@@ -1072,11 +1072,11 @@
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.021rem",
             "type": "dimension"
           }
@@ -1086,11 +1086,11 @@
             "value": "-0.014rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.014rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.014rem",
             "type": "dimension"
           }
@@ -1102,11 +1102,11 @@
             "value": "-0.029rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.029rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.029rem",
             "type": "dimension"
           }
@@ -1116,11 +1116,11 @@
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.021rem",
             "type": "dimension"
           }
@@ -1130,11 +1130,11 @@
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.021rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.021rem",
             "type": "dimension"
           }
@@ -1144,11 +1144,11 @@
             "value": "-0.014rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.014rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.014rem",
             "type": "dimension"
           }
@@ -1158,11 +1158,11 @@
             "value": "-0.014rem",
             "type": "dimension"
           },
-          "dark": {
+          "light": {
             "value": "-0.014rem",
             "type": "dimension"
           },
-          "light": {
+          "dark": {
             "value": "-0.014rem",
             "type": "dimension"
           }
