@@ -8,11 +8,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -22,11 +22,11 @@
             "value": "Bold",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Bold",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Bold",
             "type": "fontWeight"
           }
@@ -36,11 +36,11 @@
             "value": "5.1429rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "5.1429rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "5.1429rem",
             "type": "fontSize"
           }
@@ -50,11 +50,11 @@
             "value": "-0.2714rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.2714rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.2714rem",
             "type": "letterSpacing"
           }
@@ -64,11 +64,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -78,11 +78,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -92,11 +92,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -106,11 +106,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -120,11 +120,11 @@
             "value": "9.4286rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "9.4286rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "9.4286rem",
             "type": "lineHeight"
           }
@@ -136,11 +136,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -150,11 +150,11 @@
             "value": "Bold",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Bold",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Bold",
             "type": "fontWeight"
           }
@@ -164,11 +164,11 @@
             "value": "4.2857rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "4.2857rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "4.2857rem",
             "type": "fontSize"
           }
@@ -178,11 +178,11 @@
             "value": "-0.2071rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.2071rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.2071rem",
             "type": "letterSpacing"
           }
@@ -192,11 +192,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -206,11 +206,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -220,11 +220,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -234,11 +234,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -248,11 +248,11 @@
             "value": "7.1429rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "7.1429rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "7.1429rem",
             "type": "lineHeight"
           }
@@ -264,11 +264,11 @@
             "value": "DM Sans",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "DM Sans",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "DM Sans",
             "type": "fontFamily"
           }
@@ -278,11 +278,11 @@
             "value": "700",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "700",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "700",
             "type": "fontWeight"
           }
@@ -292,11 +292,11 @@
             "value": "4.2857rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "4.2857rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "4.2857rem",
             "type": "fontSize"
           }
@@ -306,11 +306,11 @@
             "value": "-0.1714rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.1714rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.1714rem",
             "type": "letterSpacing"
           }
@@ -320,11 +320,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -334,11 +334,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -348,11 +348,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -362,11 +362,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -376,11 +376,11 @@
             "value": "6rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "6rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "6rem",
             "type": "lineHeight"
           }
@@ -392,11 +392,11 @@
             "value": "DM Sans",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "DM Sans",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "DM Sans",
             "type": "fontFamily"
           }
@@ -406,11 +406,11 @@
             "value": "700",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "700",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "700",
             "type": "fontWeight"
           }
@@ -420,11 +420,11 @@
             "value": "3.2857rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "3.2857rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "3.2857rem",
             "type": "fontSize"
           }
@@ -434,11 +434,11 @@
             "value": "-0.1314rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.1314rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.1314rem",
             "type": "letterSpacing"
           }
@@ -448,11 +448,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -462,11 +462,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -476,11 +476,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -490,11 +490,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -504,11 +504,11 @@
             "value": "4.5714rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "4.5714rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "4.5714rem",
             "type": "lineHeight"
           }
@@ -522,11 +522,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -536,11 +536,11 @@
             "value": "Bold",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Bold",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Bold",
             "type": "fontWeight"
           }
@@ -550,11 +550,11 @@
             "value": "2.8571rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "2.8571rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "2.8571rem",
             "type": "fontSize"
           }
@@ -564,11 +564,11 @@
             "value": "-0.0571rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0571rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0571rem",
             "type": "letterSpacing"
           }
@@ -578,11 +578,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -592,11 +592,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -606,11 +606,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -620,11 +620,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -634,11 +634,11 @@
             "value": "4rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "4rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "4rem",
             "type": "lineHeight"
           }
@@ -650,11 +650,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -664,11 +664,11 @@
             "value": "Bold",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Bold",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Bold",
             "type": "fontWeight"
           }
@@ -678,11 +678,11 @@
             "value": "2.2857rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "2.2857rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "2.2857rem",
             "type": "fontSize"
           }
@@ -692,11 +692,11 @@
             "value": "-0.0429rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0429rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0429rem",
             "type": "letterSpacing"
           }
@@ -706,11 +706,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -720,11 +720,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -734,11 +734,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -748,11 +748,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -762,11 +762,11 @@
             "value": "3.1429rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "3.1429rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "3.1429rem",
             "type": "lineHeight"
           }
@@ -778,11 +778,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -792,11 +792,11 @@
             "value": "Bold",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Bold",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Bold",
             "type": "fontWeight"
           }
@@ -806,11 +806,11 @@
             "value": "1.7143rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1.7143rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1.7143rem",
             "type": "fontSize"
           }
@@ -820,11 +820,11 @@
             "value": "-0.0357rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0357rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0357rem",
             "type": "letterSpacing"
           }
@@ -834,11 +834,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -848,11 +848,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -862,11 +862,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -876,11 +876,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -890,11 +890,11 @@
             "value": "2.5714rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "2.5714rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "2.5714rem",
             "type": "lineHeight"
           }
@@ -906,11 +906,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -920,11 +920,11 @@
             "value": "Bold",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Bold",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Bold",
             "type": "fontWeight"
           }
@@ -934,11 +934,11 @@
             "value": "1.2857rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1.2857rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1.2857rem",
             "type": "fontSize"
           }
@@ -948,11 +948,11 @@
             "value": "-0.0286rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0286rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0286rem",
             "type": "letterSpacing"
           }
@@ -962,11 +962,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -976,11 +976,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -990,11 +990,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1004,11 +1004,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1018,11 +1018,11 @@
             "value": "2rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "2rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "2rem",
             "type": "lineHeight"
           }
@@ -1036,11 +1036,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1050,11 +1050,11 @@
             "value": "Medium",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Medium",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Medium",
             "type": "fontWeight"
           }
@@ -1064,11 +1064,11 @@
             "value": "1.1429rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "fontSize"
           }
@@ -1078,11 +1078,11 @@
             "value": "-0.0286rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0286rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0286rem",
             "type": "letterSpacing"
           }
@@ -1092,11 +1092,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -1106,11 +1106,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -1120,11 +1120,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1134,11 +1134,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1148,11 +1148,11 @@
             "value": "1.7143rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.7143rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.7143rem",
             "type": "lineHeight"
           }
@@ -1164,11 +1164,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1178,11 +1178,11 @@
             "value": "Medium",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Medium",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Medium",
             "type": "fontWeight"
           }
@@ -1192,11 +1192,11 @@
             "value": "1.0714rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1.0714rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1.0714rem",
             "type": "fontSize"
           }
@@ -1206,11 +1206,11 @@
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           }
@@ -1220,11 +1220,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -1234,11 +1234,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -1248,11 +1248,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1262,11 +1262,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1276,11 +1276,11 @@
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.4286rem",
             "type": "lineHeight"
           }
@@ -1292,11 +1292,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1306,11 +1306,11 @@
             "value": "Medium",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Medium",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Medium",
             "type": "fontWeight"
           }
@@ -1320,11 +1320,11 @@
             "value": "0.9286rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "0.9286rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "0.9286rem",
             "type": "fontSize"
           }
@@ -1334,11 +1334,11 @@
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           }
@@ -1348,11 +1348,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -1362,11 +1362,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -1376,11 +1376,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1390,11 +1390,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1404,11 +1404,11 @@
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.4286rem",
             "type": "lineHeight"
           }
@@ -1420,11 +1420,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1434,11 +1434,11 @@
             "value": "Medium",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Medium",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Medium",
             "type": "fontWeight"
           }
@@ -1448,11 +1448,11 @@
             "value": "0.8571rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "0.8571rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "0.8571rem",
             "type": "fontSize"
           }
@@ -1462,11 +1462,11 @@
             "value": "-0.0143rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0143rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0143rem",
             "type": "letterSpacing"
           }
@@ -1476,11 +1476,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -1490,11 +1490,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -1504,11 +1504,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1518,11 +1518,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1532,11 +1532,11 @@
             "value": "1.1429rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "lineHeight"
           }
@@ -1550,11 +1550,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1564,11 +1564,11 @@
             "value": "Regular",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Regular",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Regular",
             "type": "fontWeight"
           }
@@ -1578,11 +1578,11 @@
             "value": "1.2857rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1.2857rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1.2857rem",
             "type": "fontSize"
           }
@@ -1592,11 +1592,11 @@
             "value": "-0.0286rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0286rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0286rem",
             "type": "letterSpacing"
           }
@@ -1606,11 +1606,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -1620,11 +1620,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -1634,11 +1634,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1648,11 +1648,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1662,11 +1662,11 @@
             "value": "2rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "2rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "2rem",
             "type": "lineHeight"
           }
@@ -1678,11 +1678,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1692,11 +1692,11 @@
             "value": "Regular",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Regular",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Regular",
             "type": "fontWeight"
           }
@@ -1706,11 +1706,11 @@
             "value": "1.1429rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "fontSize"
           }
@@ -1720,11 +1720,11 @@
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           }
@@ -1734,11 +1734,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -1748,11 +1748,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -1762,11 +1762,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1776,11 +1776,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1790,11 +1790,11 @@
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.4286rem",
             "type": "lineHeight"
           }
@@ -1806,11 +1806,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1820,11 +1820,11 @@
             "value": "Regular",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Regular",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Regular",
             "type": "fontWeight"
           }
@@ -1834,11 +1834,11 @@
             "value": "1.0714rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1.0714rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1.0714rem",
             "type": "fontSize"
           }
@@ -1848,11 +1848,11 @@
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0214rem",
             "type": "letterSpacing"
           }
@@ -1862,11 +1862,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -1876,11 +1876,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -1890,11 +1890,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -1904,11 +1904,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -1918,11 +1918,11 @@
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.4286rem",
             "type": "lineHeight"
           }
@@ -1934,11 +1934,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -1948,11 +1948,11 @@
             "value": "Regular",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Regular",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Regular",
             "type": "fontWeight"
           }
@@ -1962,11 +1962,11 @@
             "value": "0.9286rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "0.9286rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "0.9286rem",
             "type": "fontSize"
           }
@@ -1976,11 +1976,11 @@
             "value": "-0.0143rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0143rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0143rem",
             "type": "letterSpacing"
           }
@@ -1990,11 +1990,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -2004,11 +2004,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -2018,11 +2018,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -2032,11 +2032,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -2046,11 +2046,11 @@
             "value": "1.1429rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "lineHeight"
           }
@@ -2062,11 +2062,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -2076,11 +2076,11 @@
             "value": "Regular",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "Regular",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "Regular",
             "type": "fontWeight"
           }
@@ -2090,11 +2090,11 @@
             "value": "0.8571rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "0.8571rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "0.8571rem",
             "type": "fontSize"
           }
@@ -2104,11 +2104,11 @@
             "value": "-0.0143rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "-0.0143rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "-0.0143rem",
             "type": "letterSpacing"
           }
@@ -2118,11 +2118,11 @@
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1.1429rem",
             "type": "paragraphSpacing"
           }
@@ -2132,11 +2132,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -2146,11 +2146,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -2160,11 +2160,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -2174,11 +2174,11 @@
             "value": "0.8571rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "0.8571rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "0.8571rem",
             "type": "lineHeight"
           }
@@ -2192,11 +2192,11 @@
             "value": "Inter",
             "type": "fontFamily"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "fontFamily"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "fontFamily"
           }
@@ -2206,11 +2206,11 @@
             "value": "500",
             "type": "fontWeight"
           },
-          "dark": {
+          "light": {
             "value": "500",
             "type": "fontWeight"
           },
-          "light": {
+          "dark": {
             "value": "500",
             "type": "fontWeight"
           }
@@ -2220,11 +2220,11 @@
             "value": "1rem",
             "type": "fontSize"
           },
-          "dark": {
+          "light": {
             "value": "1rem",
             "type": "fontSize"
           },
-          "light": {
+          "dark": {
             "value": "1rem",
             "type": "fontSize"
           }
@@ -2234,11 +2234,11 @@
             "value": "0rem",
             "type": "letterSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "letterSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "letterSpacing"
           }
@@ -2248,11 +2248,11 @@
             "value": "1rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "1rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "1rem",
             "type": "paragraphSpacing"
           }
@@ -2262,11 +2262,11 @@
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "dark": {
+          "light": {
             "value": "0rem",
             "type": "paragraphSpacing"
           },
-          "light": {
+          "dark": {
             "value": "0rem",
             "type": "paragraphSpacing"
           }
@@ -2276,11 +2276,11 @@
             "value": "None",
             "type": "textDecoration"
           },
-          "dark": {
+          "light": {
             "value": "None",
             "type": "textDecoration"
           },
-          "light": {
+          "dark": {
             "value": "None",
             "type": "textDecoration"
           }
@@ -2290,11 +2290,11 @@
             "value": "Original",
             "type": "textCase"
           },
-          "dark": {
+          "light": {
             "value": "Original",
             "type": "textCase"
           },
-          "light": {
+          "dark": {
             "value": "Original",
             "type": "textCase"
           }
@@ -2304,11 +2304,11 @@
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "dark": {
+          "light": {
             "value": "1.4286rem",
             "type": "lineHeight"
           },
-          "light": {
+          "dark": {
             "value": "1.4286rem",
             "type": "lineHeight"
           }

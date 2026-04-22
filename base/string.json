@@ -8,11 +8,11 @@
             "value": "Inter",
             "type": "string"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "string"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "string"
           }
@@ -22,11 +22,11 @@
             "value": "Inter",
             "type": "string"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "string"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "string"
           }
@@ -36,11 +36,11 @@
             "value": "Inter",
             "type": "string"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "string"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "string"
           }
@@ -50,11 +50,11 @@
             "value": "Inter",
             "type": "string"
           },
-          "dark": {
+          "light": {
             "value": "Inter",
             "type": "string"
           },
-          "light": {
+          "dark": {
             "value": "Inter",
             "type": "string"
           }
@@ -67,11 +67,11 @@
           "value": "Light",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "Light",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "Light",
           "type": "string"
         }
@@ -81,11 +81,11 @@
           "value": "Light Italic",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "Light Italic",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "Light Italic",
           "type": "string"
         }
@@ -95,11 +95,11 @@
           "value": "Regular",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "Regular",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "Regular",
           "type": "string"
         }
@@ -109,11 +109,11 @@
           "value": "Medium",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "Medium",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "Medium",
           "type": "string"
         }
@@ -123,11 +123,11 @@
           "value": "Medium Italic",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "Medium Italic",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "Medium Italic",
           "type": "string"
         }
@@ -137,11 +137,11 @@
           "value": "SemiBold",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "SemiBold",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "SemiBold",
           "type": "string"
         }
@@ -151,11 +151,11 @@
           "value": "Bold",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "Bold",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "Bold",
           "type": "string"
         }
@@ -165,11 +165,11 @@
           "value": "ExtraBold",
           "type": "string"
         },
-        "dark": {
+        "light": {
           "value": "ExtraBold",
           "type": "string"
         },
-        "light": {
+        "dark": {
           "value": "ExtraBold",
           "type": "string"
         }
